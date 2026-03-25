@@ -35,10 +35,10 @@ const scopeQuery = useRouteQuery<Scope>('scope', 'countries')
       <UContainer>
         <UPageHeader
           :title="`Flags of ${regionTitle}`"
-          description="Configure your game scope before starting."
+          :description="`Tune your challenge, press Start, and race through the flags of ${regionTitle}.`"
         >
           <template #headline>
-            Play
+            Let's guess
           </template>
         </UPageHeader>
 
