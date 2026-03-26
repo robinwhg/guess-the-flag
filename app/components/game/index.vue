@@ -101,26 +101,40 @@ function handleExit(): void {
 </script>
 
 <template>
-  <section class="space-y-4">
+  <section class="space-y-12">
     <GameHeader @pause="handlePause" />
 
     <div class="relative">
-      <UPageCard
-        title="Game Body"
-        description="Question content, flag media, and answer controls will be designed in the next step."
-        icon="i-tabler-layout-grid"
-        variant="subtle"
+      <div
+        v-if="currentQuestion"
+        class="space-y-12"
       >
-        <div class="space-y-2">
-          <p class="text-sm text-muted">
-            {{ props.questions.length }} questions ready
-          </p>
+        <img
+          :src="currentQuestion.flag.svg"
+          :alt="currentQuestion.flag.alt"
+          class="mx-auto h-56 w-full object-contain lg:h-72"
+        >
 
-          <p class="text-sm text-muted">
-            {{ effectiveContext.length }} countries available for plausible multiple-choice distractors
-          </p>
+        <div class="mx-auto grid max-w-2xl grid-cols-2 items-stretch gap-4">
+          <UCard
+            v-for="choice in choices"
+            :key="choice.cca2"
+            variant="soft"
+            :ui="{ root: 'h-full min-h-24 cursor-pointer flex p-2 sm:p-2', body: 'flex-1 flex items-center justify-center' }"
+          >
+            <p class="line-clamp-3 text-center text-base font-semibold sm:text-xl">
+              {{ choice.name.common }}
+            </p>
+          </UCard>
         </div>
-      </UPageCard>
+      </div>
+
+      <div
+        v-else
+        class="py-6 text-center text-sm text-muted"
+      >
+        No questions available for this game.
+      </div>
 
       <GamePause
         v-if="isPaused"
@@ -128,12 +142,5 @@ function handleExit(): void {
         @exit="handleExit"
       />
     </div>
-
-    <UPageCard
-      title="Footer"
-      description="Secondary actions and helper information can live here."
-      icon="i-tabler-layout-navbar"
-      variant="subtle"
-    />
   </section>
 </template>
