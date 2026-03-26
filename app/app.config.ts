@@ -4,6 +4,11 @@ export default defineAppConfig({
       primary: 'blue',
       neutral: 'gray',
     },
+    pageCard: {
+      defaultVariants: {
+        variant: 'soft',
+      },
+    },
     icons: {
       arrowDown: 'i-tabler-arrow-down',
       arrowLeft: 'i-tabler-arrow-left',

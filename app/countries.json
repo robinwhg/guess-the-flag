@@ -30,6 +30,7 @@
     ],
     "region": "Asia",
     "subregion": "Central Asia",
+    "area": 488100,
     "population": 6117933
   },
   {
@@ -70,6 +71,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 438317,
     "population": 38274618
   },
   {
@@ -98,6 +100,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 439,
     "population": 281998
   },
   {
@@ -131,6 +134,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "area": 260,
     "population": 1821
   },
   {
@@ -160,6 +164,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 5130,
     "population": 1512779
   },
   {
@@ -188,6 +193,7 @@
     ],
     "region": "Oceania",
     "subregion": "Australia and New Zealand",
+    "area": 7688287,
     "population": 27840775
   },
   {
@@ -218,6 +224,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "area": 61,
     "population": 34132
   },
   {
@@ -247,6 +254,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 752612,
     "population": 20216029
   },
   {
@@ -277,6 +285,7 @@
     ],
     "region": "Europe",
     "subregion": "Central Europe",
+    "area": 83879,
     "population": 9110079
   },
   {
@@ -308,6 +317,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "area": 676578,
     "population": 55770232
   },
   {
@@ -339,6 +349,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 103000,
     "population": 364260
   },
   {
@@ -368,6 +379,7 @@
     ],
     "region": "Europe",
     "subregion": "Eastern Europe",
+    "area": 603550,
     "population": 32862000
   },
   {
@@ -398,6 +410,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 309500,
     "population": 5494691
   },
   {
@@ -435,6 +448,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 338455,
     "population": 5608218
   },
   {
@@ -478,6 +492,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 444,
     "population": 152849
   },
   {
@@ -513,6 +528,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 8870,
     "population": 3285874
   },
   {
@@ -548,6 +564,7 @@
     ],
     "region": "Africa",
     "subregion": "Northern Africa",
+    "area": 446550,
     "population": 37493183
   },
   {
@@ -577,6 +594,7 @@
     ],
     "region": "Americas",
     "subregion": "North America",
+    "area": 242,
     "population": 5819
   },
   {
@@ -610,6 +628,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "area": 747,
     "population": 108020
   },
   {
@@ -646,6 +665,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 27834,
     "population": 14151540
   },
   {
@@ -677,6 +697,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 6220,
     "population": 5483450
   },
   {
@@ -705,6 +726,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "area": 6,
     "population": 37936
   },
   {
@@ -751,6 +773,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "area": 30689,
     "population": 11825551
   },
   {
@@ -782,6 +805,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 53,
     "population": 31496
   },
   {
@@ -820,6 +844,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "area": 9251,
     "population": 1344976
   },
   {
@@ -850,6 +875,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 65300,
     "population": 2897430
   },
   {
@@ -879,6 +905,7 @@
     ],
     "region": "Antarctic",
     "subregion": "",
+    "area": 412,
     "population": 0
   },
   {
@@ -909,6 +936,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "area": 47,
     "population": 35
   },
   {
@@ -938,6 +966,7 @@
     ],
     "region": "Antarctic",
     "subregion": "",
+    "area": 3903,
     "population": 22
   },
   {
@@ -969,6 +998,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "area": 238391,
     "population": 19043151
   },
   {
@@ -1008,6 +1038,7 @@
     ],
     "region": "Africa",
     "subregion": "Southern Africa",
+    "area": 17364,
     "population": 1236126
   },
   {
@@ -1037,6 +1068,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 1628,
     "population": 378561
   },
   {
@@ -1076,6 +1108,7 @@
     ],
     "region": "Oceania",
     "subregion": "Micronesia",
+    "area": 549,
     "population": 153836
   },
   {
@@ -1119,6 +1152,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 386224,
     "population": 5601049
   },
   {
@@ -1149,6 +1183,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 83600,
     "population": 11027129
   },
   {
@@ -1180,6 +1215,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "area": 4167,
     "population": 279500
   },
   {
@@ -1210,6 +1246,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 114763,
     "population": 13754688
   },
   {
@@ -1241,6 +1278,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "area": 1648195,
     "population": 92417681
   },
   {
@@ -1271,6 +1309,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 17818,
     "population": 4985716
   },
   {
@@ -1299,6 +1338,7 @@
     ],
     "region": "Europe",
     "subregion": "Central Europe",
+    "area": 93028,
     "population": 9584627
   },
   {
@@ -1338,6 +1378,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 34,
     "population": 58477
   },
   {
@@ -1369,6 +1410,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "area": 331212,
     "population": 102300000
   },
   {
@@ -1399,6 +1441,7 @@
     ],
     "region": "Oceania",
     "subregion": "Australia and New Zealand",
+    "area": 14,
     "population": 593
   },
   {
@@ -1429,6 +1472,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "area": 543908,
     "population": 69081996
   },
   {
@@ -1459,6 +1503,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "area": 12173,
     "population": 4550
   },
   {
@@ -1489,6 +1534,7 @@
     ],
     "region": "Europe",
     "subregion": "Central Europe",
+    "area": 312679,
     "population": 37563071
   },
   {
@@ -1520,6 +1566,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "area": 131990,
     "population": 10372335
   },
   {
@@ -1561,6 +1608,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 116,
     "population": 103267
   },
   {
@@ -1591,6 +1639,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "area": 160,
     "population": 41232
   },
   {
@@ -1621,6 +1670,7 @@
     ],
     "region": "Americas",
     "subregion": "North America",
+    "area": 9525067,
     "population": 341784857
   },
   {
@@ -1650,6 +1700,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 151,
     "population": 30030
   },
   {
@@ -1685,6 +1736,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 21937,
     "population": 10147200
   },
   {
@@ -1720,6 +1772,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "area": 65610,
     "population": 23300000
   },
   {
@@ -1751,6 +1804,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 783562,
     "population": 86092168
   },
   {
@@ -1781,6 +1835,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 4033,
     "population": 555988
   },
   {
@@ -1810,6 +1865,7 @@
     ],
     "region": "Americas",
     "subregion": "North America",
+    "area": 2166086,
     "population": 56831
   },
   {
@@ -1849,6 +1905,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 23200,
     "population": 1152944
   },
   {
@@ -1884,6 +1941,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 10452,
     "population": 5364482
   },
   {
@@ -1924,6 +1982,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "area": 342000,
     "population": 6228784
   },
   {
@@ -1953,6 +2012,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 61399,
     "population": 2530
   },
   {
@@ -1988,6 +2048,7 @@
     ],
     "region": "Africa",
     "subregion": "Northern Africa",
+    "area": 1886068,
     "population": 51767437
   },
   {
@@ -2016,6 +2077,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "area": 619745,
     "population": 12703714
   },
   {
@@ -2046,6 +2108,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "area": 1246700,
     "population": 36749906
   },
   {
@@ -2086,6 +2149,7 @@
     ],
     "region": "Asia",
     "subregion": "Central Asia",
+    "area": 2724900,
     "population": 20495975
   },
   {
@@ -2115,6 +2179,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 71740,
     "population": 8460512
   },
   {
@@ -2148,6 +2213,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "area": 330803,
     "population": 34564810
   },
   {
@@ -2190,6 +2256,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "area": 28051,
     "population": 1795834
   },
   {
@@ -2218,6 +2285,7 @@
     ],
     "region": "Americas",
     "subregion": "North America",
+    "area": 34.2,
     "population": 300
   },
   {
@@ -2248,6 +2316,7 @@
     ],
     "region": "Americas",
     "subregion": "Central America",
+    "area": 51100,
     "population": 5265575
   },
   {
@@ -2279,6 +2348,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 45227,
     "population": 1362954
   },
   {
@@ -2307,6 +2377,7 @@
     ],
     "region": "Oceania",
     "subregion": "Melanesia",
+    "area": 18575,
     "population": 278500
   },
   {
@@ -2388,6 +2459,7 @@
     ],
     "region": "Africa",
     "subregion": "Southern Africa",
+    "area": 1221037,
     "population": 63015904
   },
   {
@@ -2425,6 +2497,7 @@
     ],
     "region": "Europe",
     "subregion": "Eastern Europe",
+    "area": 207600,
     "population": 9109280
   },
   {
@@ -2456,6 +2529,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "area": 8515767,
     "population": 213421037
   },
   {
@@ -2487,6 +2561,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "area": 300,
     "population": 601269
   },
   {
@@ -2524,6 +2599,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 637657,
     "population": 19280850
   },
   {
@@ -2554,6 +2630,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 89342,
     "population": 11484805
   },
   {
@@ -2583,6 +2660,7 @@
     ],
     "region": "Oceania",
     "subregion": "Australia and New Zealand",
+    "area": 135,
     "population": 1692
   },
   {
@@ -2619,6 +2697,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 587041,
     "population": 31964956
   },
   {
@@ -2654,6 +2733,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 1393,
     "population": 56210
   },
   {
@@ -2683,6 +2763,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 261,
     "population": 46922
   },
   {
@@ -2713,6 +2794,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 64559,
     "population": 1842226
   },
   {
@@ -2750,6 +2832,7 @@
     ],
     "region": "Asia",
     "subregion": "Central Asia",
+    "area": 143100,
     "population": 10786734
   },
   {
@@ -2801,6 +2884,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "area": 1098581,
     "population": 11365333
   },
   {
@@ -2837,6 +2921,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 572,
     "population": 84530
   },
   {
@@ -2874,6 +2959,7 @@
     ],
     "region": "Oceania",
     "subregion": "Micronesia",
+    "area": 21,
     "population": 11919
   },
   {
@@ -2904,6 +2990,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "area": 142,
     "population": 11620
   },
   {
@@ -2934,6 +3021,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "area": 276841,
     "population": 17483326
   },
   {
@@ -2967,6 +3055,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 322,
     "population": 31980
   },
   {
@@ -3066,6 +3155,7 @@
     ],
     "region": "Africa",
     "subregion": "Southern Africa",
+    "area": 390757,
     "population": 16868409
   },
   {
@@ -3105,6 +3195,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "area": 652230,
     "population": 50000000
   },
   {
@@ -3133,6 +3224,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 274223,
     "population": 22489126
   },
   {
@@ -3164,6 +3256,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 1104300,
     "population": 135500000
   },
   {
@@ -3196,6 +3289,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "area": 163820,
     "population": 632638
   },
   {
@@ -3230,6 +3324,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 118484,
     "population": 21240689
   },
   {
@@ -3261,6 +3356,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "area": 964,
     "population": 220372
   },
   {
@@ -3290,6 +3386,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 1267000,
     "population": 26342784
   },
   {
@@ -3320,6 +3417,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "area": 110994,
     "population": 6437360
   },
   {
@@ -3355,6 +3453,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "area": 316,
     "population": 553214
   },
   {
@@ -3385,6 +3484,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 1240192,
     "population": 21990607
   },
   {
@@ -3427,6 +3527,7 @@
     ],
     "region": "Oceania",
     "subregion": "Melanesia",
+    "area": 18272,
     "population": 926276
   },
   {
@@ -3456,6 +3557,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 69700,
     "population": 3717100
   },
   {
@@ -3491,6 +3593,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 580367,
     "population": 53330978
   },
   {
@@ -3531,6 +3634,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 78,
     "population": 67787
   },
   {
@@ -3561,6 +3665,7 @@
     ],
     "region": "Africa",
     "subregion": "Northern Africa",
+    "area": 2381741,
     "population": 47400000
   },
   {
@@ -3591,6 +3696,7 @@
     ],
     "region": "Oceania",
     "subregion": "Micronesia",
+    "area": 702,
     "population": 104468
   },
   {
@@ -3619,6 +3725,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 440,
     "population": 106365
   },
   {
@@ -3650,6 +3757,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 2149690,
     "population": 33000000
   },
   {
@@ -3680,6 +3788,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 196722,
     "population": 18847519
   },
   {
@@ -3716,6 +3825,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 947303,
     "population": 67462121
   },
   {
@@ -3752,6 +3862,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "area": 0.49,
     "population": 882
   },
   {
@@ -3787,6 +3898,7 @@
     ],
     "region": "Africa",
     "subregion": "Southern Africa",
+    "area": 30355,
     "population": 2210646
   },
   {
@@ -3818,6 +3930,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "area": 41865,
     "population": 17100715
   },
   {
@@ -3848,6 +3961,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "area": 756102,
     "population": 19629588
   },
   {
@@ -3900,6 +4014,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "area": 2344858,
     "population": 114388160
   },
   {
@@ -3928,6 +4043,7 @@
     ],
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "area": 1564110,
     "population": 3504741
   },
   {
@@ -3959,6 +4075,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "area": 92090,
     "population": 10749635
   },
   {
@@ -3990,6 +4107,7 @@
     ],
     "region": "Americas",
     "subregion": "North America",
+    "area": 53.2,
     "population": 63913
   },
   {
@@ -4020,6 +4138,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "area": 1904569,
     "population": 284438782
   },
   {
@@ -4050,6 +4169,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 185180,
     "population": 26019711
   },
   {
@@ -4080,6 +4200,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 86600,
     "population": 10353296
   },
   {
@@ -4110,6 +4231,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "area": 148460,
     "population": 173562364
   },
   {
@@ -4146,6 +4268,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "area": 406752,
     "population": 6413627
   },
   {
@@ -4182,6 +4305,7 @@
     ],
     "region": "Asia",
     "subregion": "Central Asia",
+    "area": 447400,
     "population": 38236704
   },
   {
@@ -4217,6 +4341,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 36125,
     "population": 2080000
   },
   {
@@ -4287,6 +4412,7 @@
     ],
     "region": "Africa",
     "subregion": "Southern Africa",
+    "area": 825615,
     "population": 2533794
   },
   {
@@ -4327,6 +4453,7 @@
     ],
     "region": "Oceania",
     "subregion": "Micronesia",
+    "area": 464,
     "population": 55650
   },
   {
@@ -4356,6 +4483,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 394,
     "population": 5633
   },
   {
@@ -4384,6 +4512,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 264,
     "population": 88833
   },
   {
@@ -4422,6 +4551,7 @@
     ],
     "region": "Americas",
     "subregion": "Central America",
+    "area": 22966,
     "population": 397483
   },
   {
@@ -4455,6 +4585,7 @@
     ],
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "area": 36197,
     "population": 23299132
   },
   {
@@ -4490,6 +4621,7 @@
     ],
     "region": "Africa",
     "subregion": "Southern Africa",
+    "area": 581730,
     "population": 2359609
   },
   {
@@ -4538,6 +4670,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "area": 41291,
     "population": 9060598
   },
   {
@@ -4570,6 +4703,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "area": 77589,
     "population": 6567783
   },
   {
@@ -4600,6 +4734,7 @@
     ],
     "region": "Europe",
     "subregion": "Central Europe",
+    "area": 49037,
     "population": 5413813
   },
   {
@@ -4638,6 +4773,7 @@
     ],
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "area": 30,
     "population": 712651
   },
   {
@@ -4666,6 +4802,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 91,
     "population": 15753
   },
   {
@@ -4695,6 +4832,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 10689,
     "population": 2639916
   },
   {
@@ -4725,6 +4863,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "area": 357114,
     "population": 83491249
   },
   {
@@ -4764,6 +4903,7 @@
     ],
     "region": "Africa",
     "subregion": "Northern Africa",
+    "area": 266000,
     "population": 600904
   },
   {
@@ -4793,6 +4933,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 13943,
     "population": 412628
   },
   {
@@ -4836,6 +4977,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 117600,
     "population": 5000000
   },
   {
@@ -4878,6 +5020,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "area": 3287263,
     "population": 1428627663
   },
   {
@@ -4910,6 +5053,7 @@
     ],
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "area": 100210,
     "population": 52081799
   },
   {
@@ -4940,6 +5084,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 801590,
     "population": 34881007
   },
   {
@@ -4970,6 +5115,7 @@
     ],
     "region": "Americas",
     "subregion": "Central America",
+    "area": 21041,
     "population": 6029976
   },
   {
@@ -5000,6 +5146,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "area": 301336,
     "population": 58915561
   },
   {
@@ -5028,6 +5175,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 616,
     "population": 184100
   },
   {
@@ -5063,6 +5211,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 241550,
     "population": 47123531
   },
   {
@@ -5092,6 +5241,7 @@
     ],
     "region": "Africa",
     "subregion": "Northern Africa",
+    "area": 1002450,
     "population": 107868296
   },
   {
@@ -5121,6 +5271,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "area": 38394,
     "population": 777486
   },
   {
@@ -5151,6 +5302,7 @@
     ],
     "region": "Europe",
     "subregion": "Central Europe",
+    "area": 20273,
     "population": 2130850
   },
   {
@@ -5182,6 +5334,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "area": 28748,
     "population": 2402113
   },
   {
@@ -5210,6 +5363,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 389,
     "population": 110872
   },
   {
@@ -5240,6 +5394,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 11586,
     "population": 3173024
   },
   {
@@ -5272,6 +5427,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 322462,
     "population": 31500000
   },
   {
@@ -5318,6 +5474,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "area": 710,
     "population": 6110200
   },
   {
@@ -5354,6 +5511,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "area": 1284000,
     "population": 19093595
   },
   {
@@ -5389,6 +5547,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "area": 2780085,
     "population": 46735004
   },
   {
@@ -5419,6 +5578,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "area": 2.02,
     "population": 38423
   },
   {
@@ -5447,6 +5607,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 344,
     "population": 114621
   },
   {
@@ -5476,6 +5637,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 347,
     "population": 87146
   },
   {
@@ -5506,6 +5668,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "area": 147181,
     "population": 31122387
   },
   {
@@ -5542,6 +5705,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "area": 199,
     "population": 43268
   },
   {
@@ -5576,6 +5740,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "area": 236,
     "population": 14222
   },
   {
@@ -5615,6 +5780,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "area": 14874,
     "population": 1354662
   },
   {
@@ -5646,6 +5812,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "area": 5765,
     "population": 466227
   },
   {
@@ -5676,6 +5843,7 @@
     ],
     "region": "Americas",
     "subregion": "Central America",
+    "area": 112492,
     "population": 9571352
   },
   {
@@ -5705,6 +5873,7 @@
     ],
     "region": "Antarctic",
     "subregion": "",
+    "area": 439666,
     "population": 400
   },
   {
@@ -5738,6 +5907,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 10991,
     "population": 2824913
   },
   {
@@ -5774,6 +5944,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 27750,
     "population": 11470261
   },
   {
@@ -5804,6 +5975,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 109884,
     "population": 9748007
   },
   {
@@ -5835,6 +6007,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 56785,
     "population": 9583381
   },
   {
@@ -5870,6 +6043,7 @@
     ],
     "region": "Oceania",
     "subregion": "Micronesia",
+    "area": 811,
     "population": 116545
   },
   {
@@ -5903,6 +6077,7 @@
     ],
     "region": "Americas",
     "subregion": "North America",
+    "area": 9984670,
     "population": 41575585
   },
   {
@@ -5938,6 +6113,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "area": 342353,
     "population": 112729484
   },
   {
@@ -5968,6 +6144,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 527968,
     "population": 32684503
   },
   {
@@ -5998,6 +6175,7 @@
     ],
     "region": "Americas",
     "subregion": "Central America",
+    "area": 130373,
     "population": 6676948
   },
   {
@@ -6028,6 +6206,7 @@
     ],
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "area": 377930,
     "population": 122950000
   },
   {
@@ -6062,6 +6241,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "area": 10908,
     "population": 1586659
   },
   {
@@ -6095,6 +6275,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 180,
     "population": 106739
   },
   {
@@ -6125,6 +6306,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "area": 267668,
     "population": 2397368
   },
   {
@@ -6153,6 +6335,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 60,
     "population": 3000
   },
   {
@@ -6194,6 +6377,7 @@
     ],
     "region": "Oceania",
     "subregion": "Melanesia",
+    "area": 12189,
     "population": 335908
   },
   {
@@ -6229,6 +6413,7 @@
     ],
     "region": "Europe",
     "subregion": "Central Europe",
+    "area": 78865,
     "population": 10900555
   },
   {
@@ -6257,6 +6442,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 238533,
     "population": 35039451
   },
   {
@@ -6287,6 +6473,7 @@
     ],
     "region": "Africa",
     "subregion": "Northern Africa",
+    "area": 163610,
     "population": 11565204
   },
   {
@@ -6327,6 +6514,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 2040,
     "population": 1264613
   },
   {
@@ -6357,6 +6545,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "area": 1141748,
     "population": 52695952
   },
   {
@@ -6387,6 +6576,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 244376,
     "population": 67326569
   },
   {
@@ -6427,6 +6617,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "area": 1285216,
     "population": 34352720
   },
   {
@@ -6468,6 +6659,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 26338,
     "population": 14104969
   },
   {
@@ -6499,6 +6691,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "area": 236800,
     "population": 7953556
   },
   {
@@ -6535,6 +6728,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 70273,
     "population": 5458600
   },
   {
@@ -6565,6 +6759,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 245857,
     "population": 13986179
   },
   {
@@ -6601,6 +6796,7 @@
     ],
     "region": "Asia",
     "subregion": "Southern Asia",
+    "area": 796095,
     "population": 223773700
   },
   {
@@ -6636,6 +6832,7 @@
     ],
     "region": "Oceania",
     "subregion": "Australia and New Zealand",
+    "area": 36,
     "population": 2188
   },
   {
@@ -6674,6 +6871,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "area": 12,
     "population": 2608
   },
   {
@@ -6704,6 +6902,7 @@
     ],
     "region": "Antarctic",
     "subregion": "",
+    "area": 49,
     "population": 0
   },
   {
@@ -6736,6 +6935,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "area": 25713,
     "population": 1836713
   },
   {
@@ -6776,6 +6976,7 @@
     ],
     "region": "Oceania",
     "subregion": "Melanesia",
+    "area": 462840,
     "population": 11781559
   },
   {
@@ -6809,6 +7010,7 @@
     ],
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "area": 1104,
     "population": 7498100
   },
   {
@@ -6839,6 +7041,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "area": 181034,
     "population": 3444263
   },
   {
@@ -6869,6 +7072,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 786.8,
     "population": 1463265
   },
   {
@@ -6897,6 +7101,7 @@
     ],
     "region": "Americas",
     "subregion": "Central America",
+    "area": 108889,
     "population": 18255216
   },
   {
@@ -6928,6 +7133,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "area": 56594,
     "population": 3866233
   },
   {
@@ -6963,6 +7169,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "area": 2842,
     "population": 200010
   },
   {
@@ -7000,6 +7207,7 @@
     ],
     "region": "Asia",
     "subregion": "Central Asia",
+    "area": 199951,
     "population": 7300000
   },
   {
@@ -7033,6 +7241,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "area": 513120,
     "population": 65975198
   },
   {
@@ -7064,6 +7273,7 @@
     ],
     "region": "Americas",
     "subregion": "North America",
+    "area": 1964375,
     "population": 131946900
   },
   {
@@ -7093,6 +7303,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "area": 13812,
     "population": 623327
   },
   {
@@ -7132,6 +7343,7 @@
     ],
     "region": "Oceania",
     "subregion": "Australia and New Zealand",
+    "area": 268838,
     "population": 5307800
   },
   {
@@ -7162,6 +7374,7 @@
     ],
     "region": "Africa",
     "subregion": "Northern Africa",
+    "area": 1759540,
     "population": 7361263
   },
   {
@@ -7192,6 +7405,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "area": 468,
     "population": 88941
   },
   {
@@ -7227,6 +7441,7 @@
     ],
     "region": "Oceania",
     "subregion": "Micronesia",
+    "area": 459,
     "population": 17663
   },
   {
@@ -7268,6 +7483,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 452,
     "population": 121355
   },
   {
@@ -7301,6 +7517,7 @@
     ],
     "region": "Oceania",
     "subregion": "Polynesia",
+    "area": 26,
     "population": 10643
   },
   {
@@ -7332,6 +7549,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 21,
     "population": 10562
   },
   {
@@ -7367,6 +7585,7 @@
     ],
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "area": 120538,
     "population": 26298666
   },
   {
@@ -7398,6 +7617,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 43094,
     "population": 6001008
   },
   {
@@ -7428,6 +7648,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 1030700,
     "population": 4328040
   },
   {
@@ -7458,6 +7679,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "area": 83534,
     "population": 298
   },
   {
@@ -7486,6 +7708,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 1128,
     "population": 349925
   },
   {
@@ -7521,6 +7744,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "area": 622984,
     "population": 5650957
   },
   {
@@ -7551,6 +7775,7 @@
     ],
     "region": "Europe",
     "subregion": "Southern Europe",
+    "area": 505992,
     "population": 49570725
   },
   {
@@ -7580,6 +7805,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 111369,
     "population": 5437249
   },
   {
@@ -7610,6 +7836,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 450295,
     "population": 10610485
   },
   {
@@ -7638,6 +7865,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 48671,
     "population": 11532151
   },
   {
@@ -7669,6 +7897,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "area": 916445,
     "population": 31800000
   },
   {
@@ -7700,6 +7929,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 751,
     "population": 74656
   },
   {
@@ -7742,6 +7972,7 @@
     ],
     "region": "Europe",
     "subregion": "Western Europe",
+    "area": 2586,
     "population": 690947
   },
   {
@@ -7773,6 +8004,7 @@
     ],
     "region": "Africa",
     "subregion": "Western Africa",
+    "area": 923768,
     "population": 236747130
   },
   {
@@ -7804,6 +8036,7 @@
     ],
     "region": "Asia",
     "subregion": "Western Asia",
+    "area": 29743,
     "population": 3081100
   },
   {
@@ -7844,6 +8077,7 @@
     ],
     "region": "Europe",
     "subregion": "Southeast Europe",
+    "area": 51209,
     "population": 2904256
   },
   {
@@ -7875,6 +8109,7 @@
     ],
     "region": "Europe",
     "subregion": "Northern Europe",
+    "area": 1580,
     "population": 30654
   },
   {
@@ -7905,6 +8140,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 374,
     "population": 320
   },
   {
@@ -7933,6 +8169,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 102,
     "population": 4390
   },
   {
@@ -7967,6 +8204,7 @@
     ],
     "region": "Asia",
     "subregion": "Eastern Asia",
+    "area": 9706961,
     "population": 1404890000
   },
   {
@@ -7996,6 +8234,7 @@
     ],
     "region": "Americas",
     "subregion": "South America",
+    "area": 214969,
     "population": 950986
   },
   {
@@ -8024,6 +8263,7 @@
     ],
     "region": "Americas",
     "subregion": "Caribbean",
+    "area": 948,
     "population": 49309
   },
   {
@@ -8066,6 +8306,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 1862,
     "population": 883075
   },
   {
@@ -8096,6 +8337,7 @@
     ],
     "region": "Europe",
     "subregion": "Eastern Europe",
+    "area": 17098246,
     "population": 146119928
   },
   {
@@ -8131,6 +8373,7 @@
     ],
     "region": "Africa",
     "subregion": "Middle Africa",
+    "area": 475442,
     "population": 30987821
   },
   {
@@ -8159,6 +8402,7 @@
     ],
     "region": "Oceania",
     "subregion": "Melanesia",
+    "area": 28896,
     "population": 828857
   },
   {
@@ -8190,6 +8434,7 @@
     ],
     "region": "Europe",
     "subregion": "Eastern Europe",
+    "area": 33847,
     "population": 2381325
   },
   {
@@ -8211,6 +8456,7 @@
     ],
     "region": "Antarctic",
     "subregion": "",
+    "area": 14000000,
     "population": 3300
   },
   {
@@ -8246,6 +8492,7 @@
     ],
     "region": "Oceania",
     "subregion": "Micronesia",
+    "area": 181,
     "population": 53127
   },
   {
@@ -8275,6 +8522,7 @@
     ],
     "region": "Asia",
     "subregion": "South-Eastern Asia",
+    "area": 181035,
     "population": 17638801
   },
   {
@@ -8305,6 +8553,7 @@
     ],
     "region": "Americas",
     "subregion": "Central America",
+    "area": 75417,
     "population": 4337768
   },
   {
@@ -8334,6 +8583,7 @@
     ],
     "region": "Africa",
     "subregion": "Eastern Africa",
+    "area": 2511,
     "population": 910985
   }
 ]
