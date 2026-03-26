@@ -209,8 +209,8 @@ onBeforeUnmount(() => {
         class="space-y-12"
       >
         <Transition name="fade" mode="out-in" appear>
-          <div :key="currentQuestion.cca2" class="space-y-12">
-            <div class="relative h-56 lg:h-72">
+          <div :key="currentQuestion.cca2" class="grid grid-cols-2 items-stretch gap-4 max-w-2xl mx-auto">
+            <div class="col-span-2 h-64 lg:h-80 flex p-4">
               <USkeleton
                 v-if="!isImageLoaded"
                 class="absolute inset-0 h-full w-full"
@@ -225,38 +225,36 @@ onBeforeUnmount(() => {
               >
             </div>
 
-            <div class="mx-auto grid max-w-2xl grid-cols-2 items-stretch gap-4">
-              <div
-                v-for="choice in choices"
-                :key="choice.cca2"
-                class="relative"
-                :class="{
-                  'choice-wiggle': showErrorOverlay(choice),
-                  'choice-pop': showSuccessOverlay(choice),
-                }"
-              >
-                <BaseCardButton
-                  :label="choice.name.common"
-                  :disabled="isRevealed"
-                  @click="handleChoiceSelect(choice)"
-                />
+            <div
+              v-for="choice in choices"
+              :key="choice.cca2"
+              class="relative"
+              :class="{
+                'choice-wiggle': showErrorOverlay(choice),
+                'choice-pop': showSuccessOverlay(choice),
+              }"
+            >
+              <BaseCardButton
+                :label="choice.name.common"
+                :disabled="isRevealed"
+                @click="handleChoiceSelect(choice)"
+              />
 
-                <Transition name="fade">
-                  <div
-                    v-if="showSuccessOverlay(choice)"
-                    class="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-success text-inverted pointer-events-none"
-                  >
-                    <UIcon name="i-tabler-check" class="size-10" />
-                  </div>
+              <Transition name="fade">
+                <div
+                  v-if="showSuccessOverlay(choice)"
+                  class="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-success text-inverted pointer-events-none"
+                >
+                  <UIcon name="i-tabler-check" class="size-10" />
+                </div>
 
-                  <div
-                    v-else-if="showErrorOverlay(choice)"
-                    class="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-error text-inverted pointer-events-none"
-                  >
-                    <UIcon name="i-tabler-x" class="size-10" />
-                  </div>
-                </Transition>
-              </div>
+                <div
+                  v-else-if="showErrorOverlay(choice)"
+                  class="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-error text-inverted pointer-events-none"
+                >
+                  <UIcon name="i-tabler-x" class="size-10" />
+                </div>
+              </Transition>
             </div>
           </div>
         </Transition>
