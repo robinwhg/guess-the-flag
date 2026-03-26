@@ -3,21 +3,32 @@ import { useRouteQuery } from '@vueuse/router'
 
 const route = useRoute()
 const region = String(route.params.region ?? '').toLowerCase()
-if (!playableRegionSlugs.has(region)) {
+
+const currentRegion = playableRegions.find(playableRegion => playableRegion.slug === region)
+
+if (!currentRegion) {
   throw createError({
     statusCode: 404,
     statusMessage: 'Region not found',
   })
 }
 
+updateAppConfig({
+  ui: {
+    colors: {
+      primary: currentRegion.color,
+    },
+  },
+})
+
 const regionTitle = computed(() => {
-  if (region === 'world')
+  if (currentRegion.slug === 'world')
     return 'the World'
 
-  if (region === 'americas')
+  if (currentRegion.slug === 'americas')
     return 'the Americas'
 
-  return region.charAt(0).toUpperCase() + region.slice(1)
+  return currentRegion.title
 })
 
 type Scope = 'countries' | 'territories' | 'both'
@@ -39,6 +50,8 @@ const scopeOptions: Array<{ value: Scope, label: string, description: string }> 
   },
 ]
 const scopeQuery = useRouteQuery<Scope>('scope', 'countries')
+
+// TODO: Include info section in the footer of the header with number of countries, number of regions, population and area. Clicking on the info card will open a modal on desktop and a drawer on mobile that shows a list with the info split out into the countries
 </script>
 
 <template>

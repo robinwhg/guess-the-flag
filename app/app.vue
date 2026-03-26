@@ -5,24 +5,6 @@ const description = 'Pick a region and test how many flags you can identify corr
 const colorMode = useColorMode()
 const color = computed(() => colorMode.value === 'dark' ? '#101828' : 'white')
 
-const route = useRoute()
-const playRoutePattern = /^\/play\/([^/?#]+)/
-watchEffect(() => {
-  const match = route.path.match(playRoutePattern)
-  const region = match?.[1]?.toLowerCase()
-  const primary = region
-    ? playableRegions.find(playableRegion => playableRegion.slug === region)?.color ?? 'blue'
-    : 'blue'
-
-  updateAppConfig({
-    ui: {
-      colors: {
-        primary,
-      },
-    },
-  })
-})
-
 useHead({
   htmlAttrs: {
     lang: 'en',

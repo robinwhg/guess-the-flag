@@ -42,9 +42,3 @@ export const playableRegions = [
     color: 'pink',
   },
 ] as const
-
-export type PlayableRegionSlug = (typeof playableRegions)[number]['slug']
-
-export const playableRegionSlugs = new Set<string>(
-  playableRegions.map(region => region.slug),
-)
