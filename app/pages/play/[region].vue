@@ -98,41 +98,89 @@ const scopeOptions: Array<{ value: Scope, label: string, description: string }> 
   },
 ]
 const scopeQuery = useRouteQuery<Scope>('scope', 'countries')
+const hasStarted = ref(false)
+
+const selectedCountries = computed(() => {
+  if (scopeQuery.value === 'countries') {
+    return regionCountries.value.filter(country => country.independent)
+  }
+
+  if (scopeQuery.value === 'territories') {
+    return regionCountries.value.filter(country => !country.independent)
+  }
+
+  return regionCountries.value
+})
+
+const contextCountries = computed(() => {
+  if (scopeQuery.value === 'countries') {
+    return countries.filter(country => country.independent)
+  }
+
+  if (scopeQuery.value === 'territories') {
+    return countries.filter(country => !country.independent)
+  }
+
+  return countries
+})
 </script>
 
 <template>
   <UPage>
     <UPageBody>
-      <UContainer class="space-y-8">
-        <UPageHeader
-          headline="Let's guess"
-          :title="`Flags of ${regionTitle}`"
-          :description="`Tune your challenge, press Start, and race through the flags of ${regionTitle}.`"
+      <Transition name="fade" mode="out-in">
+        <UContainer
+          v-if="!hasStarted"
+          key="setup"
+          class="space-y-8"
         >
-          <UPageGrid class="mt-10">
-            <UPageCard
-              v-for="card in infoCards"
-              :key="card.title"
-              :icon="card.icon"
-              :title="card.value"
-              :description="card.title"
+          <UPageHeader
+            headline="Let's guess"
+            :title="`Flags of ${regionTitle}`"
+            :description="`Tune your challenge, press Start, and race through the flags of ${regionTitle}.`"
+          >
+            <UPageGrid class="mt-10">
+              <UPageCard
+                v-for="card in infoCards"
+                :key="card.title"
+                :icon="card.icon"
+                :title="card.value"
+                :description="card.title"
+              />
+            </UPageGrid>
+          </UPageHeader>
+
+          <URadioGroup
+            v-model="scopeQuery"
+            legend="Include in game"
+            :items="scopeOptions"
+            variant="card"
+            indicator="hidden"
+            :ui="{ label: 'text-left', description: 'text-left', fieldset: 'flex-col sm:flex-row' }"
+          />
+
+          <div class="inline-flex justify-end w-full">
+            <UButton
+              label="Start Quiz"
+              icon="i-tabler-player-play"
+              :disabled="selectedCountries.length === 0"
+              :ui="{ base: 'w-full justify-center sm:w-max sm:justify-start' }"
+              @click="hasStarted = true"
             />
-          </UPageGrid>
-        </UPageHeader>
+          </div>
+        </UContainer>
 
-        <URadioGroup
-          v-model="scopeQuery"
-          legend="Include in game"
-          :items="scopeOptions"
-          variant="card"
-          indicator="hidden"
-          :ui="{ label: 'text-left', description: 'text-left', fieldset: 'flex-col sm:flex-row' }"
-        />
-
-        <div class="inline-flex justify-end w-full">
-          <UButton label="Start Quiz" />
-        </div>
-      </UContainer>
+        <UContainer
+          v-else
+          key="game"
+        >
+          <FlagQuizGame
+            :questions="selectedCountries"
+            :context="contextCountries"
+            @back="hasStarted = false"
+          />
+        </UContainer>
+      </Transition>
     </UPageBody>
   </UPage>
 </template>
