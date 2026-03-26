@@ -61,18 +61,6 @@ const selectedCountries = computed(() => {
 
   return regionCountries.value
 })
-
-const contextCountries = computed(() => {
-  if (scopeQuery.value === 'countries') {
-    return countries.filter(country => country.independent)
-  }
-
-  if (scopeQuery.value === 'territories') {
-    return countries.filter(country => !country.independent)
-  }
-
-  return countries
-})
 </script>
 
 <template>
@@ -115,7 +103,6 @@ const contextCountries = computed(() => {
         >
           <Game
             :questions="selectedCountries"
-            :context="contextCountries"
             @back="hasStarted = false"
           />
         </UContainer>

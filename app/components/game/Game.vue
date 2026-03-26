@@ -1,7 +1,6 @@
 <script setup lang="ts">
 interface FlagQuizGameProps {
   questions: Country[]
-  context?: Country[]
 }
 
 const props = defineProps<FlagQuizGameProps>()
@@ -11,14 +10,14 @@ const emit = defineEmits<{
 }>()
 
 const isPaused = ref(false)
+const selectedChoiceCode = ref<string | null>(null)
+const isRevealed = ref(false)
 
 const CHOICE_COUNT = 4
+const ADVANCE_DELAY_MS = 600
 
 const currentIndex = ref(0)
-
-const effectiveContext = computed(() => {
-  return props.context?.length ? props.context : props.questions
-})
+let advanceTimeout: ReturnType<typeof setTimeout> | null = null
 
 const currentQuestion = computed(() => {
   return props.questions[currentIndex.value] ?? null
@@ -29,26 +28,12 @@ function shuffle<T>(items: T[]): T[] {
 
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+    const current = shuffled[i]!
+    shuffled[i] = shuffled[j]!
+    shuffled[j] = current
   }
 
   return shuffled
-}
-
-function uniqueByCca2(items: Country[]): Country[] {
-  const seen = new Set<string>()
-  const result: Country[] = []
-
-  for (const item of items) {
-    if (seen.has(item.cca2)) {
-      continue
-    }
-
-    seen.add(item.cca2)
-    result.push(item)
-  }
-
-  return result
 }
 
 const choices = computed(() => {
@@ -57,43 +42,74 @@ const choices = computed(() => {
   }
 
   const correct = currentQuestion.value
-  const pool = uniqueByCca2(effectiveContext.value)
-  const distractors: Country[] = []
-  const pickedCodes = new Set<string>([correct.cca2])
-
-  const sameSubregion = shuffle(pool.filter(country => country.subregion === correct.subregion && country.cca2 !== correct.cca2))
-  const sameRegion = shuffle(pool.filter(country => country.region === correct.region && country.cca2 !== correct.cca2))
-  const globalFallback = shuffle(pool.filter(country => country.cca2 !== correct.cca2))
-
-  for (const candidate of [...sameSubregion, ...sameRegion, ...globalFallback]) {
-    if (pickedCodes.has(candidate.cca2)) {
-      continue
-    }
-
-    pickedCodes.add(candidate.cca2)
-    distractors.push(candidate)
-
-    if (distractors.length >= CHOICE_COUNT - 1) {
-      break
-    }
-  }
+  const distractors = shuffle(props.questions.filter(country => country.cca2 !== correct.cca2)).slice(0, CHOICE_COUNT - 1)
 
   return shuffle([correct, ...distractors]).slice(0, CHOICE_COUNT)
 })
 
-defineExpose({
-  currentQuestion,
-  choices,
-})
+function clearAdvanceTimeout(): void {
+  if (!advanceTimeout) {
+    return
+  }
+
+  clearTimeout(advanceTimeout)
+  advanceTimeout = null
+}
+
+function resetChoiceState(): void {
+  selectedChoiceCode.value = null
+  isRevealed.value = false
+}
+
+function isSelectedChoice(choice: Country): boolean {
+  return selectedChoiceCode.value === choice.cca2
+}
+
+function isCorrectChoice(choice: Country): boolean {
+  return currentQuestion.value?.cca2 === choice.cca2
+}
+
+function showSuccessOverlay(choice: Country): boolean {
+  return isRevealed.value && isSelectedChoice(choice) && isCorrectChoice(choice)
+}
+
+function showErrorOverlay(choice: Country): boolean {
+  return isRevealed.value && isSelectedChoice(choice) && !isCorrectChoice(choice)
+}
+
+function handleChoiceSelect(choice: Country): void {
+  if (!currentQuestion.value || isPaused.value || isRevealed.value) {
+    return
+  }
+
+  selectedChoiceCode.value = choice.cca2
+  isRevealed.value = true
+
+  clearAdvanceTimeout()
+  advanceTimeout = setTimeout(() => {
+    currentIndex.value += 1
+    resetChoiceState()
+    advanceTimeout = null
+  }, ADVANCE_DELAY_MS)
+}
 
 function handleResume(): void {
   isPaused.value = false
 }
 
 function handleExit(): void {
+  clearAdvanceTimeout()
+  resetChoiceState()
   isPaused.value = false
   emit('back')
 }
+
+onBeforeUnmount(() => {
+  clearAdvanceTimeout()
+})
+
+// FIXME: Alt text shown when img not loaded
+// FIXME: Hint for territories that have the same flag as country
 </script>
 
 <template>
@@ -113,19 +129,45 @@ function handleExit(): void {
         key="playing"
         class="space-y-12"
       >
-        <img
-          :src="currentQuestion.flag.svg"
-          :alt="currentQuestion.flag.alt"
-          class="mx-auto h-56 w-full object-contain lg:h-72"
-        >
+        <Transition name="fade" mode="out-in" appear>
+          <div :key="currentQuestion.cca2" class="space-y-12">
+            <img
+              :src="currentQuestion.flag.svg"
+              :alt="currentQuestion.flag.alt"
+              class="mx-auto h-56 w-full object-contain lg:h-72"
+            >
 
-        <div class="mx-auto grid max-w-2xl grid-cols-2 items-stretch gap-4">
-          <BaseCardButton
-            v-for="choice in choices"
-            :key="choice.cca2"
-            :label="choice.name.common"
-          />
-        </div>
+            <div class="mx-auto grid max-w-2xl grid-cols-2 items-stretch gap-4">
+              <div
+                v-for="choice in choices"
+                :key="choice.cca2"
+                class="relative"
+              >
+                <BaseCardButton
+                  :label="choice.name.common"
+                  :disabled="isRevealed"
+                  @click="handleChoiceSelect(choice)"
+                />
+
+                <Transition name="fade">
+                  <div
+                    v-if="showSuccessOverlay(choice)"
+                    class="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-success text-inverted pointer-events-none"
+                  >
+                    <UIcon name="i-tabler-check" class="size-10" />
+                  </div>
+
+                  <div
+                    v-else-if="showErrorOverlay(choice)"
+                    class="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-error text-inverted pointer-events-none"
+                  >
+                    <UIcon name="i-tabler-x" class="size-10" />
+                  </div>
+                </Transition>
+              </div>
+            </div>
+          </div>
+        </Transition>
       </div>
 
       <div
