@@ -113,7 +113,7 @@ const contextCountries = computed(() => {
           v-else
           key="game"
         >
-          <FlagQuizGame
+          <Game
             :questions="selectedCountries"
             :context="contextCountries"
             @back="hasStarted = false"
