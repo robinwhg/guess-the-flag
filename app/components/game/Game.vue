@@ -142,7 +142,10 @@ onBeforeUnmount(() => {
                 v-for="choice in choices"
                 :key="choice.cca2"
                 class="relative"
-                :class="{ 'choice-wiggle': showErrorOverlay(choice) }"
+                :class="{
+                  'choice-wiggle': showErrorOverlay(choice),
+                  'choice-pop': showSuccessOverlay(choice),
+                }"
               >
                 <BaseCardButton
                   :label="choice.name.common"
@@ -198,11 +201,34 @@ onBeforeUnmount(() => {
   }
 }
 
+.choice-pop {
+  animation: choice-pop 400ms ease-out 1;
+}
+
+@keyframes choice-pop {
+  0% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-10px);
+  }
+  65% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-3px);
+  }
+}
+
 .choice-wiggle {
-  animation: choice-wiggle 360ms ease-in-out 1;
+  animation: choice-wiggle 400ms ease-in-out 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .choice-pop {
+    animation: none;
+  }
+
   .choice-wiggle {
     animation: none;
   }
