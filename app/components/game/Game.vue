@@ -254,8 +254,8 @@ onBeforeUnmount(() => {
   }
 }
 
-.choice-pop {
-  animation: choice-pop 400ms ease-out 1;
+.choice-wiggle {
+  animation: choice-wiggle 400ms ease-in-out 1;
 }
 
 @keyframes choice-pop {
@@ -273,8 +273,8 @@ onBeforeUnmount(() => {
   }
 }
 
-.choice-wiggle {
-  animation: choice-wiggle 400ms ease-in-out 1;
+.choice-pop {
+  animation: choice-pop 400ms ease-out 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
