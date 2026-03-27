@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
+import { breakpointsTailwind, createReusableTemplate, useBreakpoints } from '@vueuse/core'
 
 interface PlayHeaderStatOverlayProps {
   icon: string
@@ -13,8 +13,34 @@ interface PlayHeaderStatOverlayProps {
 
 const props = defineProps<PlayHeaderStatOverlayProps>()
 
-const isDesktop = useMediaQuery('(min-width: 768px)')
+const breakpoints = useBreakpoints (breakpointsTailwind)
+const isDesktop = breakpoints.greater('sm')
 const open = ref(false)
+const searchQuery = ref('')
+
+const normalizedQuery = computed(() => {
+  return searchQuery.value.trim().toLowerCase()
+})
+
+const filteredItems = computed(() => {
+  if (!normalizedQuery.value) {
+    return props.items
+  }
+
+  return props.items.filter((item) => {
+    const title = item.name.common.toLowerCase()
+    const description = props.descriptionResolver(item).toLowerCase()
+
+    return title.includes(normalizedQuery.value) || description.includes(normalizedQuery.value)
+  })
+})
+
+watch(open, (isOpen) => {
+  if (!isOpen) {
+    searchQuery.value = ''
+  }
+})
+
 const [DefineBodyTemplate, ReuseBodyTemplate] = createReusableTemplate()
 </script>
 
@@ -30,23 +56,53 @@ const [DefineBodyTemplate, ReuseBodyTemplate] = createReusableTemplate()
 
     <ClientOnly>
       <DefineBodyTemplate>
-        <UPageList class="space-y-2">
-          <UPageCard
-            v-for="item in props.items"
-            :key="item.cca2"
+        <div class="flex h-full flex-col gap-2">
+          <UInput
+            v-model="searchQuery"
             variant="soft"
-            :title="item.name.common"
-            :description="props.descriptionResolver(item)"
-            orientation="horizontal"
-            reverse
-            :ui="{ container: 'grid grid-cols-3 lg:grid-cols-3 items-center', wrapper: 'col-span-2' }"
+            icon="i-tabler-search"
+            :placeholder="`Search ${props.label.toLowerCase()}...`"
           >
-            <img
-              :src="item.flag.svg"
-              class="h-16 w-full object-contain object-center"
+            <template v-if="searchQuery?.length" #trailing>
+              <UButton
+                color="neutral"
+                variant="link"
+                size="sm"
+                icon="i-tabler-circle-x-filled"
+                aria-label="Clear input"
+                @click="searchQuery = ''"
+              />
+            </template>
+          </UInput>
+
+          <UPageList
+            v-if="filteredItems.length"
+            class="flex-1 space-y-2"
+          >
+            <UPageCard
+              v-for="item in filteredItems"
+              :key="item.cca2"
+              variant="soft"
+              :title="item.name.common"
+              :description="props.descriptionResolver(item)"
+              orientation="horizontal"
+              reverse
+              :ui="{ container: 'grid grid-cols-3 lg:grid-cols-3 items-center', wrapper: 'col-span-2' }"
             >
-          </UPageCard>
-        </UPageList>
+              <img
+                :src="item.flag.svg"
+                class="h-16 w-full object-contain object-center"
+              >
+            </UPageCard>
+          </UPageList>
+
+          <div
+            v-else
+            class="flex flex-1 items-center justify-center rounded-md border border-dashed border-default px-4 text-sm text-muted"
+          >
+            No matches found.
+          </div>
+        </div>
       </DefineBodyTemplate>
 
       <UModal
