@@ -1,6 +1,7 @@
 <script setup lang="ts">
 interface GameHeaderState {
   currentQuestionNumber: number
+  answeredQuestions: number
   totalQuestions: number
   elapsedSeconds: number
 }
@@ -20,7 +21,7 @@ const progress = computed(() => {
     return 0
   }
 
-  return Math.round((props.state.currentQuestionNumber / props.state.totalQuestions) * 100)
+  return Math.round((props.state.answeredQuestions / props.state.totalQuestions) * 100)
 })
 
 const timerLabel = computed(() => {

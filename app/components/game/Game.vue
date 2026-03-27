@@ -45,6 +45,7 @@ watch(
       v-model:paused="gameSession.isPaused"
       :state="{
         currentQuestionNumber: gameSession.currentQuestionNumber,
+        answeredQuestions: gameSession.displayAnsweredQuestions,
         totalQuestions: gameSession.totalQuestions,
         elapsedSeconds: gameSession.elapsedSeconds,
       }"

@@ -43,6 +43,16 @@ export function useGameSession(config: UseGameSessionConfig) {
     return Math.min(currentIndex.value + 1, totalQuestions.value)
   })
 
+  const answeredQuestions = computed(() => {
+    return Math.min(currentIndex.value, totalQuestions.value)
+  })
+
+  const displayAnsweredQuestions = computed(() => {
+    const revealedOffset = isRevealed.value ? 1 : 0
+
+    return Math.min(answeredQuestions.value + revealedOffset, totalQuestions.value)
+  })
+
   const currentQuestion = computed(() => {
     return config.questions[currentIndex.value] ?? null
   })
@@ -220,6 +230,8 @@ export function useGameSession(config: UseGameSessionConfig) {
     elapsedSeconds,
     totalQuestions,
     currentQuestionNumber,
+    answeredQuestions,
+    displayAnsweredQuestions,
     currentQuestion,
     nextQuestion,
     choices,
