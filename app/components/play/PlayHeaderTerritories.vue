@@ -49,7 +49,7 @@ function getSovereignName(country: Country): string {
 
 <template>
   <PlayHeaderStatOverlay
-    icon="i-tabler-flag-3"
+    icon="i-tabler-flag-3-filled"
     :value="countLabel"
     label="Territories"
     :title="modalTitle"

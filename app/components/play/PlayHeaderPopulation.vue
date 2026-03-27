@@ -35,7 +35,7 @@ const modalDescription = computed(() => {
 
 <template>
   <PlayHeaderStatOverlay
-    icon="i-tabler-users"
+    icon="i-tabler-user-filled"
     :value="countLabel"
     label="Population"
     :title="modalTitle"

@@ -29,7 +29,7 @@ const modalDescription = computed(() => {
 
 <template>
   <PlayHeaderStatOverlay
-    icon="i-tabler-flag"
+    icon="i-tabler-flag-filled"
     :value="countLabel"
     label="Countries"
     :title="modalTitle"

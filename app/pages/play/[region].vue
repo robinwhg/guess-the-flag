@@ -121,7 +121,7 @@ const gameMeta = computed(() => {
           <div class="inline-flex justify-end w-full">
             <UButton
               label="Start Quiz"
-              icon="i-tabler-player-play"
+              icon="i-tabler-player-play-filled"
               :disabled="selectedCountries.length === 0"
               :ui="{ base: 'w-full justify-center sm:w-max sm:justify-start' }"
               @click="hasStarted = true"
