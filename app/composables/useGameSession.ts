@@ -19,6 +19,7 @@ export function useGameSession(config: UseGameSessionConfig) {
   const correctCount = ref(0)
   const finishedAt = ref<string | null>(null)
   const runId = ref(createRunId())
+  const questionQueue = ref<Country[]>(shuffle([...config.questions]))
 
   const CHOICE_COUNT = 4
   const ADVANCE_DELAY_MS = 600
@@ -28,7 +29,7 @@ export function useGameSession(config: UseGameSessionConfig) {
   let timerInterval: ReturnType<typeof setInterval> | null = null
 
   const totalQuestions = computed(() => {
-    return config.questions.length
+    return questionQueue.value.length
   })
 
   const isCompleted = computed(() => {
@@ -54,11 +55,11 @@ export function useGameSession(config: UseGameSessionConfig) {
   })
 
   const currentQuestion = computed(() => {
-    return config.questions[currentIndex.value] ?? null
+    return questionQueue.value[currentIndex.value] ?? null
   })
 
   const nextQuestion = computed(() => {
-    return config.questions[currentIndex.value + 1] ?? null
+    return questionQueue.value[currentIndex.value + 1] ?? null
   })
 
   const choices = computed(() => {
@@ -117,8 +118,13 @@ export function useGameSession(config: UseGameSessionConfig) {
     correctCount.value = 0
     finishedAt.value = null
     runId.value = createRunId()
+    resetQuestionQueue()
     resetChoiceState()
     isPaused.value = false
+  }
+
+  function resetQuestionQueue(): void {
+    questionQueue.value = shuffle([...config.questions])
   }
 
   function clearTimerInterval(): void {
