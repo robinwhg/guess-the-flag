@@ -9,19 +9,33 @@
   --ui-radius: 0.5rem;
 }
 
-.slide-enter-active,
-.slide-leave-active {
+.slide-side-enter-active,
+.slide-side-leave-active {
   transition: transform 220ms ease, opacity 220ms ease;
 }
 
-.slide-enter-from {
+.slide-side-enter-from {
   opacity: 0;
   transform: translateX(24px);
 }
 
-.slide-leave-to {
+.slide-side-leave-to {
   opacity: 0;
   transform: translateX(-24px);
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
 }
 
 @keyframes choice-wiggle {
@@ -63,13 +77,17 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .slide-enter-active,
-  .slide-leave-active {
+  .slide-side-enter-active,
+  .slide-side-leave-active,
+  .slide-up-enter-active,
+  .slide-up-leave-active {
     transition: opacity 220ms ease;
   }
 
-  .slide-enter-from,
-  .slide-leave-to {
+  .slide-side-enter-from,
+  .slide-side-leave-to,
+  .slide-up-enter-from,
+  .slide-up-leave-to {
     transform: none;
   }
 

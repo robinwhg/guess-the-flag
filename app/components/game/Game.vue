@@ -74,7 +74,7 @@ watch(
         class="space-y-12"
       >
         <div class="space-y-4 max-w-2xl mx-auto">
-          <Transition name="slide" mode="out-in" appear>
+          <Transition name="slide-side" mode="out-in" appear>
             <GameImage
               :key="gameSession.currentQuestion.cca2"
               :src="gameSession.currentQuestion.flag.svg"
@@ -83,7 +83,7 @@ watch(
             />
           </Transition>
 
-          <Transition name="fade" mode="out-in" appear>
+          <Transition name="slide-up" mode="out-in" appear>
             <div :key="`choices-${gameSession.currentQuestion.cca2}`" class="grid grid-cols-2 items-stretch gap-4">
               <div
                 v-for="choice in gameSession.choices"
