@@ -42,6 +42,8 @@ watch(open, (isOpen) => {
 })
 
 const [DefineBodyTemplate, ReuseBodyTemplate] = createReusableTemplate()
+
+// FIXME: No padding at modal bottom
 </script>
 
 <template>
