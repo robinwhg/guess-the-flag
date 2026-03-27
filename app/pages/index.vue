@@ -9,7 +9,6 @@
       >
         <template #footer>
           <UPageGrid>
-            <!-- TODO: Add loading state to the img -->
             <UPageCard
               v-for="r in playableRegions" :key="r.slug"
               :title="r.title"
@@ -17,7 +16,15 @@
               :to="`/play/${r.slug}`"
               class="transition-transform hover:scale-105"
             >
-              <img v-if="r.img" :src="r.img" class="object-contain object-center max-h-32 w-full">
+              <div class="h-32 flex items-center">
+                <img
+                  v-if="r.img"
+                  :src="r.img"
+                  loading="lazy"
+                  decoding="async"
+                  class="h-full w-full object-contain object-center"
+                >
+              </div>
             </UPageCard>
           </UPageGrid>
         </template>
