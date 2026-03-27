@@ -6,12 +6,12 @@ export default defineAppConfig({
     },
     card: {
       defaultVariants: {
-        variant: 'subtle',
+        variant: 'soft',
       },
     },
     pageCard: {
       defaultVariants: {
-        variant: 'subtle',
+        variant: 'soft',
       },
     },
     icons: {

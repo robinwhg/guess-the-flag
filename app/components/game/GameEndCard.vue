@@ -69,9 +69,7 @@ const accuracyPct = computed(() => {
       Run complete!
     </h2>
     <div class="grid grid-cols-2 items-stretch gap-4 max-w-2xl mx-auto">
-      <UCard
-        variant="soft" :ui="{ root: 'col-span-2', body: 'p-4 sm:p-4 relative h-64 lg:h-80' }"
-      >
+      <UCard :ui="{ root: 'col-span-2', body: 'p-4 sm:p-4 relative h-64 lg:h-80' }">
         <ul>
           <li>Accuracy: {{ accuracyPct }} %</li>
           <li>Correctness: {{ props.result.correctCount }} / {{ result.totalQuestions }}</li>
