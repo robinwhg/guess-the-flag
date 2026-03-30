@@ -42,8 +42,6 @@ watch(open, (isOpen) => {
 })
 
 const [DefineBodyTemplate, ReuseBodyTemplate] = createReusableTemplate()
-
-// FIXME: No padding at modal bottom
 </script>
 
 <template>
@@ -111,7 +109,6 @@ const [DefineBodyTemplate, ReuseBodyTemplate] = createReusableTemplate()
         v-model:open="open"
         :title="props.title"
         :description="props.description"
-        :ui="{ content: 'h-[48vh]' }"
       >
         <template #body>
           <ReuseBodyTemplate />
@@ -124,7 +121,6 @@ const [DefineBodyTemplate, ReuseBodyTemplate] = createReusableTemplate()
         :title="props.title"
         :description="props.description"
         direction="bottom"
-        :ui="{ container: 'h-[72vh]' }"
       >
         <template #body>
           <ReuseBodyTemplate />
