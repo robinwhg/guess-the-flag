@@ -35,7 +35,6 @@ watch(
 // FIXME: Hint for territories that have the same flag as country
 // FIXME: Alt text of images shouldn't have the name of the country in it
 // TODO: Stop timer at 60m & after 5m of inactivity pause
-// FIXME: Clicking on a header link will reset isCompleted but still show end card
 // TODO: Setup choices pool to have closely related options
 </script>
 
