@@ -19,7 +19,7 @@ const emit = defineEmits<{
   click: [event: MouseEvent]
 }>()
 
-const { label } = toRefs(props)
+const { disabled, color, icon, label } = toRefs(props)
 
 function handleClick(event: MouseEvent): void {
   emit('click', event)
@@ -35,7 +35,7 @@ function handleClick(event: MouseEvent): void {
     @click="handleClick"
   >
     <UCard
-      :ui="props.color === 'primary'
+      :ui="color === 'primary'
         ? { root: 'h-24 cursor-pointer flex p-1 sm:p-1 bg-primary hover:bg-primary/75', body: 'flex-1 flex items-center justify-center gap-2 text-inverted' }
         : { root: 'h-24 cursor-pointer flex p-1 sm:p-1 hover:bg-elevated', body: 'flex-1 flex items-center justify-center gap-2' }"
     >

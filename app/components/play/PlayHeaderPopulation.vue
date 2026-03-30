@@ -5,6 +5,7 @@ interface PlayHeaderPopulationProps {
 }
 
 const props = defineProps<PlayHeaderPopulationProps>()
+const { regionTitle, countries } = toRefs(props)
 
 const compactFormatter = new Intl.NumberFormat('en-US', {
   notation: 'compact',
@@ -12,12 +13,12 @@ const compactFormatter = new Intl.NumberFormat('en-US', {
 })
 
 const populationList = computed(() => {
-  return props.countries
+  return countries.value
     .toSorted((a, b) => b.population - a.population)
 })
 
 const totalPopulation = computed(() => {
-  return props.countries.reduce((sum, country) => sum + country.population, 0)
+  return countries.value.reduce((sum, country) => sum + country.population, 0)
 })
 
 const countLabel = computed(() => {
@@ -25,11 +26,11 @@ const countLabel = computed(() => {
 })
 
 const modalTitle = computed(() => {
-  return `Population of ${props.regionTitle}`
+  return `Population of ${regionTitle.value}`
 })
 
 const modalDescription = computed(() => {
-  return `A breakdown of population figures of ${props.regionTitle}`
+  return `A breakdown of population figures of ${regionTitle.value}`
 })
 </script>
 

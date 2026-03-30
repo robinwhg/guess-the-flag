@@ -12,22 +12,23 @@ interface GameHeaderProps {
 }
 
 const props = defineProps<GameHeaderProps>()
+const { state } = toRefs(props)
 
 const isPaused = defineModel<boolean>('paused', {
   default: false,
 })
 
 const progress = computed(() => {
-  if (props.state.totalQuestions === 0) {
+  if (state.value.totalQuestions === 0) {
     return 0
   }
 
-  return Math.round((props.state.answeredQuestions / props.state.totalQuestions) * 100)
+  return Math.round((state.value.answeredQuestions / state.value.totalQuestions) * 100)
 })
 
 const timerLabel = computed(() => {
-  const minutes = Math.floor(props.state.elapsedSeconds / 60).toString().padStart(2, '0')
-  const seconds = (props.state.elapsedSeconds % 60).toString().padStart(2, '0')
+  const minutes = Math.floor(state.value.elapsedSeconds / 60).toString().padStart(2, '0')
+  const seconds = (state.value.elapsedSeconds % 60).toString().padStart(2, '0')
 
   return `${minutes}:${seconds}`
 })
@@ -60,12 +61,12 @@ const timerLabel = computed(() => {
       <div class="flex flex-col gap-2 lg:max-w-2xl mx-auto">
         <UProgress
           :model-value="progress"
-          :color="props.state.isErrorFeedbackActive ? 'error' : 'primary'"
-          :ui="{ indicator: props.state.isErrorFeedbackActive ? 'animate-pulse' : '' }"
+          :color="state.isErrorFeedbackActive ? 'error' : 'primary'"
+          :ui="{ indicator: state.isErrorFeedbackActive ? 'animate-pulse' : '' }"
         />
         <div class="inline-flex items-center justify-between text-sm">
           <span class="font-semibold">
-            Flag {{ props.state.currentQuestionNumber }} of {{ props.state.totalQuestions }}
+            Flag {{ state.currentQuestionNumber }} of {{ state.totalQuestions }}
           </span>
           <span class="text-muted">
             {{ progress }} %

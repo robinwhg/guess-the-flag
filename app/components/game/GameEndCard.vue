@@ -74,14 +74,14 @@ const accuracyPct = computed(() => {
             Accuracy
           </p>
           <UProgress
-            :model-value="props.result.correctCount"
+            :model-value="result.correctCount"
             :max="result.totalQuestions"
             color="success"
             :ui="{ base: 'bg-error' }"
           />
           <div class="inline-flex items-center justify-between text-sm">
             <span class="font-semibold">
-              {{ props.result.correctCount }} out of {{ result.totalQuestions }} Flags
+              {{ result.correctCount }} out of {{ result.totalQuestions }} Flags
             </span>
             <span class="text-muted">
               {{ accuracyPct }} %

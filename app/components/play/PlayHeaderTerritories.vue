@@ -7,11 +7,12 @@ interface PlayHeaderTerritoriesProps {
 }
 
 const props = defineProps<PlayHeaderTerritoriesProps>()
+const { regionTitle, countries } = toRefs(props)
 
 const integerFormatter = new Intl.NumberFormat('en-US')
 
 const territoriesList = computed(() => {
-  return props.countries
+  return countries.value
     .filter(country => !country.independent)
     .toSorted((a, b) => a.name.common.localeCompare(b.name.common))
 })
@@ -31,11 +32,11 @@ const countLabel = computed(() => {
 })
 
 const modalTitle = computed(() => {
-  return `Territories of ${props.regionTitle}`
+  return `Territories of ${regionTitle.value}`
 })
 
 const modalDescription = computed(() => {
-  return `All overseas regions and dependencies of ${props.regionTitle}`
+  return `All overseas regions and dependencies of ${regionTitle.value}`
 })
 
 function getSovereignName(country: Country): string {

@@ -6,6 +6,7 @@ interface GameImageProps {
 }
 
 const props = defineProps<GameImageProps>()
+const { src, alt, preloadSrc } = toRefs(props)
 
 const isImageLoaded = ref(false)
 
@@ -18,16 +19,16 @@ function handleImageLoad(): void {
   isImageLoaded.value = true
 }
 
-watch(() => props.src, () => {
+watch(src, () => {
   isImageLoaded.value = false
 }, { immediate: true })
 
-watch(() => props.preloadSrc, (src) => {
-  if (!src) {
+watch(preloadSrc, (nextSrc) => {
+  if (!nextSrc) {
     return
   }
 
-  preloadImage(src)
+  preloadImage(nextSrc)
 }, { immediate: true })
 </script>
 
@@ -39,8 +40,8 @@ watch(() => props.preloadSrc, (src) => {
     />
 
     <img
-      :src="props.src"
-      :alt="props.alt"
+      :src="src"
+      :alt="alt"
       class="mx-auto h-full w-full object-contain transition-opacity duration-200"
       :class="isImageLoaded ? 'opacity-100' : 'opacity-0'"
       @load="handleImageLoad"

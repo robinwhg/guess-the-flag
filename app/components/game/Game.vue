@@ -18,6 +18,8 @@ const emit = defineEmits<{
   back: []
 }>()
 
+const { questions, gameMeta } = toRefs(props)
+
 const gameSession = reactive(useGameSession(props))
 
 function handleExit(): void {
@@ -26,7 +28,7 @@ function handleExit(): void {
 }
 
 watch(
-  () => [props.questions, props.gameMeta.regionSlug, props.gameMeta.regionName, props.gameMeta.gameMode],
+  () => [questions.value, gameMeta.value.regionSlug, gameMeta.value.regionName, gameMeta.value.gameMode],
   () => {
     handleExit()
   },

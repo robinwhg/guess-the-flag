@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
 
-defineProps<{
+const props = defineProps<{
   error: NuxtError
 }>()
+const { error } = toRefs(props)
 </script>
 
 <template>

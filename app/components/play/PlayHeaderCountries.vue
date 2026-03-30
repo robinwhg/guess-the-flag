@@ -5,11 +5,12 @@ interface PlayHeaderCountriesProps {
 }
 
 const props = defineProps<PlayHeaderCountriesProps>()
+const { regionTitle, countries } = toRefs(props)
 
 const integerFormatter = new Intl.NumberFormat('en-US')
 
 const countriesList = computed(() => {
-  return props.countries
+  return countries.value
     .filter(country => country.independent)
     .toSorted((a, b) => a.name.common.localeCompare(b.name.common))
 })
@@ -19,11 +20,11 @@ const countLabel = computed(() => {
 })
 
 const modalTitle = computed(() => {
-  return `Countries of ${props.regionTitle}`
+  return `Countries of ${regionTitle.value}`
 })
 
 const modalDescription = computed(() => {
-  return `All sovereign and independent countries of ${props.regionTitle}`
+  return `All sovereign and independent countries of ${regionTitle.value}`
 })
 </script>
 

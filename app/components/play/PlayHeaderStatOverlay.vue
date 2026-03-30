@@ -12,6 +12,7 @@ interface PlayHeaderStatOverlayProps {
 }
 
 const props = defineProps<PlayHeaderStatOverlayProps>()
+const { icon, value, label, title, description, items, descriptionResolver } = toRefs(props)
 
 const breakpoints = useBreakpoints (breakpointsTailwind)
 const isDesktop = breakpoints.greater('sm')
@@ -24,12 +25,12 @@ const normalizedQuery = computed(() => {
 
 const filteredItems = computed(() => {
   if (!normalizedQuery.value) {
-    return props.items
+    return items.value
   }
 
-  return props.items.filter((item) => {
+  return items.value.filter((item) => {
     const title = item.name.common.toLowerCase()
-    const description = props.descriptionResolver(item).toLowerCase()
+    const description = descriptionResolver.value(item).toLowerCase()
 
     return title.includes(normalizedQuery.value) || description.includes(normalizedQuery.value)
   })
@@ -47,9 +48,9 @@ const [DefineBodyTemplate, ReuseBodyTemplate] = createReusableTemplate()
 <template>
   <div>
     <UPageCard
-      :icon="props.icon"
-      :title="props.value"
-      :description="props.label"
+      :icon="icon"
+      :title="value"
+      :description="label"
       class="cursor-pointer transition-transform hover:scale-105"
       @click="open = true"
     />
@@ -61,7 +62,7 @@ const [DefineBodyTemplate, ReuseBodyTemplate] = createReusableTemplate()
             v-model="searchQuery"
             variant="soft"
             icon="i-tabler-search"
-            :placeholder="`Search ${props.label.toLowerCase()}...`"
+            :placeholder="`Search ${label.toLowerCase()}...`"
           >
             <template v-if="searchQuery?.length" #trailing>
               <UButton
@@ -83,7 +84,7 @@ const [DefineBodyTemplate, ReuseBodyTemplate] = createReusableTemplate()
               v-for="item in filteredItems"
               :key="item.cca2"
               :title="item.name.common"
-              :description="props.descriptionResolver(item)"
+              :description="descriptionResolver(item)"
               orientation="horizontal"
               reverse
               :ui="{ container: 'grid grid-cols-3 lg:grid-cols-3 items-center', wrapper: 'col-span-2' }"
@@ -107,8 +108,8 @@ const [DefineBodyTemplate, ReuseBodyTemplate] = createReusableTemplate()
       <UModal
         v-if="isDesktop"
         v-model:open="open"
-        :title="props.title"
-        :description="props.description"
+        :title="title"
+        :description="description"
       >
         <template #body>
           <ReuseBodyTemplate />
@@ -118,8 +119,8 @@ const [DefineBodyTemplate, ReuseBodyTemplate] = createReusableTemplate()
       <UDrawer
         v-else
         v-model:open="open"
-        :title="props.title"
-        :description="props.description"
+        :title="title"
+        :description="description"
         direction="bottom"
       >
         <template #body>
