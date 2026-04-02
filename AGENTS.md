@@ -1,187 +1,166 @@
 # AGENTS.md
 
-## Purpose
+Repository guide for coding agents working in `guess-the-flag`.
 
-- This file is the operating guide for coding agents working in this repository.
-- It documents verified commands, style conventions, and project-specific guardrails.
-- Follow this file over generic framework habits when they conflict.
+## 1) Project Snapshot
 
-## Repository Snapshot
-
-- Framework: Nuxt 4 + Vue 3 + TypeScript.
+- Stack: Nuxt 4 + Vue 3 + TypeScript + Nuxt UI + Tailwind CSS 4.
 - Package manager: `pnpm` (lockfile: `pnpm-lock.yaml`).
-- Linting: ESLint flat config.
-- Current app files are minimal (`app/app.vue`, `app/utils/countries.ts`).
-- No dedicated test framework is configured yet.
+- App source is under `app/`.
+- Important configs:
+  - `nuxt.config.ts`
+  - `eslint.config.mjs` (Nuxt-integrated ESLint)
+  - `eslint.config.js` (Antfu base config)
+  - `tsconfig.json` (Nuxt-generated references)
 
-## Important Paths
+## 2) Install / Run / Build Commands
 
-- App entry: `app/app.vue`
-- Data utilities: `app/utils/`
-- Nuxt config: `nuxt.config.ts`
-- TS config: `tsconfig.json`
-- ESLint configs: `eslint.config.js`, `eslint.config.mjs`
-- Workspace config: `pnpm-workspace.yaml`
+Run all commands from repository root.
 
-## Cursor and Copilot Rules
-
-- Checked `.cursor/rules/`: not present.
-- Checked `.cursorrules`: not present.
-- Checked `.github/copilot-instructions.md`: not present.
-- No external Cursor/Copilot instruction files are currently enforced.
-
-## Install and Setup
-
-- Install dependencies: `pnpm install`
-- Nuxt postinstall hook runs automatically (`nuxt prepare`).
-- If types look stale, run: `pnpm install` again to regenerate `.nuxt` artifacts.
-
-## Build, Dev, Lint, Test Commands
-
-### Core commands (from `package.json`)
-
-- Start dev server: `pnpm dev`
-- Build production bundle: `pnpm build`
-- Generate static output: `pnpm generate`
-- Preview built output: `pnpm preview`
-- Lint all files: `pnpm lint`
-- Lint and auto-fix: `pnpm lint:fix`
-
-### Single-file and targeted linting
-
-- Lint one file: `pnpm eslint app/utils/countries.ts`
-- Lint and fix one file: `pnpm eslint app/utils/countries.ts --fix`
-- Lint one directory: `pnpm eslint app/`
-
-### Tests: current status
-
-- There is no `test` script in `package.json` right now.
-- There are no detected test files in the repo.
-- Do not invent a test command in CI/docs without adding the test tool first.
-
-### Single-test execution guidance (when tests are added)
-
-- If Vitest is added, run one file: `pnpm vitest path/to/file.test.ts`
-- If Vitest is added, run one test by name: `pnpm vitest -t "test name"`
-- If Playwright is added, run one spec: `pnpm playwright test tests/example.spec.ts`
-- If Jest is added, run one file: `pnpm jest path/to/file.test.ts`
-
-## Execution Order for Validation
-
-- For code-only changes: run `pnpm lint`
-- For behavior changes: run `pnpm lint` and relevant manual verification in `pnpm dev`
-- For release sanity: run `pnpm build` after lint passes
-
-## Generated and External Files
-
-- Never hand-edit `.nuxt/` generated files.
-- Never edit `node_modules/`.
-- Avoid committing local env values (`.env*` is gitignored except `.env.example`).
-
-## Code Style Guidelines
-
-### Formatting baseline
-
-- Use 2-space indentation.
-- Prefer single quotes in TS/JS unless escaping is worse.
-- Keep trailing commas where formatter/linter expects them.
-- Avoid semicolon churn; follow existing file style and ESLint autofix output.
-- Keep lines readable; split long objects/arrays across lines.
-
-### Imports and module usage
-
-- Keep imports at top-level.
-- Group imports by source (framework, third-party, internal).
-- Use explicit imports for local utilities instead of deep implicit globals.
-- Remove unused imports immediately.
-- Prefer one canonical import path per module to avoid duplicates.
-
-### TypeScript rules
-
-- Prefer explicit types for exported APIs and complex return values.
-- Allow inference for obvious local primitives.
-- Avoid `any`; use narrow object shapes, unions, or generics.
-- Use `type` for object/union composition and `interface` when extension is useful.
-- Mark immutable constants with `const` and readonly typing where practical.
-
-### Vue and Nuxt conventions
-
-- Prefer `<script setup lang="ts">` for Vue SFC logic.
-- Keep templates declarative; move heavy logic into composables/helpers.
-- Use Nuxt auto-imports when idiomatic, but stay consistent within each file.
-- Keep components focused; split large views into smaller components.
-- Put reusable domain logic in `app/utils/` or composables as the codebase grows.
-
-### Naming conventions
-
-- Variables/functions: `camelCase`.
-- Components/classes/types: `PascalCase`.
-- Constants: `UPPER_SNAKE_CASE` only for true constants.
-- File names in app modules: follow existing local pattern; prefer descriptive names.
-- Booleans should read as predicates (`isLoading`, `hasError`, `canSubmit`).
-
-### Data and state handling
-
-- Keep source-of-truth state minimal and derived state computed.
-- Do not duplicate static datasets without need.
-- For country/flag data edits, preserve existing schema and key names.
-- Prefer pure utility functions for transform logic.
-- Avoid hidden mutation of shared objects.
-
-### Error handling
-
-- Fail fast on invalid inputs at boundaries.
-- Throw typed/contextual errors in utilities where recovery is not possible.
-- In UI paths, convert thrown errors into user-safe states/messages.
-- Do not swallow errors silently.
-- Add actionable context to logs (operation + identifiers), never secrets.
-
-### Async and side effects
-
-- Prefer `async/await` over deep promise chains.
-- Keep side effects near the edge of the app (page/component lifecycle/composables).
-- Cancel or guard stale async flows when state can change mid-flight.
-- Handle loading, success, and error states explicitly in UI logic.
-
-### Comments and documentation
-
-- Add comments only when intent is not obvious from code.
-- Keep comments accurate and remove stale comments in the same change.
-- Prefer descriptive naming over explanatory comments.
-
-## Agent Workflow Recommendations
-
-### Before editing
-
-- Read `package.json`, `nuxt.config.ts`, and nearby module files first.
-- Check whether an existing pattern already solves the task.
-- Confirm whether the target is source code vs generated output.
-
-### While editing
-
-- Make small, reversible patches.
-- Keep changes scoped to the request.
-- Avoid broad refactors unless required for correctness.
-
-### After editing
-
-- Run `pnpm lint` at minimum.
-- If behavior changed, sanity-check in `pnpm dev`.
-- If build-sensitive files changed, run `pnpm build`.
-- Update this file when toolchain or conventions change.
-
-## Known Gaps
-
-- No test runner is configured yet.
-- README is currently minimal.
-- If tests are introduced, add exact commands here (including single-test invocation).
-
-## Quick Command Cheatsheet
+### Install
 
 - `pnpm install`
-- `pnpm dev`
-- `pnpm lint`
-- `pnpm lint:fix`
-- `pnpm build`
-- `pnpm generate`
-- `pnpm preview`
+
+### Development
+
+- `pnpm dev` - start local dev server.
+- `pnpm preview` - preview built app.
+
+### Production Build
+
+- `pnpm build` - create production build.
+- `pnpm generate` - generate static output.
+
+### Lint
+
+- `pnpm lint` - run ESLint on repo.
+- `pnpm lint:fix` - run ESLint with autofix.
+
+### Tests (Current State)
+
+- There is currently no project test framework configured in `package.json` scripts.
+- No repo test files were found under common patterns (`*.test.*`, `*.spec.*`).
+
+### Single Test Execution (When Tests Are Added)
+
+If Vitest is introduced (recommended for Nuxt/Vue unit tests), use:
+
+- `pnpm vitest` - run all tests.
+- `pnpm vitest path/to/file.test.ts` - run one file.
+- `pnpm vitest path/to/file.test.ts -t "test name"` - run one test case by name.
+- `pnpm vitest --watch path/to/file.test.ts` - watch one file.
+
+If tests are added via scripts instead, prefer script commands from `package.json`.
+
+## 3) Repository Structure
+
+- `app/pages/` - route pages (`index.vue`, `play/[region].vue`).
+- `app/components/` - UI components organized by domain (`game/`, `play/`, `the/`, `base/`).
+- `app/composables/` - composition logic (`useGame.ts`).
+- `app/utils/` - shared data/constants/helpers (`countries.ts`, `playable-regions.ts`).
+- `app/assets/css/main.css` - Tailwind/Nuxt UI imports and app-level styles.
+- `app/countries.json` - source dataset used by gameplay.
+
+## 4) Auto-Import Rules (Nuxt)
+
+- Do **not** import from `/composables` manually in most cases.
+- Do **not** import from `/utils` manually in most cases.
+- In this repo, functions/constants from those directories are auto-imported by Nuxt.
+- Prefer direct usage (for example `useGame`, `countries`, `playableRegions`) unless a specific explicit import is required for tooling edge cases.
+- Continue to import types from external modules when needed (for example `import type { NuxtError } from '#app'`).
+
+## 5) Code Style Conventions
+
+Follow existing patterns in the repository first; use these as defaults.
+
+### Language and Framework
+
+- Use TypeScript for logic files and `<script setup lang="ts">` in Vue SFCs.
+- Keep components/composables small and focused.
+- Prefer Vue/Nuxt composables (`ref`, `computed`, `useRoute`, `useSeoMeta`, etc.) over custom alternatives unless required.
+
+### Imports
+
+- Rely on Nuxt auto-imports for Vue/Nuxt APIs and local `app/composables` + `app/utils` exports.
+- Use explicit imports when auto-import does not apply (external libs, types, JSON, or clarity-critical cases).
+- Use `import type` for type-only imports.
+- Keep imports minimal and remove unused imports.
+
+### Formatting
+
+- Use ESLint as source of truth (`pnpm lint`).
+- Use 2-space indentation.
+- Prefer single quotes in TS/JS as used in current files.
+- Keep trailing commas where lint/style expects them.
+- Keep line length readable; split long object literals and props across lines.
+
+### Types
+
+- Avoid `any`; prefer explicit interfaces/types.
+- Define domain types in shared files when reused (example: `Country` in `app/utils/countries.ts`).
+- Use generics where they improve type safety (`shuffle<T>` pattern).
+- Treat nullable/optional values explicitly (`if (!question.value) return`).
+
+### Naming
+
+- Components: PascalCase file names (`GameHeader.vue`, `PlayHeaderCard.vue`).
+- Composables: `useX` naming (`useGame.ts`).
+- Utilities/constants: kebab-case file names with descriptive exports.
+- Variables/functions: `camelCase`.
+- Constants: `UPPER_SNAKE_CASE` for fixed values (`CHOICE_COUNT`, `ADVANCE_DELAY`).
+- Route params: normalize early (see region slug lowercasing pattern).
+
+### Vue SFC Patterns
+
+- Order: `<script setup>` first, `<template>` second, optional `<style>` last.
+- Keep template conditions clear (`v-if`/`v-else`) and avoid deeply nested branching.
+- Use computed values for derived UI/state rather than inline complex expressions.
+- Use emitted events for parent-child actions (`back`, `retry`, etc.).
+
+### State and Data Flow
+
+- Keep game/session logic in composables, not in page templates.
+- Prefer immutable transforms for arrays (`filter`, `map`, `slice`) unless mutation is intentional and local.
+- Reset all related state in restart flows (`retry` resets index/questions/errors/pause).
+
+### Error Handling
+
+- In pages, throw Nuxt errors via `createError` for invalid route state.
+- Provide status code and status message for user-facing errors.
+- Guard against missing data before accessing nested values.
+- Fail early with explicit checks.
+
+### Accessibility and UX
+
+- Preserve reduced-motion handling in CSS (`prefers-reduced-motion`).
+- Keep image `loading="lazy"` and `decoding="async"` behavior when rendering many flags/cards.
+- Maintain semantic labels/text for actionable buttons.
+
+## 6) Agent Workflow Expectations
+
+- Before edits: inspect nearby files for established conventions.
+- After edits: run `pnpm lint` at minimum.
+- If build-sensitive changes are made: run `pnpm build`.
+- If tests are introduced later: run the narrowest relevant test first, then broader suite.
+- Avoid large unrelated refactors in the same change.
+
+## 7) Cursor / Copilot Rules
+
+- No `.cursorrules` file was found.
+- No `.cursor/rules/` directory rules were found.
+- No `.github/copilot-instructions.md` was found.
+- If any of these files are added later, treat them as higher-priority agent instructions and update this document.
+
+## 8) Quick Command Reference
+
+- Install deps: `pnpm install`
+- Start dev: `pnpm dev`
+- Lint: `pnpm lint`
+- Lint + fix: `pnpm lint:fix`
+- Build: `pnpm build`
+- Generate static site: `pnpm generate`
+- Preview build: `pnpm preview`
+- Single test file (future Vitest): `pnpm vitest path/to/file.test.ts`
+- Single named test (future Vitest): `pnpm vitest path/to/file.test.ts -t "name"`
+
+Keep this file updated when scripts, tooling, or folder conventions change.
