@@ -1,17 +1,4 @@
-type GameMode = 'countries' | 'territories' | 'both'
-
-interface GameMeta {
-  regionSlug: string
-  regionName: string
-  gameMode: GameMode
-}
-
-interface UseGameSessionConfig {
-  questions: Country[]
-  gameMeta: GameMeta
-}
-
-export function useGameSession(config: UseGameSessionConfig) {
+export function useGameSession(questions: Country[]) {
   const isPaused = ref(false)
   const selectedChoiceCode = ref<string | null>(null)
   const isRevealed = ref(false)

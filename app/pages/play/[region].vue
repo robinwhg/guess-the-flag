@@ -38,7 +38,7 @@ const regionCountries = computed(() => {
 })
 
 const selectedCountries = computed(() => {
-  return regionCountries.value.filter(x => x.independent === false)
+  return regionCountries.value
 })
 
 const hasStarted = ref(false)
@@ -71,7 +71,7 @@ const hasStarted = ref(false)
 
           <Game
             v-else
-            :questions="selectedCountries"
+            :countries="selectedCountries"
             @back="hasStarted = false"
           />
         </Transition>
