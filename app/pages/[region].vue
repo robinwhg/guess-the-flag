@@ -36,45 +36,29 @@ const regionCountries = computed(() => {
 
   return countries.filter(country => country.region.toLowerCase() === currentRegion.slug)
 })
-
-const selectedCountries = computed(() => {
-  return regionCountries.value.filter(x => x.independent === false)
-})
-
-const hasStarted = ref(false)
 </script>
 
 <template>
   <UPage>
     <UPageBody>
       <UContainer>
-        <Transition name="fade" mode="out-in">
-          <div
-            v-if="!hasStarted"
-            class="flex flex-col gap-8"
-          >
-            <PlayHeader
-              :title="pageTitle"
-              :description="pageDescription"
-              :countries="regionCountries"
-            />
-
-            <div class="inline-flex justify-end">
-              <UButton
-                label="Start Quiz"
-                icon="i-tabler-player-play-filled"
-                :ui="{ base: 'w-full justify-center sm:w-max sm:justify-start' }"
-                @click="hasStarted = true"
-              />
-            </div>
-          </div>
-
-          <Game
-            v-else
-            :countries="selectedCountries"
-            @back="hasStarted = false"
+        <div class="flex flex-col gap-8">
+          <PlayHeader
+            :title="pageTitle"
+            :description="pageDescription"
+            :countries="regionCountries"
           />
-        </Transition>
+
+          <UPageGrid>
+            <UPageCard
+              v-for="game in currentRegion.games"
+              :key="game.slug"
+              :title="game.title"
+              :to="`/play/${currentRegion.slug}/${game.slug}`"
+              class="transition-transform hover:scale-105"
+            />
+          </UPageGrid>
+        </div>
       </UContainer>
     </UPageBody>
   </UPage>

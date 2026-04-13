@@ -2,7 +2,7 @@
 const items = computed(() => {
   return playableRegions.map(region => ({
     label: region.title,
-    to: `/play/${region.slug}`,
+    to: `/${region.slug}`,
   }))
 })
 </script>

@@ -13,7 +13,7 @@
               v-for="r in playableRegions" :key="r.slug"
               :title="r.title"
               :description="r.description"
-              :to="`/play/${r.slug}`"
+              :to="`/${r.slug}`"
               class="transition-transform hover:scale-105"
             >
               <div class="h-32 flex items-center">
