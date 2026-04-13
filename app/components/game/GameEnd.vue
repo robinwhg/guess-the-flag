@@ -23,13 +23,13 @@ const accuracyPct = computed(() => {
 </script>
 
 <template>
-  <div class="space-y-8">
-    <p class="text-xl font-semibold col-span-2">
+  <GameStateLayout>
+    <template #title>
       Run complete!
-    </p>
+    </template>
 
-    <div class="max-w-2xl mx-auto grid grid-cols-2 gap-4">
-      <UCard :ui="{ root: 'col-span-2 dark:bg-default divide-none', header: 'min-h-10', body: 'flex flex-col gap-4' }">
+    <template #content>
+      <UCard :ui="{ root: 'dark:bg-default divide-none', header: 'min-h-10', body: 'flex flex-col gap-4' }">
         <template #header>
           <p class="text-xl font-semibold">
             Your score
@@ -66,19 +66,23 @@ const accuracyPct = computed(() => {
           </span>
         </div>
       </UCard>
+    </template>
 
-      <BaseCardButton
-        icon="i-tabler-reload"
-        label="Retry"
-        @click="emit('retry')"
-      />
+    <template #actions>
+      <div class="grid grid-cols-2 gap-4">
+        <BaseCardButton
+          icon="i-tabler-reload"
+          label="Retry"
+          @click="emit('retry')"
+        />
 
-      <BaseCardButton
-        color="primary"
-        icon="i-tabler-arrow-forward"
-        label="Continue"
-        @click="emit('back')"
-      />
-    </div>
-  </div>
+        <BaseCardButton
+          color="primary"
+          icon="i-tabler-arrow-forward"
+          label="Continue"
+          @click="emit('back')"
+        />
+      </div>
+    </template>
+  </GameStateLayout>
 </template>

@@ -49,10 +49,14 @@ function onBack() {
   <UPage>
     <UPageBody>
       <UContainer>
-        <Game
-          :countries="gameCountries"
-          @back="onBack"
-        />
+        <ClientOnly>
+          <Game
+            :countries="gameCountries"
+            :game-title="currentGame.title"
+            :region-title="`Flags of ${regionTitle}`"
+            @back="onBack"
+          />
+        </ClientOnly>
       </UContainer>
     </UPageBody>
   </UPage>

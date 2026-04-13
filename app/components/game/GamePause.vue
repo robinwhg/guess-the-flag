@@ -6,20 +6,18 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="space-y-4">
-    <Transition name="slide-side" mode="out-in" appear>
+  <GameStateLayout>
+    <template #content>
       <UCard :ui="{ root: 'dark:bg-default', body: 'p-4 sm:p-4 relative h-64 lg:h-80 flex flex-col items-center justify-center text-dimmed' }">
         <UIcon name="i-tabler-player-pause-filled" class="size-20 lg:size-32" />
         <h2 class="text-xl font-semibold">
           Game paused
         </h2>
       </UCard>
-    </Transition>
+    </template>
 
-    <Transition
-      name="slide-up" mode="out-in" appear
-    >
-      <div class="col-span-2 grid grid-cols-2 items-stretch gap-4">
+    <template #actions>
+      <div class="grid grid-cols-2 items-stretch gap-4">
         <BaseCardButton
           icon="i-tabler-player-stop-filled"
           label="Stop"
@@ -33,6 +31,6 @@ const emit = defineEmits<{
           @click="emit('resume')"
         />
       </div>
-    </Transition>
-  </div>
+    </template>
+  </GameStateLayout>
 </template>

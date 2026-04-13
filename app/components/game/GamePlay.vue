@@ -13,16 +13,16 @@ const { question, choices, isAdvancing } = toRefs(props)
 </script>
 
 <template>
-  <div class="space-y-4">
-    <Transition name="slide-side" mode="out-in" appear>
+  <GameStateLayout>
+    <template #content>
       <GameImage
         :key="question.cca3"
         :src="question.flag.svg"
         :alt="question.flag.alt"
       />
-    </Transition>
+    </template>
 
-    <Transition name="slide-up" mode="out-in">
+    <template #actions>
       <div :key="`choices-${question.cca3}`" class="grid grid-cols-2 items-stretch gap-4">
         <div
           v-for="choice in choices" :key="choice.country.cca3" class="relative"
@@ -48,6 +48,6 @@ const { question, choices, isAdvancing } = toRefs(props)
           </Transition>
         </div>
       </div>
-    </Transition>
-  </div>
+    </template>
+  </GameStateLayout>
 </template>
