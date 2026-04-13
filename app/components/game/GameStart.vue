@@ -49,15 +49,15 @@ const totalTerritories = computed(() => countries.value.filter(country => !count
     <template #actions>
       <div class="grid grid-cols-2 gap-4">
         <BaseCardButton
-          icon="i-tabler-arrow-back"
-          label="Back to Region"
+          icon="i-tabler-player-eject-filled"
+          label="Back"
           @click="emit('back')"
         />
 
         <BaseCardButton
           color="primary"
           icon="i-tabler-player-play-filled"
-          label="Start Quiz"
+          label="Start"
           @click="emit('start')"
         />
       </div>

@@ -65,14 +65,14 @@ const accuracyPct = computed(() => {
     <template #actions>
       <div class="grid grid-cols-2 gap-4">
         <BaseCardButton
-          icon="i-tabler-reload"
+          icon="i-tabler-player-skip-back-filled"
           label="Retry"
           @click="emit('retry')"
         />
 
         <BaseCardButton
           color="primary"
-          icon="i-tabler-arrow-forward"
+          icon="i-tabler-player-skip-forward-filled"
           label="Continue"
           @click="emit('back')"
         />
