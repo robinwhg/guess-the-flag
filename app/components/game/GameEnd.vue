@@ -3,6 +3,8 @@ const props = defineProps<{
   totalQuestions: number
   totalCorrectQuestions: number
   timerLabel: string
+  gameTitle: string
+  regionTitle: string
 }>()
 
 const emit = defineEmits<{
@@ -10,7 +12,7 @@ const emit = defineEmits<{
   back: []
 }>()
 
-const { totalQuestions, totalCorrectQuestions, timerLabel } = toRefs(props)
+const { totalQuestions, totalCorrectQuestions } = toRefs(props)
 
 const accuracyPct = computed(() => {
   if (totalQuestions.value === 0)
@@ -23,54 +25,30 @@ const accuracyPct = computed(() => {
 <template>
   <GameStateLayout>
     <template #content>
-      <div class="flex h-full flex-col gap-4 overflow-y-auto">
-        <p class="text-xl font-semibold">
-          Your score
-        </p>
+      <div class="overflow-y-auto grid grid-cols-2 gap-4">
+        <UPageFeature :title="regionTitle" :description="gameTitle" class="col-span-2" />
 
-        <div class="flex flex-col gap-2">
-          <p class="text-base text-pretty font-semibold text-highlighted">
-            Accuracy
-          </p>
-          <UProgress
-            :model-value="totalCorrectQuestions"
-            :max="totalQuestions"
-            color="success"
-            :ui="{ base: 'bg-error' }"
-          />
-          <div class="inline-flex items-center justify-between text-sm">
-            <span class="font-semibold">
-              {{ totalCorrectQuestions }} out of {{ totalQuestions }} Flags
-            </span>
-            <span class="text-muted">
-              {{ accuracyPct }} %
-            </span>
-          </div>
-        </div>
+        <UPageFeature :title="totalQuestions.toString()" description="Flags" icon="i-tabler-flag-filled" />
 
-        <div class="inline-flex items-center justify-between">
-          <span class="inline-flex items-center gap-1 text-base text-pretty font-semibold text-highlighted">
-            <UIcon name="i-tabler-stopwatch" class="size-5 shrink-0" />
-            Time
-          </span>
-          <span class="text-muted font-mono">
-            {{ timerLabel }}
-          </span>
-        </div>
+        <UPageFeature title="Multiple Choice" description="Mode" icon="i-tabler-layout-grid-filled" />
+
+        <UPageFeature :title="`${accuracyPct} %`" description="Score" icon="i-tabler-trophy-filled" />
+
+        <UPageFeature :title="timerLabel" description="Time" icon="i-tabler-clock-filled" />
       </div>
     </template>
 
     <template #actions>
       <div class="grid grid-cols-2 gap-4">
         <BaseCardButton
-          icon="i-tabler-player-skip-back-filled"
+          icon="i-tabler-restore"
           label="Retry"
           @click="emit('retry')"
         />
 
         <BaseCardButton
           color="primary"
-          icon="i-tabler-player-skip-forward-filled"
+          icon="i-tabler-arrow-right"
           label="Continue"
           @click="emit('back')"
         />

@@ -12,7 +12,7 @@ const { contentKey } = toRefs(props)
   <div class="space-y-4">
     <div class="max-w-2xl mx-auto space-y-4">
       <Transition name="slide-side" mode="out-in" appear>
-        <UCard :key="contentKey" :ui="{ root: 'dark:bg-default', body: 'p-4 sm:p-4 relative h-64 lg:h-80' }">
+        <UCard :key="contentKey" :ui="{ body: 'p-4 sm:p-4 relative h-64 lg:h-80' }">
           <slot name="content" />
         </UCard>
       </Transition>

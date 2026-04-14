@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { GameState } from '~/composables/useGame'
 
-const props = defineProps<{
+defineProps<{
   currentIndex: number
   totalQuestions: number
   timerLabel: string
@@ -12,8 +12,6 @@ const props = defineProps<{
 const emit = defineEmits<{
   togglePause: []
 }>()
-
-const { currentIndex, totalQuestions, timerLabel, isAdvancing, gameState } = toRefs(props)
 </script>
 
 <template>
@@ -44,7 +42,7 @@ const { currentIndex, totalQuestions, timerLabel, isAdvancing, gameState } = toR
       </div>
 
       <div class="order-2 lg:order-3 flex items-center gap-2 justify-end">
-        <UIcon name="i-tabler-stopwatch" class="shrink-0 size-6" />
+        <UIcon name="i-tabler-clock-filled" class="shrink-0 size-6" />
         <span class="text-xl font-semibold font-mono">
           {{ timerLabel }}
         </span>
@@ -67,7 +65,7 @@ const { currentIndex, totalQuestions, timerLabel, isAdvancing, gameState } = toR
           />
           <div class="inline-flex items-center justify-between text-sm">
             <span class="font-semibold">
-              Flag {{ currentIndex }} of {{ totalQuestions }}
+              Flag {{ currentIndex + 1 }} of {{ totalQuestions }}
             </span>
             <span class="text-muted">
               {{ totalQuestions === 0

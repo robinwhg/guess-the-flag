@@ -3,6 +3,7 @@ const props = defineProps<{
   countries: Country[]
   gameTitle: string
   regionTitle: string
+  regionSlug: string
 }>()
 
 const emit = defineEmits<{
@@ -38,9 +39,9 @@ function togglePause() {
     <Transition name="fade" mode="out-in">
       <GameStart
         v-if="gameState === 'start'"
-        :game-title="gameTitle"
-        :region-title="regionTitle"
-        :countries="countries"
+        :game-title
+        :region-title
+        :total-questions
         @start="startGame"
         @back="emit('back')"
       />
@@ -65,7 +66,9 @@ function togglePause() {
         v-else
         :total-questions
         :total-correct-questions
-        :timer-label="timerLabel"
+        :timer-label
+        :game-title
+        :region-title
         @retry="retry"
         @back="emit('back')"
       />

@@ -53,6 +53,7 @@ function onBack() {
           :countries="gameCountries"
           :game-title="currentGame.title"
           :region-title="`Flags of ${regionTitle}`"
+          :region-slug="currentRegion.slug"
           @back="onBack"
         />
       </ClientOnly>
