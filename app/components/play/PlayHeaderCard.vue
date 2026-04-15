@@ -52,7 +52,12 @@ const [DefineBodyTemplate, ReuseBodyTemplate] = createReusableTemplate()
       :title="value"
       :description="label"
       class="cursor-pointer transition-transform hover:scale-105"
+      role="button"
+      tabindex="0"
+      :aria-label="`Open ${label.toLowerCase()} details`"
       @click="open = true"
+      @keydown.enter="open = true"
+      @keydown.space.prevent="open = true"
     />
 
     <ClientOnly>
