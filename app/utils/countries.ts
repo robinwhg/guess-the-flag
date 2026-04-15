@@ -16,7 +16,8 @@ export interface Country {
     alt: string
     emoji: string
   }
-  sovereignState: string
+  sovereignState?: string
+  hint?: string
   cca2: string
   cca3: string
   independent: boolean

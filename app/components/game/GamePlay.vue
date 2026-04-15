@@ -23,7 +23,7 @@ const { question, choices, isAdvancing } = toRefs(props)
           class="min-h-0"
         />
 
-        <p v-if="question.hint.trim()" class="text-muted">
+        <p v-if="question.hint" class="text-muted">
           Hint: {{ question.hint }}
         </p>
       </div>
