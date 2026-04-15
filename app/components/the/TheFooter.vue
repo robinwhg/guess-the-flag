@@ -8,7 +8,7 @@
 
     <template #right>
       <p>
-        data from<ULink to="https://restcountries.com/" target="_blank">
+        base data from<ULink to="https://restcountries.com/" target="_blank">
           restcountries.com
         </ULink>
       </p>
