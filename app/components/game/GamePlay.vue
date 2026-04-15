@@ -15,11 +15,18 @@ const { question, choices, isAdvancing } = toRefs(props)
 <template>
   <GameStateLayout :content-key="question.cca3">
     <template #content>
-      <GameImage
-        :key="question.cca3"
-        :src="question.flag.svg"
-        :alt="question.flag.alt"
-      />
+      <div class="flex h-full flex-col gap-1">
+        <GameImage
+          :key="question.cca3"
+          :src="question.flag.svg"
+          :alt="question.flag.alt"
+          class="min-h-0"
+        />
+
+        <p v-if="question.hint.trim()" class="text-muted">
+          Hint: {{ question.hint }}
+        </p>
+      </div>
     </template>
 
     <template #actions>
