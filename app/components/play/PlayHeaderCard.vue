@@ -83,7 +83,7 @@ const [DefineBodyTemplate, ReuseBodyTemplate] = createReusableTemplate()
           >
             <UPageCard
               v-for="item in filteredItems"
-              :key="item.cca2"
+              :key="item.cca3"
               :title="item.name.common"
               :description="descriptionResolver(item)"
               orientation="horizontal"

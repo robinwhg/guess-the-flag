@@ -18,7 +18,6 @@ export interface Country {
   }
   sovereignState?: string
   hint?: string
-  cca2: string
   cca3: string
   independent: boolean
   altSpellings: string[]

@@ -23,7 +23,6 @@
       "emoji": "🇹🇲"
     },
     "sovereignState": "",
-    "cca2": "TM",
     "cca3": "TKM",
     "independent": true,
     "region": "Asia",
@@ -60,7 +59,6 @@
       "emoji": "🇮🇶"
     },
     "sovereignState": "",
-    "cca2": "IQ",
     "cca3": "IRQ",
     "independent": true,
     "region": "Asia",
@@ -87,7 +85,6 @@
       "emoji": "🇧🇧"
     },
     "sovereignState": "",
-    "cca2": "BB",
     "cca3": "BRB",
     "independent": true,
     "region": "Americas",
@@ -119,7 +116,6 @@
       "emoji": "🇳🇺"
     },
     "sovereignState": "",
-    "cca2": "NU",
     "cca3": "NIU",
     "independent": true,
     "region": "Oceania",
@@ -146,7 +142,6 @@
       "emoji": "🇹🇹"
     },
     "sovereignState": "",
-    "cca2": "TT",
     "cca3": "TTO",
     "independent": true,
     "region": "Americas",
@@ -173,7 +168,6 @@
       "emoji": "🇦🇺"
     },
     "sovereignState": "",
-    "cca2": "AU",
     "cca3": "AUS",
     "independent": true,
     "region": "Oceania",
@@ -200,7 +194,6 @@
       "emoji": "🇸🇲"
     },
     "sovereignState": "",
-    "cca2": "SM",
     "cca3": "SMR",
     "independent": true,
     "region": "Europe",
@@ -227,7 +220,6 @@
       "emoji": "🇿🇲"
     },
     "sovereignState": "",
-    "cca2": "ZM",
     "cca3": "ZMB",
     "independent": true,
     "region": "Africa",
@@ -254,7 +246,6 @@
       "emoji": "🇦🇹"
     },
     "sovereignState": "",
-    "cca2": "AT",
     "cca3": "AUT",
     "independent": true,
     "region": "Europe",
@@ -281,7 +272,6 @@
       "emoji": "🇲🇲"
     },
     "sovereignState": "",
-    "cca2": "MM",
     "cca3": "MMR",
     "independent": true,
     "region": "Asia",
@@ -308,7 +298,6 @@
       "emoji": "🇮🇸"
     },
     "sovereignState": "",
-    "cca2": "IS",
     "cca3": "ISL",
     "independent": true,
     "region": "Europe",
@@ -335,7 +324,6 @@
       "emoji": "🇺🇦"
     },
     "sovereignState": "",
-    "cca2": "UA",
     "cca3": "UKR",
     "independent": true,
     "region": "Europe",
@@ -362,7 +350,6 @@
       "emoji": "🇴🇲"
     },
     "sovereignState": "",
-    "cca2": "OM",
     "cca3": "OMN",
     "independent": true,
     "region": "Asia",
@@ -394,7 +381,6 @@
       "emoji": "🇫🇮"
     },
     "sovereignState": "",
-    "cca2": "FI",
     "cca3": "FIN",
     "independent": true,
     "region": "Europe",
@@ -431,7 +417,6 @@
       "emoji": "🇨🇼"
     },
     "sovereignState": "NLD",
-    "cca2": "CW",
     "cca3": "CUW",
     "independent": false,
     "region": "Americas",
@@ -463,7 +448,6 @@
       "emoji": "🇵🇷"
     },
     "sovereignState": "USA",
-    "cca2": "PR",
     "cca3": "PRI",
     "independent": false,
     "region": "Americas",
@@ -495,7 +479,6 @@
       "emoji": "🇲🇦"
     },
     "sovereignState": "",
-    "cca2": "MA",
     "cca3": "MAR",
     "independent": true,
     "region": "Africa",
@@ -522,7 +505,6 @@
       "emoji": "🇵🇲"
     },
     "sovereignState": "FRA",
-    "cca2": "PM",
     "cca3": "SPM",
     "independent": false,
     "region": "Americas",
@@ -554,7 +536,6 @@
       "emoji": "🇹🇴"
     },
     "sovereignState": "",
-    "cca2": "TO",
     "cca3": "TON",
     "independent": true,
     "region": "Oceania",
@@ -586,7 +567,6 @@
       "emoji": "🇧🇮"
     },
     "sovereignState": "",
-    "cca2": "BI",
     "cca3": "BDI",
     "independent": true,
     "region": "Africa",
@@ -613,7 +593,6 @@
       "emoji": "🇵🇸"
     },
     "sovereignState": "",
-    "cca2": "PS",
     "cca3": "PSE",
     "independent": true,
     "region": "Asia",
@@ -640,7 +619,6 @@
       "emoji": "🇬🇮"
     },
     "sovereignState": "GBR",
-    "cca2": "GI",
     "cca3": "GIB",
     "independent": false,
     "region": "Europe",
@@ -677,7 +655,6 @@
       "emoji": "🇧🇪"
     },
     "sovereignState": "",
-    "cca2": "BE",
     "cca3": "BEL",
     "independent": true,
     "region": "Europe",
@@ -704,7 +681,6 @@
       "emoji": "🇲🇫"
     },
     "sovereignState": "FRA",
-    "cca2": "MF",
     "cca3": "MAF",
     "independent": false,
     "region": "Americas",
@@ -737,7 +713,6 @@
       "emoji": "🇨🇾"
     },
     "sovereignState": "",
-    "cca2": "CY",
     "cca3": "CYP",
     "independent": true,
     "region": "Europe",
@@ -764,7 +739,6 @@
       "emoji": "🇱🇹"
     },
     "sovereignState": "",
-    "cca2": "LT",
     "cca3": "LTU",
     "independent": true,
     "region": "Europe",
@@ -791,7 +765,6 @@
       "emoji": "🇭🇲"
     },
     "sovereignState": "AUS",
-    "cca2": "HM",
     "cca3": "HMD",
     "independent": false,
     "region": "Antarctic",
@@ -819,7 +792,6 @@
       "emoji": "🇵🇳"
     },
     "sovereignState": "GBR",
-    "cca2": "PN",
     "cca3": "PCN",
     "independent": false,
     "region": "Oceania",
@@ -846,7 +818,6 @@
       "emoji": "🇬🇸"
     },
     "sovereignState": "GBR",
-    "cca2": "GS",
     "cca3": "SGS",
     "independent": false,
     "region": "Antarctic",
@@ -873,7 +844,6 @@
       "emoji": "🇷🇴"
     },
     "sovereignState": "",
-    "cca2": "RO",
     "cca3": "ROU",
     "independent": true,
     "region": "Europe",
@@ -905,7 +875,6 @@
       "emoji": "🇸🇿"
     },
     "sovereignState": "",
-    "cca2": "SZ",
     "cca3": "SWZ",
     "independent": true,
     "region": "Africa",
@@ -932,7 +901,6 @@
       "emoji": "🇬🇵"
     },
     "sovereignState": "FRA",
-    "cca2": "GP",
     "cca3": "GLP",
     "independent": false,
     "region": "Americas",
@@ -969,7 +937,6 @@
       "emoji": "🇬🇺"
     },
     "sovereignState": "USA",
-    "cca2": "GU",
     "cca3": "GUM",
     "independent": false,
     "region": "Oceania",
@@ -1006,7 +973,6 @@
       "emoji": "🇳🇴"
     },
     "sovereignState": "",
-    "cca2": "NO",
     "cca3": "NOR",
     "independent": true,
     "region": "Europe",
@@ -1033,7 +999,6 @@
       "emoji": "🇦🇪"
     },
     "sovereignState": "",
-    "cca2": "AE",
     "cca3": "ARE",
     "independent": true,
     "region": "Asia",
@@ -1060,7 +1025,6 @@
       "emoji": "🇵🇫"
     },
     "sovereignState": "FRA",
-    "cca2": "PF",
     "cca3": "PYF",
     "independent": false,
     "region": "Oceania",
@@ -1087,7 +1051,6 @@
       "emoji": "🇧🇯"
     },
     "sovereignState": "",
-    "cca2": "BJ",
     "cca3": "BEN",
     "independent": true,
     "region": "Africa",
@@ -1114,7 +1077,6 @@
       "emoji": "🇮🇷"
     },
     "sovereignState": "",
-    "cca2": "IR",
     "cca3": "IRN",
     "independent": true,
     "region": "Asia",
@@ -1141,7 +1103,6 @@
       "emoji": "🇰🇼"
     },
     "sovereignState": "",
-    "cca2": "KW",
     "cca3": "KWT",
     "independent": true,
     "region": "Asia",
@@ -1168,7 +1129,6 @@
       "emoji": "🇭🇺"
     },
     "sovereignState": "",
-    "cca2": "HU",
     "cca3": "HUN",
     "independent": true,
     "region": "Europe",
@@ -1205,7 +1165,6 @@
       "emoji": "🇸🇽"
     },
     "sovereignState": "NLD",
-    "cca2": "SX",
     "cca3": "SXM",
     "independent": false,
     "region": "Americas",
@@ -1232,7 +1191,6 @@
       "emoji": "🇻🇳"
     },
     "sovereignState": "",
-    "cca2": "VN",
     "cca3": "VNM",
     "independent": true,
     "region": "Asia",
@@ -1259,7 +1217,6 @@
       "emoji": "🇨🇨"
     },
     "sovereignState": "AUS",
-    "cca2": "CC",
     "cca3": "CCK",
     "independent": false,
     "region": "Oceania",
@@ -1286,7 +1243,6 @@
       "emoji": "🇫🇷"
     },
     "sovereignState": "",
-    "cca2": "FR",
     "cca3": "FRA",
     "independent": true,
     "region": "Europe",
@@ -1313,7 +1269,6 @@
       "emoji": "🇫🇰"
     },
     "sovereignState": "GBR",
-    "cca2": "FK",
     "cca3": "FLK",
     "independent": false,
     "region": "Americas",
@@ -1340,7 +1295,6 @@
       "emoji": "🇵🇱"
     },
     "sovereignState": "",
-    "cca2": "PL",
     "cca3": "POL",
     "independent": true,
     "region": "Europe",
@@ -1367,7 +1321,6 @@
       "emoji": "🇬🇷"
     },
     "sovereignState": "",
-    "cca2": "GR",
     "cca3": "GRC",
     "independent": true,
     "region": "Europe",
@@ -1404,7 +1357,6 @@
       "emoji": "🇯🇪"
     },
     "sovereignState": "GBR",
-    "cca2": "JE",
     "cca3": "JEY",
     "independent": false,
     "region": "Europe",
@@ -1431,7 +1383,6 @@
       "emoji": "🇱🇮"
     },
     "sovereignState": "",
-    "cca2": "LI",
     "cca3": "LIE",
     "independent": true,
     "region": "Europe",
@@ -1458,7 +1409,6 @@
       "emoji": "🇺🇸"
     },
     "sovereignState": "",
-    "cca2": "US",
     "cca3": "USA",
     "independent": true,
     "region": "Americas",
@@ -1485,7 +1435,6 @@
       "emoji": "🇻🇬"
     },
     "sovereignState": "GBR",
-    "cca2": "VG",
     "cca3": "VGB",
     "independent": false,
     "region": "Americas",
@@ -1517,7 +1466,6 @@
       "emoji": "🇮🇱"
     },
     "sovereignState": "",
-    "cca2": "IL",
     "cca3": "ISR",
     "independent": true,
     "region": "Asia",
@@ -1549,7 +1497,6 @@
       "emoji": "🇱🇰"
     },
     "sovereignState": "",
-    "cca2": "LK",
     "cca3": "LKA",
     "independent": true,
     "region": "Asia",
@@ -1576,7 +1523,6 @@
       "emoji": "🇹🇷"
     },
     "sovereignState": "",
-    "cca2": "TR",
     "cca3": "TUR",
     "independent": true,
     "region": "Asia",
@@ -1603,7 +1549,6 @@
       "emoji": "🇨🇻"
     },
     "sovereignState": "",
-    "cca2": "CV",
     "cca3": "CPV",
     "independent": true,
     "region": "Africa",
@@ -1630,7 +1575,6 @@
       "emoji": "🇬🇱"
     },
     "sovereignState": "DNK",
-    "cca2": "GL",
     "cca3": "GRL",
     "independent": false,
     "region": "Americas",
@@ -1662,7 +1606,6 @@
       "emoji": "🇩🇯"
     },
     "sovereignState": "",
-    "cca2": "DJ",
     "cca3": "DJI",
     "independent": true,
     "region": "Africa",
@@ -1694,7 +1637,6 @@
       "emoji": "🇱🇧"
     },
     "sovereignState": "",
-    "cca2": "LB",
     "cca3": "LBN",
     "independent": true,
     "region": "Asia",
@@ -1731,7 +1673,6 @@
       "emoji": "🇨🇬"
     },
     "sovereignState": "",
-    "cca2": "CG",
     "cca3": "COG",
     "independent": true,
     "region": "Africa",
@@ -1758,7 +1699,6 @@
       "emoji": "🇸🇯"
     },
     "sovereignState": "NOR",
-    "cca2": "SJ",
     "cca3": "SJM",
     "independent": false,
     "region": "Europe",
@@ -1791,7 +1731,6 @@
       "emoji": "🇸🇩"
     },
     "sovereignState": "",
-    "cca2": "SD",
     "cca3": "SDN",
     "independent": true,
     "region": "Africa",
@@ -1818,7 +1757,6 @@
       "emoji": "🇸🇸"
     },
     "sovereignState": "",
-    "cca2": "SS",
     "cca3": "SSD",
     "independent": true,
     "region": "Africa",
@@ -1845,7 +1783,6 @@
       "emoji": "🇦🇴"
     },
     "sovereignState": "",
-    "cca2": "AO",
     "cca3": "AGO",
     "independent": true,
     "region": "Africa",
@@ -1877,7 +1814,6 @@
       "emoji": "🇰🇿"
     },
     "sovereignState": "",
-    "cca2": "KZ",
     "cca3": "KAZ",
     "independent": true,
     "region": "Asia",
@@ -1904,7 +1840,6 @@
       "emoji": "🇸🇱"
     },
     "sovereignState": "",
-    "cca2": "SL",
     "cca3": "SLE",
     "independent": true,
     "region": "Africa",
@@ -1936,7 +1871,6 @@
       "emoji": "🇲🇾"
     },
     "sovereignState": "",
-    "cca2": "MY",
     "cca3": "MYS",
     "independent": true,
     "region": "Asia",
@@ -1973,7 +1907,6 @@
       "emoji": "🇬🇶"
     },
     "sovereignState": "",
-    "cca2": "GQ",
     "cca3": "GNQ",
     "independent": true,
     "region": "Africa",
@@ -2000,7 +1933,6 @@
       "emoji": "🇺🇲"
     },
     "sovereignState": "USA",
-    "cca2": "UM",
     "cca3": "UMI",
     "independent": false,
     "region": "Americas",
@@ -2028,7 +1960,6 @@
       "emoji": "🇨🇷"
     },
     "sovereignState": "",
-    "cca2": "CR",
     "cca3": "CRI",
     "independent": true,
     "region": "Americas",
@@ -2055,7 +1986,6 @@
       "emoji": "🇪🇪"
     },
     "sovereignState": "",
-    "cca2": "EE",
     "cca3": "EST",
     "independent": true,
     "region": "Europe",
@@ -2082,7 +2012,6 @@
       "emoji": "🇳🇨"
     },
     "sovereignState": "FRA",
-    "cca2": "NC",
     "cca3": "NCL",
     "independent": false,
     "region": "Oceania",
@@ -2159,7 +2088,6 @@
       "emoji": "🇿🇦"
     },
     "sovereignState": "",
-    "cca2": "ZA",
     "cca3": "ZAF",
     "independent": true,
     "region": "Africa",
@@ -2191,7 +2119,6 @@
       "emoji": "🇧🇾"
     },
     "sovereignState": "",
-    "cca2": "BY",
     "cca3": "BLR",
     "independent": true,
     "region": "Europe",
@@ -2218,7 +2145,6 @@
       "emoji": "🇧🇷"
     },
     "sovereignState": "",
-    "cca2": "BR",
     "cca3": "BRA",
     "independent": true,
     "region": "Americas",
@@ -2245,7 +2171,6 @@
       "emoji": "🇲🇻"
     },
     "sovereignState": "",
-    "cca2": "MV",
     "cca3": "MDV",
     "independent": true,
     "region": "Asia",
@@ -2277,7 +2202,6 @@
       "emoji": "🇸🇴"
     },
     "sovereignState": "",
-    "cca2": "SO",
     "cca3": "SOM",
     "independent": true,
     "region": "Africa",
@@ -2304,7 +2228,6 @@
       "emoji": "🇯🇴"
     },
     "sovereignState": "",
-    "cca2": "JO",
     "cca3": "JOR",
     "independent": true,
     "region": "Asia",
@@ -2331,7 +2254,6 @@
       "emoji": "🇨🇽"
     },
     "sovereignState": "AUS",
-    "cca2": "CX",
     "cca3": "CXR",
     "independent": false,
     "region": "Oceania",
@@ -2363,7 +2285,6 @@
       "emoji": "🇲🇬"
     },
     "sovereignState": "",
-    "cca2": "MG",
     "cca3": "MDG",
     "independent": true,
     "region": "Africa",
@@ -2395,7 +2316,6 @@
       "emoji": "🇫🇴"
     },
     "sovereignState": "DNK",
-    "cca2": "FO",
     "cca3": "FRO",
     "independent": false,
     "region": "Europe",
@@ -2422,7 +2342,6 @@
       "emoji": "🇰🇳"
     },
     "sovereignState": "",
-    "cca2": "KN",
     "cca3": "KNA",
     "independent": true,
     "region": "Americas",
@@ -2449,7 +2368,6 @@
       "emoji": "🇱🇻"
     },
     "sovereignState": "",
-    "cca2": "LV",
     "cca3": "LVA",
     "independent": true,
     "region": "Europe",
@@ -2481,7 +2399,6 @@
       "emoji": "🇹🇯"
     },
     "sovereignState": "",
-    "cca2": "TJ",
     "cca3": "TJK",
     "independent": true,
     "region": "Asia",
@@ -2523,7 +2440,6 @@
       "emoji": "🇧🇴"
     },
     "sovereignState": "",
-    "cca2": "BO",
     "cca3": "BOL",
     "independent": true,
     "region": "Americas",
@@ -2555,7 +2471,6 @@
       "emoji": "🇮🇲"
     },
     "sovereignState": "GBR",
-    "cca2": "IM",
     "cca3": "IMN",
     "independent": false,
     "region": "Europe",
@@ -2587,7 +2502,6 @@
       "emoji": "🇳🇷"
     },
     "sovereignState": "",
-    "cca2": "NR",
     "cca3": "NRU",
     "independent": true,
     "region": "Oceania",
@@ -2614,7 +2528,6 @@
       "emoji": "🇼🇫"
     },
     "sovereignState": "FRA",
-    "cca2": "WF",
     "cca3": "WLF",
     "independent": false,
     "region": "Oceania",
@@ -2641,7 +2554,6 @@
       "emoji": "🇪🇨"
     },
     "sovereignState": "",
-    "cca2": "EC",
     "cca3": "ECU",
     "independent": true,
     "region": "Americas",
@@ -2673,7 +2585,6 @@
       "emoji": "🇧🇶"
     },
     "sovereignState": "NLD",
-    "cca2": "BQ",
     "cca3": "BES",
     "independent": false,
     "region": "Americas",
@@ -2770,7 +2681,6 @@
       "emoji": "🇿🇼"
     },
     "sovereignState": "",
-    "cca2": "ZW",
     "cca3": "ZWE",
     "independent": true,
     "region": "Africa",
@@ -2807,7 +2717,6 @@
       "emoji": "🇦🇫"
     },
     "sovereignState": "",
-    "cca2": "AF",
     "cca3": "AFG",
     "independent": true,
     "region": "Asia",
@@ -2834,7 +2743,6 @@
       "emoji": "🇧🇫"
     },
     "sovereignState": "",
-    "cca2": "BF",
     "cca3": "BFA",
     "independent": true,
     "region": "Africa",
@@ -2861,7 +2769,6 @@
       "emoji": "🇪🇹"
     },
     "sovereignState": "",
-    "cca2": "ET",
     "cca3": "ETH",
     "independent": true,
     "region": "Africa",
@@ -2888,7 +2795,6 @@
       "emoji": "🇸🇷"
     },
     "sovereignState": "",
-    "cca2": "SR",
     "cca3": "SUR",
     "independent": true,
     "region": "Americas",
@@ -2920,7 +2826,6 @@
       "emoji": "🇲🇼"
     },
     "sovereignState": "",
-    "cca2": "MW",
     "cca3": "MWI",
     "independent": true,
     "region": "Africa",
@@ -2947,7 +2852,6 @@
       "emoji": "🇸🇹"
     },
     "sovereignState": "",
-    "cca2": "ST",
     "cca3": "STP",
     "independent": true,
     "region": "Africa",
@@ -2974,7 +2878,6 @@
       "emoji": "🇳🇪"
     },
     "sovereignState": "",
-    "cca2": "NE",
     "cca3": "NER",
     "independent": true,
     "region": "Africa",
@@ -3001,7 +2904,6 @@
       "emoji": "🇧🇬"
     },
     "sovereignState": "",
-    "cca2": "BG",
     "cca3": "BGR",
     "independent": true,
     "region": "Europe",
@@ -3033,7 +2935,6 @@
       "emoji": "🇲🇹"
     },
     "sovereignState": "",
-    "cca2": "MT",
     "cca3": "MLT",
     "independent": true,
     "region": "Europe",
@@ -3060,7 +2961,6 @@
       "emoji": "🇲🇱"
     },
     "sovereignState": "",
-    "cca2": "ML",
     "cca3": "MLI",
     "independent": true,
     "region": "Africa",
@@ -3097,7 +2997,6 @@
       "emoji": "🇫🇯"
     },
     "sovereignState": "",
-    "cca2": "FJ",
     "cca3": "FJI",
     "independent": true,
     "region": "Oceania",
@@ -3124,7 +3023,6 @@
       "emoji": "🇬🇪"
     },
     "sovereignState": "",
-    "cca2": "GE",
     "cca3": "GEO",
     "independent": true,
     "region": "Asia",
@@ -3156,7 +3054,6 @@
       "emoji": "🇰🇪"
     },
     "sovereignState": "",
-    "cca2": "KE",
     "cca3": "KEN",
     "independent": true,
     "region": "Africa",
@@ -3193,7 +3090,6 @@
       "emoji": "🇬🇬"
     },
     "sovereignState": "GBR",
-    "cca2": "GG",
     "cca3": "GGY",
     "independent": false,
     "region": "Europe",
@@ -3220,7 +3116,6 @@
       "emoji": "🇩🇿"
     },
     "sovereignState": "",
-    "cca2": "DZ",
     "cca3": "DZA",
     "independent": true,
     "region": "Africa",
@@ -3247,7 +3142,6 @@
       "emoji": "🇫🇲"
     },
     "sovereignState": "",
-    "cca2": "FM",
     "cca3": "FSM",
     "independent": true,
     "region": "Oceania",
@@ -3274,7 +3168,6 @@
       "emoji": "🇦🇬"
     },
     "sovereignState": "",
-    "cca2": "AG",
     "cca3": "ATG",
     "independent": true,
     "region": "Americas",
@@ -3301,7 +3194,6 @@
       "emoji": "🇸🇦"
     },
     "sovereignState": "",
-    "cca2": "SA",
     "cca3": "SAU",
     "independent": true,
     "region": "Asia",
@@ -3328,7 +3220,6 @@
       "emoji": "🇸🇳"
     },
     "sovereignState": "",
-    "cca2": "SN",
     "cca3": "SEN",
     "independent": true,
     "region": "Africa",
@@ -3360,7 +3251,6 @@
       "emoji": "🇹🇿"
     },
     "sovereignState": "",
-    "cca2": "TZ",
     "cca3": "TZA",
     "independent": true,
     "region": "Africa",
@@ -3392,7 +3282,6 @@
       "emoji": "🇻🇦"
     },
     "sovereignState": "",
-    "cca2": "VA",
     "cca3": "VAT",
     "independent": true,
     "region": "Europe",
@@ -3424,7 +3313,6 @@
       "emoji": "🇱🇸"
     },
     "sovereignState": "",
-    "cca2": "LS",
     "cca3": "LSO",
     "independent": true,
     "region": "Africa",
@@ -3451,7 +3339,6 @@
       "emoji": "🇳🇱"
     },
     "sovereignState": "NLD",
-    "cca2": "NL",
     "cca3": "NLD",
     "independent": true,
     "region": "Europe",
@@ -3478,7 +3365,6 @@
       "emoji": "🇨🇱"
     },
     "sovereignState": "",
-    "cca2": "CL",
     "cca3": "CHL",
     "independent": true,
     "region": "Americas",
@@ -3525,7 +3411,6 @@
       "emoji": "🇨🇩"
     },
     "sovereignState": "",
-    "cca2": "CD",
     "cca3": "COD",
     "independent": true,
     "region": "Africa",
@@ -3552,7 +3437,6 @@
       "emoji": "🇲🇳"
     },
     "sovereignState": "",
-    "cca2": "MN",
     "cca3": "MNG",
     "independent": true,
     "region": "Asia",
@@ -3579,7 +3463,6 @@
       "emoji": "🇵🇹"
     },
     "sovereignState": "",
-    "cca2": "PT",
     "cca3": "PRT",
     "independent": true,
     "region": "Europe",
@@ -3606,7 +3489,6 @@
       "emoji": "🇧🇲"
     },
     "sovereignState": "GBR",
-    "cca2": "BM",
     "cca3": "BMU",
     "independent": false,
     "region": "Americas",
@@ -3633,7 +3515,6 @@
       "emoji": "🇮🇩"
     },
     "sovereignState": "",
-    "cca2": "ID",
     "cca3": "IDN",
     "independent": true,
     "region": "Asia",
@@ -3660,7 +3541,6 @@
       "emoji": "🇸🇾"
     },
     "sovereignState": "",
-    "cca2": "SY",
     "cca3": "SYR",
     "independent": true,
     "region": "Asia",
@@ -3687,7 +3567,6 @@
       "emoji": "🇦🇿"
     },
     "sovereignState": "",
-    "cca2": "AZ",
     "cca3": "AZE",
     "independent": true,
     "region": "Asia",
@@ -3714,7 +3593,6 @@
       "emoji": "🇧🇩"
     },
     "sovereignState": "",
-    "cca2": "BD",
     "cca3": "BGD",
     "independent": true,
     "region": "Asia",
@@ -3746,7 +3624,6 @@
       "emoji": "🇵🇾"
     },
     "sovereignState": "",
-    "cca2": "PY",
     "cca3": "PRY",
     "independent": true,
     "region": "Americas",
@@ -3778,7 +3655,6 @@
       "emoji": "🇺🇿"
     },
     "sovereignState": "",
-    "cca2": "UZ",
     "cca3": "UZB",
     "independent": true,
     "region": "Asia",
@@ -3810,7 +3686,6 @@
       "emoji": "🇬🇼"
     },
     "sovereignState": "",
-    "cca2": "GW",
     "cca3": "GNB",
     "independent": true,
     "region": "Africa",
@@ -3877,7 +3752,6 @@
       "emoji": "🇳🇦"
     },
     "sovereignState": "",
-    "cca2": "NA",
     "cca3": "NAM",
     "independent": true,
     "region": "Africa",
@@ -3914,7 +3788,6 @@
       "emoji": "🇲🇵"
     },
     "sovereignState": "USA",
-    "cca2": "MP",
     "cca3": "MNP",
     "independent": false,
     "region": "Oceania",
@@ -3941,7 +3814,6 @@
       "emoji": "🇸🇭"
     },
     "sovereignState": "GBR",
-    "cca2": "SH",
     "cca3": "SHN",
     "independent": false,
     "region": "Africa",
@@ -3968,7 +3840,6 @@
       "emoji": "🇰🇾"
     },
     "sovereignState": "GBR",
-    "cca2": "KY",
     "cca3": "CYM",
     "independent": false,
     "region": "Americas",
@@ -4005,7 +3876,6 @@
       "emoji": "🇧🇿"
     },
     "sovereignState": "",
-    "cca2": "BZ",
     "cca3": "BLZ",
     "independent": true,
     "region": "Americas",
@@ -4032,7 +3902,6 @@
       "emoji": "🇹🇼"
     },
     "sovereignState": "",
-    "cca2": "TW",
     "cca3": "TWN",
     "independent": true,
     "region": "Asia",
@@ -4064,7 +3933,6 @@
       "emoji": "🇧🇼"
     },
     "sovereignState": "",
-    "cca2": "BW",
     "cca3": "BWA",
     "independent": true,
     "region": "Africa",
@@ -4106,7 +3974,6 @@
       "emoji": "🇨🇭"
     },
     "sovereignState": "",
-    "cca2": "CH",
     "cca3": "CHE",
     "independent": true,
     "region": "Europe",
@@ -4133,7 +4000,6 @@
       "emoji": "🇷🇸"
     },
     "sovereignState": "",
-    "cca2": "RS",
     "cca3": "SRB",
     "independent": true,
     "region": "Europe",
@@ -4160,7 +4026,6 @@
       "emoji": "🇸🇰"
     },
     "sovereignState": "",
-    "cca2": "SK",
     "cca3": "SVK",
     "independent": true,
     "region": "Europe",
@@ -4192,7 +4057,6 @@
       "emoji": "🇲🇴"
     },
     "sovereignState": "CHN",
-    "cca2": "MO",
     "cca3": "MAC",
     "independent": false,
     "region": "Asia",
@@ -4219,7 +4083,6 @@
       "emoji": "🇦🇮"
     },
     "sovereignState": "GBR",
-    "cca2": "AI",
     "cca3": "AIA",
     "independent": false,
     "region": "Americas",
@@ -4246,7 +4109,6 @@
       "emoji": "🇬🇲"
     },
     "sovereignState": "",
-    "cca2": "GM",
     "cca3": "GMB",
     "independent": true,
     "region": "Africa",
@@ -4273,7 +4135,6 @@
       "emoji": "🇩🇪"
     },
     "sovereignState": "",
-    "cca2": "DE",
     "cca3": "DEU",
     "independent": true,
     "region": "Europe",
@@ -4310,7 +4171,6 @@
       "emoji": "🇪🇭"
     },
     "sovereignState": "",
-    "cca2": "EH",
     "cca3": "ESH",
     "independent": false,
     "region": "Africa",
@@ -4337,7 +4197,6 @@
       "emoji": "🇧🇸"
     },
     "sovereignState": "",
-    "cca2": "BS",
     "cca3": "BHS",
     "independent": true,
     "region": "Americas",
@@ -4374,7 +4233,6 @@
       "emoji": "🇪🇷"
     },
     "sovereignState": "",
-    "cca2": "ER",
     "cca3": "ERI",
     "independent": true,
     "region": "Africa",
@@ -4411,7 +4269,6 @@
       "emoji": "🇮🇳"
     },
     "sovereignState": "",
-    "cca2": "IN",
     "cca3": "IND",
     "independent": true,
     "region": "Asia",
@@ -4438,7 +4295,6 @@
       "emoji": "🇰🇷"
     },
     "sovereignState": "",
-    "cca2": "KR",
     "cca3": "KOR",
     "independent": true,
     "region": "Asia",
@@ -4465,7 +4321,6 @@
       "emoji": "🇲🇿"
     },
     "sovereignState": "",
-    "cca2": "MZ",
     "cca3": "MOZ",
     "independent": true,
     "region": "Africa",
@@ -4492,7 +4347,6 @@
       "emoji": "🇸🇻"
     },
     "sovereignState": "",
-    "cca2": "SV",
     "cca3": "SLV",
     "independent": true,
     "region": "Americas",
@@ -4519,7 +4373,6 @@
       "emoji": "🇮🇹"
     },
     "sovereignState": "",
-    "cca2": "IT",
     "cca3": "ITA",
     "independent": true,
     "region": "Europe",
@@ -4546,7 +4399,6 @@
       "emoji": "🇱🇨"
     },
     "sovereignState": "",
-    "cca2": "LC",
     "cca3": "LCA",
     "independent": true,
     "region": "Americas",
@@ -4578,7 +4430,6 @@
       "emoji": "🇺🇬"
     },
     "sovereignState": "",
-    "cca2": "UG",
     "cca3": "UGA",
     "independent": true,
     "region": "Africa",
@@ -4605,7 +4456,6 @@
       "emoji": "🇪🇬"
     },
     "sovereignState": "",
-    "cca2": "EG",
     "cca3": "EGY",
     "independent": true,
     "region": "Africa",
@@ -4632,7 +4482,6 @@
       "emoji": "🇧🇹"
     },
     "sovereignState": "",
-    "cca2": "BT",
     "cca3": "BTN",
     "independent": true,
     "region": "Asia",
@@ -4659,7 +4508,6 @@
       "emoji": "🇸🇮"
     },
     "sovereignState": "",
-    "cca2": "SI",
     "cca3": "SVN",
     "independent": true,
     "region": "Europe",
@@ -4686,7 +4534,6 @@
       "emoji": "🇦🇱"
     },
     "sovereignState": "",
-    "cca2": "AL",
     "cca3": "ALB",
     "independent": true,
     "region": "Europe",
@@ -4713,7 +4560,6 @@
       "emoji": "🇻🇨"
     },
     "sovereignState": "",
-    "cca2": "VC",
     "cca3": "VCT",
     "independent": true,
     "region": "Americas",
@@ -4740,7 +4586,6 @@
       "emoji": "🇶🇦"
     },
     "sovereignState": "",
-    "cca2": "QA",
     "cca3": "QAT",
     "independent": true,
     "region": "Asia",
@@ -4767,7 +4612,6 @@
       "emoji": "🇨🇮"
     },
     "sovereignState": "",
-    "cca2": "CI",
     "cca3": "CIV",
     "independent": true,
     "region": "Africa",
@@ -4809,7 +4653,6 @@
       "emoji": "🇸🇬"
     },
     "sovereignState": "",
-    "cca2": "SG",
     "cca3": "SGP",
     "independent": true,
     "region": "Asia",
@@ -4841,7 +4684,6 @@
       "emoji": "🇹🇩"
     },
     "sovereignState": "",
-    "cca2": "TD",
     "cca3": "TCD",
     "independent": true,
     "region": "Africa",
@@ -4873,7 +4715,6 @@
       "emoji": "🇦🇷"
     },
     "sovereignState": "",
-    "cca2": "AR",
     "cca3": "ARG",
     "independent": true,
     "region": "Americas",
@@ -4900,7 +4741,6 @@
       "emoji": "🇲🇨"
     },
     "sovereignState": "",
-    "cca2": "MC",
     "cca3": "MCO",
     "independent": true,
     "region": "Europe",
@@ -4927,7 +4767,6 @@
       "emoji": "🇬🇩"
     },
     "sovereignState": "",
-    "cca2": "GD",
     "cca3": "GRD",
     "independent": true,
     "region": "Americas",
@@ -4954,7 +4793,6 @@
       "emoji": "🇻🇮"
     },
     "sovereignState": "USA",
-    "cca2": "VI",
     "cca3": "VIR",
     "independent": false,
     "region": "Americas",
@@ -4981,7 +4819,6 @@
       "emoji": "🇳🇵"
     },
     "sovereignState": "",
-    "cca2": "NP",
     "cca3": "NPL",
     "independent": true,
     "region": "Asia",
@@ -5013,7 +4850,6 @@
       "emoji": "🇦🇸"
     },
     "sovereignState": "USA",
-    "cca2": "AS",
     "cca3": "ASM",
     "independent": false,
     "region": "Oceania",
@@ -5045,7 +4881,6 @@
       "emoji": "🇨🇰"
     },
     "sovereignState": "",
-    "cca2": "CK",
     "cca3": "COK",
     "independent": true,
     "region": "Oceania",
@@ -5077,7 +4912,6 @@
       "emoji": "🇹🇱"
     },
     "sovereignState": "",
-    "cca2": "TL",
     "cca3": "TLS",
     "independent": true,
     "region": "Asia",
@@ -5104,7 +4938,6 @@
       "emoji": "🇧🇳"
     },
     "sovereignState": "",
-    "cca2": "BN",
     "cca3": "BRN",
     "independent": true,
     "region": "Asia",
@@ -5131,7 +4964,6 @@
       "emoji": "🇭🇳"
     },
     "sovereignState": "",
-    "cca2": "HN",
     "cca3": "HND",
     "independent": true,
     "region": "Americas",
@@ -5158,7 +4990,6 @@
       "emoji": "🇹🇫"
     },
     "sovereignState": "FRA",
-    "cca2": "TF",
     "cca3": "ATF",
     "independent": false,
     "region": "Antarctic",
@@ -5190,7 +5021,6 @@
       "emoji": "🇯🇲"
     },
     "sovereignState": "",
-    "cca2": "JM",
     "cca3": "JAM",
     "independent": true,
     "region": "Americas",
@@ -5222,7 +5052,6 @@
       "emoji": "🇭🇹"
     },
     "sovereignState": "",
-    "cca2": "HT",
     "cca3": "HTI",
     "independent": true,
     "region": "Americas",
@@ -5249,7 +5078,6 @@
       "emoji": "🇨🇺"
     },
     "sovereignState": "",
-    "cca2": "CU",
     "cca3": "CUB",
     "independent": true,
     "region": "Americas",
@@ -5276,7 +5104,6 @@
       "emoji": "🇹🇬"
     },
     "sovereignState": "",
-    "cca2": "TG",
     "cca3": "TGO",
     "independent": true,
     "region": "Africa",
@@ -5308,7 +5135,6 @@
       "emoji": "🇰🇮"
     },
     "sovereignState": "",
-    "cca2": "KI",
     "cca3": "KIR",
     "independent": true,
     "region": "Oceania",
@@ -5340,7 +5166,6 @@
       "emoji": "🇨🇦"
     },
     "sovereignState": "",
-    "cca2": "CA",
     "cca3": "CAN",
     "independent": true,
     "region": "Americas",
@@ -5372,7 +5197,6 @@
       "emoji": "🇵🇭"
     },
     "sovereignState": "",
-    "cca2": "PH",
     "cca3": "PHL",
     "independent": true,
     "region": "Asia",
@@ -5399,7 +5223,6 @@
       "emoji": "🇾🇪"
     },
     "sovereignState": "",
-    "cca2": "YE",
     "cca3": "YEM",
     "independent": true,
     "region": "Asia",
@@ -5426,7 +5249,6 @@
       "emoji": "🇳🇮"
     },
     "sovereignState": "",
-    "cca2": "NI",
     "cca3": "NIC",
     "independent": true,
     "region": "Americas",
@@ -5453,7 +5275,6 @@
       "emoji": "🇯🇵"
     },
     "sovereignState": "",
-    "cca2": "JP",
     "cca3": "JPN",
     "independent": true,
     "region": "Asia",
@@ -5485,7 +5306,6 @@
       "emoji": "🇽🇰"
     },
     "sovereignState": "",
-    "cca2": "XK",
     "cca3": "UNK",
     "independent": true,
     "region": "Europe",
@@ -5517,7 +5337,6 @@
       "emoji": "🇦🇼"
     },
     "sovereignState": "NLD",
-    "cca2": "AW",
     "cca3": "ABW",
     "independent": false,
     "region": "Americas",
@@ -5544,7 +5363,6 @@
       "emoji": "🇬🇦"
     },
     "sovereignState": "",
-    "cca2": "GA",
     "cca3": "GAB",
     "independent": true,
     "region": "Africa",
@@ -5571,7 +5389,6 @@
       "emoji": "🇮🇴"
     },
     "sovereignState": "GBR",
-    "cca2": "IO",
     "cca3": "IOT",
     "independent": false,
     "region": "Africa",
@@ -5608,7 +5425,6 @@
       "emoji": "🇻🇺"
     },
     "sovereignState": "",
-    "cca2": "VU",
     "cca3": "VUT",
     "independent": true,
     "region": "Oceania",
@@ -5640,7 +5456,6 @@
       "emoji": "🇨🇿"
     },
     "sovereignState": "",
-    "cca2": "CZ",
     "cca3": "CZE",
     "independent": true,
     "region": "Europe",
@@ -5667,7 +5482,6 @@
       "emoji": "🇬🇭"
     },
     "sovereignState": "",
-    "cca2": "GH",
     "cca3": "GHA",
     "independent": true,
     "region": "Africa",
@@ -5694,7 +5508,6 @@
       "emoji": "🇹🇳"
     },
     "sovereignState": "",
-    "cca2": "TN",
     "cca3": "TUN",
     "independent": true,
     "region": "Africa",
@@ -5731,7 +5544,6 @@
       "emoji": "🇲🇺"
     },
     "sovereignState": "",
-    "cca2": "MU",
     "cca3": "MUS",
     "independent": true,
     "region": "Africa",
@@ -5758,7 +5570,6 @@
       "emoji": "🇨🇴"
     },
     "sovereignState": "",
-    "cca2": "CO",
     "cca3": "COL",
     "independent": true,
     "region": "Americas",
@@ -5785,7 +5596,6 @@
       "emoji": "🇬🇧"
     },
     "sovereignState": "",
-    "cca2": "GB",
     "cca3": "GBR",
     "independent": true,
     "region": "Europe",
@@ -5822,7 +5632,6 @@
       "emoji": "🇵🇪"
     },
     "sovereignState": "",
-    "cca2": "PE",
     "cca3": "PER",
     "independent": true,
     "region": "Americas",
@@ -5859,7 +5668,6 @@
       "emoji": "🇷🇼"
     },
     "sovereignState": "",
-    "cca2": "RW",
     "cca3": "RWA",
     "independent": true,
     "region": "Africa",
@@ -5886,7 +5694,6 @@
       "emoji": "🇱🇦"
     },
     "sovereignState": "",
-    "cca2": "LA",
     "cca3": "LAO",
     "independent": true,
     "region": "Asia",
@@ -5918,7 +5725,6 @@
       "emoji": "🇮🇪"
     },
     "sovereignState": "",
-    "cca2": "IE",
     "cca3": "IRL",
     "independent": true,
     "region": "Europe",
@@ -5945,7 +5751,6 @@
       "emoji": "🇬🇳"
     },
     "sovereignState": "",
-    "cca2": "GN",
     "cca3": "GIN",
     "independent": true,
     "region": "Africa",
@@ -5977,7 +5782,6 @@
       "emoji": "🇵🇰"
     },
     "sovereignState": "",
-    "cca2": "PK",
     "cca3": "PAK",
     "independent": true,
     "region": "Asia",
@@ -6009,7 +5813,6 @@
       "emoji": "🇳🇫"
     },
     "sovereignState": "AUS",
-    "cca2": "NF",
     "cca3": "NFK",
     "independent": false,
     "region": "Oceania",
@@ -6046,7 +5849,6 @@
       "emoji": "🇹🇰"
     },
     "sovereignState": "NZL",
-    "cca2": "TK",
     "cca3": "TKL",
     "independent": false,
     "region": "Oceania",
@@ -6073,7 +5875,6 @@
       "emoji": "🇧🇻"
     },
     "sovereignState": "NOR",
-    "cca2": "BV",
     "cca3": "BVT",
     "independent": false,
     "region": "Antarctic",
@@ -6101,7 +5902,6 @@
       "emoji": "🇲🇰"
     },
     "sovereignState": "",
-    "cca2": "MK",
     "cca3": "MKD",
     "independent": true,
     "region": "Europe",
@@ -6138,7 +5938,6 @@
       "emoji": "🇵🇬"
     },
     "sovereignState": "",
-    "cca2": "PG",
     "cca3": "PNG",
     "independent": true,
     "region": "Oceania",
@@ -6170,7 +5969,6 @@
       "emoji": "🇭🇰"
     },
     "sovereignState": "CHN",
-    "cca2": "HK",
     "cca3": "HKG",
     "independent": false,
     "region": "Asia",
@@ -6197,7 +5995,6 @@
       "emoji": "🇺🇾"
     },
     "sovereignState": "",
-    "cca2": "UY",
     "cca3": "URY",
     "independent": true,
     "region": "Americas",
@@ -6224,7 +6021,6 @@
       "emoji": "🇧🇭"
     },
     "sovereignState": "",
-    "cca2": "BH",
     "cca3": "BHR",
     "independent": true,
     "region": "Asia",
@@ -6251,7 +6047,6 @@
       "emoji": "🇬🇹"
     },
     "sovereignState": "",
-    "cca2": "GT",
     "cca3": "GTM",
     "independent": true,
     "region": "Americas",
@@ -6278,7 +6073,6 @@
       "emoji": "🇭🇷"
     },
     "sovereignState": "",
-    "cca2": "HR",
     "cca3": "HRV",
     "independent": true,
     "region": "Europe",
@@ -6310,7 +6104,6 @@
       "emoji": "🇼🇸"
     },
     "sovereignState": "",
-    "cca2": "WS",
     "cca3": "WSM",
     "independent": true,
     "region": "Oceania",
@@ -6342,7 +6135,6 @@
       "emoji": "🇰🇬"
     },
     "sovereignState": "",
-    "cca2": "KG",
     "cca3": "KGZ",
     "independent": true,
     "region": "Asia",
@@ -6369,7 +6161,6 @@
       "emoji": "🇹🇭"
     },
     "sovereignState": "",
-    "cca2": "TH",
     "cca3": "THA",
     "independent": true,
     "region": "Asia",
@@ -6396,7 +6187,6 @@
       "emoji": "🇲🇽"
     },
     "sovereignState": "",
-    "cca2": "MX",
     "cca3": "MEX",
     "independent": true,
     "region": "Americas",
@@ -6423,7 +6213,6 @@
       "emoji": "🇲🇪"
     },
     "sovereignState": "",
-    "cca2": "ME",
     "cca3": "MNE",
     "independent": true,
     "region": "Europe",
@@ -6460,7 +6249,6 @@
       "emoji": "🇳🇿"
     },
     "sovereignState": "",
-    "cca2": "NZ",
     "cca3": "NZL",
     "independent": true,
     "region": "Oceania",
@@ -6487,7 +6275,6 @@
       "emoji": "🇱🇾"
     },
     "sovereignState": "",
-    "cca2": "LY",
     "cca3": "LBY",
     "independent": true,
     "region": "Africa",
@@ -6514,7 +6301,6 @@
       "emoji": "🇦🇩"
     },
     "sovereignState": "",
-    "cca2": "AD",
     "cca3": "AND",
     "independent": true,
     "region": "Europe",
@@ -6546,7 +6332,6 @@
       "emoji": "🇵🇼"
     },
     "sovereignState": "",
-    "cca2": "PW",
     "cca3": "PLW",
     "independent": true,
     "region": "Oceania",
@@ -6583,7 +6368,6 @@
       "emoji": "🇸🇨"
     },
     "sovereignState": "",
-    "cca2": "SC",
     "cca3": "SYC",
     "independent": true,
     "region": "Africa",
@@ -6615,7 +6399,6 @@
       "emoji": "🇹🇻"
     },
     "sovereignState": "",
-    "cca2": "TV",
     "cca3": "TUV",
     "independent": true,
     "region": "Oceania",
@@ -6642,7 +6425,6 @@
       "emoji": "🇧🇱"
     },
     "sovereignState": "FRA",
-    "cca2": "BL",
     "cca3": "BLM",
     "independent": false,
     "region": "Americas",
@@ -6669,7 +6451,6 @@
       "emoji": "🇰🇵"
     },
     "sovereignState": "",
-    "cca2": "KP",
     "cca3": "PRK",
     "independent": true,
     "region": "Asia",
@@ -6696,7 +6477,6 @@
       "emoji": "🇩🇰"
     },
     "sovereignState": "DNK",
-    "cca2": "DK",
     "cca3": "DNK",
     "independent": true,
     "region": "Europe",
@@ -6723,7 +6503,6 @@
       "emoji": "🇲🇷"
     },
     "sovereignState": "",
-    "cca2": "MR",
     "cca3": "MRT",
     "independent": true,
     "region": "Africa",
@@ -6750,7 +6529,6 @@
       "emoji": "🇬🇫"
     },
     "sovereignState": "FRA",
-    "cca2": "GF",
     "cca3": "GUF",
     "independent": false,
     "region": "Americas",
@@ -6777,7 +6555,6 @@
       "emoji": "🇲🇶"
     },
     "sovereignState": "FRA",
-    "cca2": "MQ",
     "cca3": "MTQ",
     "independent": false,
     "region": "Americas",
@@ -6809,7 +6586,6 @@
       "emoji": "🇨🇫"
     },
     "sovereignState": "",
-    "cca2": "CF",
     "cca3": "CAF",
     "independent": true,
     "region": "Africa",
@@ -6836,7 +6612,6 @@
       "emoji": "🇪🇸"
     },
     "sovereignState": "",
-    "cca2": "ES",
     "cca3": "ESP",
     "independent": true,
     "region": "Europe",
@@ -6863,7 +6638,6 @@
       "emoji": "🇱🇷"
     },
     "sovereignState": "",
-    "cca2": "LR",
     "cca3": "LBR",
     "independent": true,
     "region": "Africa",
@@ -6890,7 +6664,6 @@
       "emoji": "🇸🇪"
     },
     "sovereignState": "",
-    "cca2": "SE",
     "cca3": "SWE",
     "independent": true,
     "region": "Europe",
@@ -6917,7 +6690,6 @@
       "emoji": "🇩🇴"
     },
     "sovereignState": "",
-    "cca2": "DO",
     "cca3": "DOM",
     "independent": true,
     "region": "Americas",
@@ -6944,7 +6716,6 @@
       "emoji": "🇻🇪"
     },
     "sovereignState": "",
-    "cca2": "VE",
     "cca3": "VEN",
     "independent": true,
     "region": "Americas",
@@ -6971,7 +6742,6 @@
       "emoji": "🇩🇲"
     },
     "sovereignState": "",
-    "cca2": "DM",
     "cca3": "DMA",
     "independent": true,
     "region": "Americas",
@@ -7008,7 +6778,6 @@
       "emoji": "🇱🇺"
     },
     "sovereignState": "",
-    "cca2": "LU",
     "cca3": "LUX",
     "independent": true,
     "region": "Europe",
@@ -7035,7 +6804,6 @@
       "emoji": "🇳🇬"
     },
     "sovereignState": "",
-    "cca2": "NG",
     "cca3": "NGA",
     "independent": true,
     "region": "Africa",
@@ -7062,7 +6830,6 @@
       "emoji": "🇦🇲"
     },
     "sovereignState": "",
-    "cca2": "AM",
     "cca3": "ARM",
     "independent": true,
     "region": "Asia",
@@ -7099,7 +6866,6 @@
       "emoji": "🇧🇦"
     },
     "sovereignState": "",
-    "cca2": "BA",
     "cca3": "BIH",
     "independent": true,
     "region": "Europe",
@@ -7126,7 +6892,6 @@
       "emoji": "🇦🇽"
     },
     "sovereignState": "FIN",
-    "cca2": "AX",
     "cca3": "ALA",
     "independent": false,
     "region": "Europe",
@@ -7153,7 +6918,6 @@
       "emoji": "🇾🇹"
     },
     "sovereignState": "FRA",
-    "cca2": "YT",
     "cca3": "MYT",
     "independent": false,
     "region": "Africa",
@@ -7180,7 +6944,6 @@
       "emoji": "🇲🇸"
     },
     "sovereignState": "GBR",
-    "cca2": "MS",
     "cca3": "MSR",
     "independent": false,
     "region": "Americas",
@@ -7207,7 +6970,6 @@
       "emoji": "🇨🇳"
     },
     "sovereignState": "",
-    "cca2": "CN",
     "cca3": "CHN",
     "independent": true,
     "region": "Asia",
@@ -7234,7 +6996,6 @@
       "emoji": "🇬🇾"
     },
     "sovereignState": "",
-    "cca2": "GY",
     "cca3": "GUY",
     "independent": true,
     "region": "Americas",
@@ -7261,7 +7022,6 @@
       "emoji": "🇹🇨"
     },
     "sovereignState": "GBR",
-    "cca2": "TC",
     "cca3": "TCA",
     "independent": false,
     "region": "Americas",
@@ -7298,7 +7058,6 @@
       "emoji": "🇰🇲"
     },
     "sovereignState": "",
-    "cca2": "KM",
     "cca3": "COM",
     "independent": true,
     "region": "Africa",
@@ -7325,7 +7084,6 @@
       "emoji": "🇷🇺"
     },
     "sovereignState": "",
-    "cca2": "RU",
     "cca3": "RUS",
     "independent": true,
     "region": "Europe",
@@ -7357,7 +7115,6 @@
       "emoji": "🇨🇲"
     },
     "sovereignState": "",
-    "cca2": "CM",
     "cca3": "CMR",
     "independent": true,
     "region": "Africa",
@@ -7384,7 +7141,6 @@
       "emoji": "🇸🇧"
     },
     "sovereignState": "",
-    "cca2": "SB",
     "cca3": "SLB",
     "independent": true,
     "region": "Oceania",
@@ -7411,7 +7167,6 @@
       "emoji": "🇲🇩"
     },
     "sovereignState": "",
-    "cca2": "MD",
     "cca3": "MDA",
     "independent": true,
     "region": "Europe",
@@ -7431,7 +7186,6 @@
       "alt": "The flag features a plain white map of the country on a blue background.",
       "emoji": "🇦🇶"
     },
-    "cca2": "AQ",
     "cca3": "ATA",
     "independent": false,
     "region": "Antarctic",
@@ -7463,7 +7217,6 @@
       "emoji": "🇲🇭"
     },
     "sovereignState": "",
-    "cca2": "MH",
     "cca3": "MHL",
     "independent": true,
     "region": "Oceania",
@@ -7490,7 +7243,6 @@
       "emoji": "🇰🇭"
     },
     "sovereignState": "",
-    "cca2": "KH",
     "cca3": "KHM",
     "independent": true,
     "region": "Asia",
@@ -7517,7 +7269,6 @@
       "emoji": "🇵🇦"
     },
     "sovereignState": "",
-    "cca2": "PA",
     "cca3": "PAN",
     "independent": true,
     "region": "Americas",
@@ -7544,7 +7295,6 @@
       "emoji": "🇷🇪"
     },
     "sovereignState": "FRA",
-    "cca2": "RE",
     "cca3": "REU",
     "independent": false,
     "region": "Africa",
