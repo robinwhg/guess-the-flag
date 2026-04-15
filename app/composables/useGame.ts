@@ -1,6 +1,7 @@
 const CHOICE_COUNT = 4
 const ADVANCE_DELAY = 600
 const TIMER_TIMEOUT = 1000
+const MAX_ELAPSED_SECONDS = 90 * 60
 
 export interface Choice {
   country: Country
@@ -111,6 +112,9 @@ export function useGame(countries: Country[]) {
       return
 
     elapsedSeconds.value += 1
+
+    if (elapsedSeconds.value >= MAX_ELAPSED_SECONDS)
+      stopToStart()
   }, TIMER_TIMEOUT)
 
   onScopeDispose(() => {
