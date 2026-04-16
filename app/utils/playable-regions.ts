@@ -5,6 +5,13 @@ function getMostPopulousCountries(regionCountries: typeof countries, count: numb
     .slice(0, count)
 }
 
+function getLargestCountriesByArea(regionCountries: typeof countries, count: number) {
+  return regionCountries
+    .filter(country => country.independent)
+    .sort((a, b) => b.area - a.area)
+    .slice(0, count)
+}
+
 function getAllCountries(regionCountries: typeof countries) {
   return regionCountries.filter(country => country.independent)
 }
@@ -23,6 +30,65 @@ const americasCountries = countries.filter(country => country.region === 'Americ
 const asiaCountries = countries.filter(country => country.region === 'Asia')
 const europeCountries = countries.filter(country => country.region === 'Europe')
 const oceaniaCountries = countries.filter(country => country.region === 'Oceania')
+const unionJackCountryNames = [
+  'Australia',
+  'Cook Islands',
+  'Fiji',
+  'New Zealand',
+  'Niue',
+  'Tuvalu',
+  'United Kingdom',
+  'Anguilla',
+  'Bermuda',
+  'British Indian Ocean Territory',
+  'British Virgin Islands',
+  'Cayman Islands',
+  'Falkland Islands',
+  'Heard Island and McDonald Islands',
+  'Montserrat',
+  'Pitcairn Islands',
+  'Saint Helena, Ascension and Tristan da Cunha',
+  'South Georgia',
+  'Turks and Caicos Islands',
+] as const
+const crescentCountryNames = [
+  'Cocos (Keeling) Islands',
+  'Western Sahara',
+  'Algeria',
+  'Azerbaijan',
+  'Comoros',
+  'Libya',
+  'Malaysia',
+  'Maldives',
+  'Mauritania',
+  'Pakistan',
+  'Singapore',
+  'Tunisia',
+  'Turkey',
+  'Turkmenistan',
+  'Uzbekistan',
+] as const
+const microstateCountryNames = [
+  'Andorra',
+  'Liechtenstein',
+  'Monaco',
+  'San Marino',
+  'Vatican City',
+  'Malta',
+  'Luxembourg',
+  'Nauru',
+  'Palau',
+  'Niue',
+  'Cook Islands',
+  'Tuvalu',
+  'Saint Kitts and Nevis',
+  'Barbados',
+  'Antigua and Barbuda',
+  'Grenada',
+  'Saint Vincent and the Grenadines',
+  'Singapore',
+  'Bahrain',
+] as const
 
 export const playableRegions = [
   {
@@ -53,6 +119,11 @@ export const playableRegions = [
         countries: getMostPopulousCountries(worldCountries, 100),
       },
       {
+        slug: 'largest-countries-10',
+        title: '10 largest countries by area',
+        countries: getLargestCountriesByArea(worldCountries, 10),
+      },
+      {
         slug: 'all-countries',
         title: 'All countries',
         countries: getAllCountries(worldCountries),
@@ -61,6 +132,26 @@ export const playableRegions = [
         slug: 'all-territories',
         title: 'All territories',
         countries: getAllTerritories(worldCountries),
+      },
+      {
+        slug: 'countries-and-territories-antarctica',
+        title: 'Countries and territories of Antarctica',
+        countries: countries.filter(country => country.region === 'Antarctic'),
+      },
+      {
+        slug: 'union-jack-flags',
+        title: 'Union Jack Flags',
+        countries: countries.filter(country => unionJackCountryNames.includes(country.name.common as typeof unionJackCountryNames[number])),
+      },
+      {
+        slug: 'crescent-flags',
+        title: 'Crescent Flags',
+        countries: countries.filter(country => crescentCountryNames.includes(country.name.common as typeof crescentCountryNames[number])),
+      },
+      {
+        slug: 'microstates',
+        title: 'Microstates',
+        countries: countries.filter(country => microstateCountryNames.includes(country.name.common as typeof microstateCountryNames[number])),
       },
       {
         slug: 'all-countries-and-territories',
