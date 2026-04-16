@@ -143,6 +143,18 @@ export function useGame(gameCountries: Country[]) {
     gameState.value = questions.value.length > 0 ? 'play' : 'end'
   }
 
+  function reviewWrongFlags() {
+    if (!wrongQuestions.value.length)
+      return
+
+    questions.value = shuffle([...wrongQuestions.value])
+    index.value = 0
+    wrongQuestions.value = []
+    elapsedSeconds.value = 0
+    isAdvancing.value = false
+    gameState.value = 'play'
+  }
+
   function stopToStart() {
     resetRun()
     gameState.value = 'start'
@@ -180,6 +192,7 @@ export function useGame(gameCountries: Country[]) {
     resumeGame,
     selectChoice,
     stopToStart,
+    reviewWrongFlags,
     retry,
   }
 }
