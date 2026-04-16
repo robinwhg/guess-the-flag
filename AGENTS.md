@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Repository guide for coding agents working in `guess-the-flag`.
+Repository guide for coding agents working in `globe-rush`.
 
 ## 1) Project Snapshot
 

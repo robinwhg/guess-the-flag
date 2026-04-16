@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const baseTitle = 'Guess the Flag'
+const baseTitle = 'Globe Rush'
 const description = 'Pick a region and test how many flags you can identify correctly in a single run.'
 
 const colorMode = useColorMode()

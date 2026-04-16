@@ -11,7 +11,7 @@ const items = computed(() => {
   <UHeader toggle-side="right">
     <template #title>
       <UIcon name="i-tabler-globe-filled" class="size-8 text-primary" />
-      <span>Guess the Flag</span>
+      <span>Globe Rush</span>
     </template>
 
     <UNavigationMenu :items />
@@ -23,7 +23,7 @@ const items = computed(() => {
         icon="i-tabler-brand-github"
         color="neutral"
         variant="ghost"
-        to="https://github.com/robinwhg/guess-the-flag"
+        to="https://github.com/robinwhg/globe-rush"
         target="_blank"
         aria-label="GitHub"
       />

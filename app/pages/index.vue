@@ -2,7 +2,7 @@
   <UPage>
     <UPageBody>
       <UPageHero
-        headline="Guess the Flag"
+        headline="Globe Rush"
         title="Play the Ultimate Flag Quiz"
         description="Pick a region and test how many flags you can identify correctly in a single run."
         :ui="{ footer: 'text-start' }"
