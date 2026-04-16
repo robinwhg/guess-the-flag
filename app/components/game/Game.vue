@@ -11,7 +11,7 @@ const emit = defineEmits<{
 
 const { countries, gameTitle, regionTitle } = toRefs(props)
 
-const { gameState, choices, retry, selectChoice, totalCorrectQuestions, totalQuestions, index, question, isAdvancing, timerLabel, startGame, pauseGame, resumeGame, stopToStart } = useGame(countries.value)
+const { gameState, choices, retry, selectChoice, totalCorrectQuestions, totalQuestions, index, question, isAdvancing, timerLabel, startGame, pauseGame, resumeGame, stopToStart, reviewWrongFlags } = useGame(countries.value)
 
 function togglePause() {
   if (gameState.value === 'play') {
@@ -69,6 +69,7 @@ function togglePause() {
         :game-title
         :region-title
         @retry="retry"
+        @review="reviewWrongFlags"
         @back="emit('back')"
       />
     </Transition>

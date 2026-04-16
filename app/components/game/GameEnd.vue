@@ -8,11 +8,14 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  retry: []
-  back: []
+  (e: 'retry'): void
+  (e: 'back'): void
+  (e: 'review'): void
 }>()
 
 const { totalQuestions, totalCorrectQuestions } = toRefs(props)
+
+const hasWrongAnswers = computed(() => totalCorrectQuestions.value < totalQuestions.value)
 
 const accuracyPct = computed(() => {
   if (totalQuestions.value === 0)
@@ -35,6 +38,12 @@ const accuracyPct = computed(() => {
         <UPageFeature :title="`${accuracyPct} %`" description="Score" icon="i-tabler-trophy-filled" />
 
         <UPageFeature :title="timerLabel" description="Time" icon="i-tabler-clock-filled" />
+      </div>
+    </template>
+
+    <template v-if="hasWrongAnswers" #footer>
+      <div class="flex justify-center">
+        <UButton icon="i-tabler-target-arrow" label="Review round" variant="soft" @click="emit('review')" />
       </div>
     </template>
 

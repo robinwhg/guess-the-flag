@@ -51,7 +51,6 @@ const regionCountries = computed(() => {
         <p class="text-xl font-semibold">
           Select a game to play:
         </p>
-
         <UPageGrid>
           <UPageCard
             v-for="game in currentRegion.games"
@@ -59,7 +58,13 @@ const regionCountries = computed(() => {
             :title="game.title"
             :to="`/play/${currentRegion.slug}/${game.slug}`"
             class="transition-transform hover:scale-105"
-          />
+          >
+            <template #leading>
+              <p class="text-sm text-primary font-semibold">
+                {{ game.countries.length.toString() }} Flags
+              </p>
+            </template>
+          </UPageCard>
         </UPageGrid>
       </div>
     </UPageBody>
