@@ -38,7 +38,41 @@ export function useGame(countries: Country[]) {
     if (!question.value)
       return []
 
-    const distractors = shuffle(countries.filter(country => country.cca3 !== question.value?.cca3)).slice(0, CHOICE_COUNT - 1)
+    const currentQuestion = question.value
+    const maxDistractors = Math.max(0, Math.min(CHOICE_COUNT - 1, countries.length - 1))
+    const basePool = countries.filter(country => country.cca3 !== currentQuestion.cca3)
+
+    const distractorsBySubregion = currentQuestion.subregion
+      ? shuffle(basePool.filter(country => country.subregion === currentQuestion.subregion))
+      : []
+    const distractorsByRegion = shuffle(basePool.filter((country) => {
+      if (country.region !== currentQuestion.region)
+        return false
+
+      return !currentQuestion.subregion || country.subregion !== currentQuestion.subregion
+    }))
+
+    const distractorsFallback = shuffle(basePool.filter(country => country.region !== currentQuestion.region))
+
+    const distractors: Country[] = []
+    const usedCountryCodes = new Set<string>()
+
+    for (const pool of [distractorsBySubregion, distractorsByRegion, distractorsFallback]) {
+      for (const country of pool) {
+        if (distractors.length >= maxDistractors)
+          break
+
+        if (usedCountryCodes.has(country.cca3))
+          continue
+
+        distractors.push(country)
+        usedCountryCodes.add(country.cca3)
+      }
+
+      if (distractors.length >= maxDistractors)
+        break
+    }
+
     const choicePool = shuffle([question.value, ...distractors])
 
     return choicePool.map((choice) => {
