@@ -30,7 +30,7 @@ const progressPct = computed(() => {
     <div
       v-if="gameState === 'start'"
       key="start"
-      class="grid grid-cols-2 lg:grid-cols-5 items-center gap-4"
+      class="grid grid-cols-2 lg:grid-cols-5 items-center gap-2"
     >
       <div
         class="order-1 lg:order-1 col-span-2 lg:col-span-5"
@@ -44,7 +44,7 @@ const progressPct = computed(() => {
     <div
       v-else-if="gameState === 'play' || gameState === 'pause'"
       key="run"
-      class="grid grid-cols-2 lg:grid-cols-5 items-center gap-4"
+      class="grid grid-cols-2 lg:grid-cols-5 items-center gap-2"
     >
       <div class="order-1 lg:order-1 col-span-1">
         <p class="text-xl font-semibold">
@@ -87,7 +87,7 @@ const progressPct = computed(() => {
     <div
       v-else
       key="end"
-      class="grid grid-cols-2 lg:grid-cols-5 items-center gap-4"
+      class="grid grid-cols-2 lg:grid-cols-5 items-center gap-2"
     >
       <div
         class="order-1 lg:order-1 col-span-2 lg:col-span-5"
