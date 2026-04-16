@@ -52,8 +52,15 @@ function onBack() {
         <Game
           :countries="gameCountries"
           :game-title="currentGame.title"
+          :game-slug="currentGame.slug"
           :region-title="`Flags of ${regionTitle}`"
+          :region-slug="currentRegion.slug"
           @back="onBack"
+        />
+
+        <GameScoreboard
+          :region-slug="currentRegion.slug"
+          :game-slug="currentGame.slug"
         />
       </ClientOnly>
     </UPageBody>

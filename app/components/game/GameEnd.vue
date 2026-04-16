@@ -27,10 +27,12 @@ const accuracyPct = computed(() => {
 
 <template>
   <GameStateLayout>
+    <template #header>
+      <UPageFeature :title="regionTitle" :description="gameTitle" />
+    </template>
+
     <template #content>
       <div class="overflow-y-auto grid grid-cols-2 gap-4">
-        <UPageFeature :title="regionTitle" :description="gameTitle" class="col-span-2" />
-
         <UPageFeature :title="totalQuestions.toString()" description="Flags" icon="i-tabler-flag-filled" />
 
         <UPageFeature title="Multiple Choice" description="Mode" icon="i-tabler-layout-grid-filled" />
