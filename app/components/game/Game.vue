@@ -54,7 +54,7 @@ function onReviewWrongFlags() {
   game.reviewWrongFlags()
 }
 
-function togglePause() {
+function onTogglePause() {
   if (game.gameState.value === 'play') {
     game.pauseGame()
     return
@@ -73,7 +73,7 @@ function togglePause() {
       :timer-label="game.timerLabel.value"
       :is-advancing="game.isAdvancing.value"
       :game-state="game.gameState.value"
-      @toggle-pause="togglePause"
+      @toggle-pause="onTogglePause"
     />
 
     <Transition name="fade" mode="out-in">
