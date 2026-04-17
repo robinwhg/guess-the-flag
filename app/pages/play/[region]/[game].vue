@@ -26,7 +26,6 @@ const regionTitle = computed(() => formatRegionTitle(currentRegion.slug))
 
 const pageTitle = computed(() => `${currentGame.title} | Flags of ${regionTitle.value}`)
 const pageDescription = computed(() => currentRegion.description)
-const gameCountries = computed(() => [...currentGame.countries])
 
 useSeoMeta({
   title: pageTitle,
@@ -44,7 +43,7 @@ function onBack() {
       <ClientOnly>
         <Game
           :game-mode
-          :countries="gameCountries"
+          :game-countries="currentGame.countries"
           :game-title="currentGame.title"
           :game-slug="currentGame.slug"
           :region-title="`Flags of ${regionTitle}`"

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
-  countries: Country[]
+  gameCountries: Country[]
   gameTitle: string
   regionTitle: string
   gameSlug: string
@@ -12,9 +12,9 @@ const emit = defineEmits<{
   (e: 'back'): void
 }>()
 
-const { countries, gameTitle, regionTitle, gameSlug, regionSlug, gameMode } = toRefs(props)
+const { gameCountries, gameTitle, regionTitle, gameSlug, regionSlug, gameMode } = toRefs(props)
 
-const { gameState, choices, retry, selectChoice, typedAnswer, submitTypedAnswer, totalCorrectQuestions, totalQuestions, index, currentQuestion, isAdvancing, showOverlay, timerLabel, elapsedSeconds, startGame, pauseGame, resumeGame, stopToStart, reviewWrongFlags } = useGame(countries.value)
+const { gameState, choices, retry, selectChoice, typedAnswer, submitTypedAnswer, totalCorrectQuestions, totalQuestions, index, currentQuestion, isAdvancing, showOverlay, timerLabel, elapsedSeconds, startGame, pauseGame, resumeGame, stopToStart, reviewWrongFlags } = useGame(gameCountries.value)
 const { saveScore } = useScoreHistory()
 const isReviewRun = ref(false)
 
