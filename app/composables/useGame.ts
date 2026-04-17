@@ -11,6 +11,19 @@ export interface Choice {
 
 export type GameMode = 'multiple-choice' | 'type-answer'
 
+export interface GameConfig {
+  game: {
+    slug: string
+    title: string
+    countries: Country[]
+    mode: GameMode
+  }
+  region: {
+    slug: string
+    title: string
+  }
+}
+
 export type GameState = 'start' | 'play' | 'pause' | 'end'
 
 export function useGame(gameCountries: Country[]) {

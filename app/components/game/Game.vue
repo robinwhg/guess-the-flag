@@ -1,20 +1,15 @@
 <script setup lang="ts">
 const props = defineProps<{
-  gameCountries: Country[]
-  gameTitle: string
-  regionTitle: string
-  gameSlug: string
-  regionSlug: string
-  gameMode: GameMode
+  config: GameConfig
 }>()
 
 const emit = defineEmits<{
   (e: 'back'): void
 }>()
 
-const { gameCountries, gameTitle, regionTitle, gameSlug, regionSlug, gameMode } = toRefs(props)
+const { config } = toRefs(props)
 
-const { gameState, choices, retry, selectChoice, typedAnswer, submitTypedAnswer, totalCorrectQuestions, totalQuestions, index, currentQuestion, isAdvancing, showOverlay, timerLabel, elapsedSeconds, startGame, pauseGame, resumeGame, stopToStart, reviewWrongFlags } = useGame(gameCountries.value)
+const { gameState, choices, retry, selectChoice, typedAnswer, submitTypedAnswer, totalCorrectQuestions, totalQuestions, index, currentQuestion, isAdvancing, showOverlay, timerLabel, elapsedSeconds, startGame, pauseGame, resumeGame, stopToStart, reviewWrongFlags } = useGame(config.value.game.countries)
 const { saveScore } = useScoreHistory()
 const isReviewRun = ref(false)
 
@@ -28,14 +23,14 @@ watch(gameState, (state, previousState) => {
   saveScore({
     id: crypto.randomUUID(),
     createdAt: new Date().toISOString(),
-    regionSlug: regionSlug.value,
-    regionTitle: regionTitle.value,
-    gameSlug: gameSlug.value,
-    gameTitle: gameTitle.value,
+    regionSlug: config.value.region.slug,
+    regionTitle: config.value.region.title,
+    gameSlug: config.value.game.slug,
+    gameTitle: config.value.game.title,
     totalQuestions: totalQuestions.value,
     totalCorrectQuestions: totalCorrectQuestions.value,
     elapsedSeconds: elapsedSeconds.value,
-    gameMode: gameMode.value,
+    gameMode: config.value.game.mode,
   })
 })
 
@@ -84,10 +79,10 @@ function togglePause() {
     <Transition name="fade" mode="out-in">
       <GameStart
         v-if="gameState === 'start'"
-        :game-title
-        :region-title
+        :game-title="config.game.title"
+        :region-title="config.region.title"
         :total-questions
-        :game-mode
+        :game-mode="config.game.mode"
         @start="onStartGame"
         @back="emit('back')"
       />
@@ -100,7 +95,7 @@ function togglePause() {
           :choices
           :is-advancing
           :show-overlay
-          :game-mode
+          :game-mode="config.game.mode"
           @select-choice="choice => selectChoice(choice)"
           @submit-typed-answer="submitTypedAnswer"
         />
@@ -118,8 +113,8 @@ function togglePause() {
         :total-questions
         :total-correct-questions
         :timer-label
-        :game-title
-        :region-title
+        :game-title="config.game.title"
+        :region-title="config.region.title"
         @retry="onRetry"
         @review="onReviewWrongFlags"
         @back="emit('back')"

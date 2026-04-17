@@ -26,6 +26,18 @@ const regionTitle = computed(() => formatRegionTitle(currentRegion.slug))
 
 const pageTitle = computed(() => `${currentGame.title} | Flags of ${regionTitle.value}`)
 const pageDescription = computed(() => currentRegion.description)
+const config = computed<GameConfig>(() => ({
+  game: {
+    slug: currentGame.slug,
+    title: currentGame.title,
+    countries: currentGame.countries,
+    mode: gameMode.value,
+  },
+  region: {
+    slug: currentRegion.slug,
+    title: `Flags of ${regionTitle.value}`,
+  },
+}))
 
 useSeoMeta({
   title: pageTitle,
@@ -42,12 +54,7 @@ function onBack() {
     <UPageBody>
       <ClientOnly>
         <Game
-          :game-mode
-          :game-countries="currentGame.countries"
-          :game-title="currentGame.title"
-          :game-slug="currentGame.slug"
-          :region-title="`Flags of ${regionTitle}`"
-          :region-slug="currentRegion.slug"
+          :config
           @back="onBack"
         />
 
