@@ -17,12 +17,7 @@ const { totalQuestions, totalCorrectQuestions } = toRefs(props)
 
 const hasWrongAnswers = computed(() => totalCorrectQuestions.value < totalQuestions.value)
 
-const accuracyPct = computed(() => {
-  if (totalQuestions.value === 0)
-    return 0
-
-  return Math.round((totalCorrectQuestions.value / totalQuestions.value) * 100)
-})
+const accuracyPct = computed(() => calculateAccuracy(totalCorrectQuestions.value, totalQuestions.value))
 </script>
 
 <template>

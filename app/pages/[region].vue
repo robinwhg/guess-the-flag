@@ -11,15 +11,7 @@ if (!currentRegion) {
   })
 }
 
-const regionTitle = computed(() => {
-  if (currentRegion.slug === 'world')
-    return 'the World'
-
-  if (currentRegion.slug === 'americas')
-    return 'the Americas'
-
-  return currentRegion.slug.charAt(0).toUpperCase() + currentRegion.slug.slice(1)
-})
+const regionTitle = computed(() => formatRegionTitle(currentRegion.slug))
 
 const pageTitle = computed(() => `Flags of ${regionTitle.value}`)
 
@@ -49,10 +41,7 @@ function getBestScore(gameSlug: string) {
     return null
 
   return scores.reduce<number>((best, score) => {
-    if (!score.totalQuestions)
-      return best
-
-    const accuracy = Math.round((score.totalCorrectQuestions / score.totalQuestions) * 100)
+    const accuracy = calculateAccuracy(score.totalCorrectQuestions, score.totalQuestions)
 
     return Math.max(best, accuracy)
   }, 0)

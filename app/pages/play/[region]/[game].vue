@@ -21,15 +21,7 @@ if (!currentGame) {
   })
 }
 
-const regionTitle = computed(() => {
-  if (currentRegion.slug === 'world')
-    return 'the World'
-
-  if (currentRegion.slug === 'americas')
-    return 'the Americas'
-
-  return currentRegion.slug.charAt(0).toUpperCase() + currentRegion.slug.slice(1)
-})
+const regionTitle = computed(() => formatRegionTitle(currentRegion.slug))
 
 const pageTitle = computed(() => `${currentGame.title} | Flags of ${regionTitle.value}`)
 const pageDescription = computed(() => currentRegion.description)
