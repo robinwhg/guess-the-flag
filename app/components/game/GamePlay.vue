@@ -3,14 +3,22 @@ const props = defineProps<{
   currentQuestion: Country
   choices: Choice[]
   isAdvancing: boolean
-  showOverlay: boolean
+  showOverlay: 'none' | 'success' | 'error'
+  mode: 'multiple-choice' | 'type-answer'
 }>()
 
 const emit = defineEmits<{
   (e: 'selectChoice', choice: Choice): void
+  (e: 'submitTypedAnswer'): void
 }>()
 
-const { currentQuestion, choices, isAdvancing, showOverlay } = toRefs(props)
+const typedAnswer = defineModel<string>('typedAnswer', { required: true })
+
+const { currentQuestion, choices, isAdvancing, showOverlay, mode } = toRefs(props)
+
+function onSubmitTypedAnswer() {
+  emit('submitTypedAnswer')
+}
 </script>
 
 <template>
@@ -31,12 +39,43 @@ const { currentQuestion, choices, isAdvancing, showOverlay } = toRefs(props)
     </template>
 
     <template #actions>
-      <div :key="`choices-${currentQuestion.cca3}`" class="grid grid-cols-2 items-stretch gap-4">
+      <UInput
+        v-if="mode === 'type-answer'"
+        v-model="typedAnswer" size="xl" variant="soft" placeholder="Enter your answer here..." class="w-full"
+        :class="{
+          'choice-pop': showOverlay === 'success',
+          'choice-wiggle': showOverlay === 'error',
+        }"
+        :ui="{ base:
+          showOverlay === 'success' ? 'text-success bg-success/25 hover:bg-success/25 focus:bg-success/25 disabled:bg-success/25'
+          : showOverlay === 'error' ? 'text-error bg-error/25 hover:bg-error/25 focus:bg-error/25 disabled:bg-error/25'
+            : '',
+        }"
+        @keyup.enter="onSubmitTypedAnswer"
+      >
+        <template #trailing>
+          <UButton
+            :disabled="!typedAnswer.length"
+            color="neutral"
+            variant="link"
+            icon="i-tabler-arrow-forward"
+            aria-label="Clear input"
+            :ui="{ leadingIcon:
+              showOverlay === 'success' ? 'text-success'
+              : showOverlay === 'error' ? 'text-error'
+                : '',
+            }"
+            @click="onSubmitTypedAnswer"
+          />
+        </template>
+      </UInput>
+
+      <div v-else :key="`choices-${currentQuestion.cca3}`" class="grid grid-cols-2 items-stretch gap-4">
         <div
           v-for="choice in choices" :key="choice.country.cca3" class="relative"
           :class="{
-            'choice-wiggle': showOverlay && choice.selected && !choice.isCorrect,
-            'choice-pop': showOverlay && choice.selected && choice.isCorrect,
+            'choice-pop': showOverlay === 'success' && choice.selected,
+            'choice-wiggle': showOverlay === 'error' && choice.selected,
           }"
         >
           <BaseCardButton
@@ -47,11 +86,18 @@ const { currentQuestion, choices, isAdvancing, showOverlay } = toRefs(props)
 
           <Transition name="fade" mode="out-in">
             <div
-              v-if="showOverlay && choice.selected"
+              v-if="showOverlay !== 'none' && choice.selected"
               class="absolute inset-0 z-10 flex items-center justify-center rounded-lg text-inverted pointer-events-none"
               :class="choice.isCorrect ? 'bg-success' : 'bg-error'"
             >
-              <UIcon :name="choice.isCorrect ? 'i-tabler-check' : 'i-tabler-x'" class="size-10" />
+              <UIcon
+                class="size-10"
+                :name="
+                  showOverlay === 'success' ? 'i-tabler-check'
+                  : showOverlay === 'error' ? 'i-tabler-x'
+                    : ''
+                "
+              />
             </div>
           </Transition>
         </div>
