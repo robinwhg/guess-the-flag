@@ -5,15 +5,16 @@ import { h, resolveComponent } from 'vue'
 const props = defineProps<{
   regionSlug: string
   gameSlug: string
+  gameMode: 'multiple-choice' | 'type-answer'
 }>()
 
 const UButton = resolveComponent('UButton')
 
-const { regionSlug, gameSlug } = toRefs(props)
+const { regionSlug, gameSlug, gameMode } = toRefs(props)
 const { getScoresForGame } = useScoreHistory()
 
 const scores = computed(() => {
-  return getScoresForGame(regionSlug.value, gameSlug.value)
+  return getScoresForGame(regionSlug.value, gameSlug.value, gameMode.value)
 })
 
 function getSortButton(column: any, label: string) {

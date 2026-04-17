@@ -55,6 +55,7 @@ function onBack() {
         <GameScoreboard
           :region-slug="currentRegion.slug"
           :game-slug="currentGame.slug"
+          :game-mode
         />
       </ClientOnly>
     </UPageBody>

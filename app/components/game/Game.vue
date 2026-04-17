@@ -12,7 +12,7 @@ const emit = defineEmits<{
   (e: 'back'): void
 }>()
 
-const { countries, gameTitle, regionTitle, gameSlug, regionSlug } = toRefs(props)
+const { countries, gameTitle, regionTitle, gameSlug, regionSlug, gameMode } = toRefs(props)
 
 const { gameState, choices, retry, selectChoice, typedAnswer, submitTypedAnswer, totalCorrectQuestions, totalQuestions, index, currentQuestion, isAdvancing, showOverlay, timerLabel, elapsedSeconds, startGame, pauseGame, resumeGame, stopToStart, reviewWrongFlags } = useGame(countries.value)
 const { saveScore } = useScoreHistory()
@@ -35,6 +35,7 @@ watch(gameState, (state, previousState) => {
     totalQuestions: totalQuestions.value,
     totalCorrectQuestions: totalCorrectQuestions.value,
     elapsedSeconds: elapsedSeconds.value,
+    gameMode: gameMode.value,
   })
 })
 
