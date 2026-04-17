@@ -2,6 +2,8 @@ const CHOICE_COUNT = 4
 const ADVANCE_DELAY = 600
 const TIMER_TIMEOUT = 1000
 const MAX_ELAPSED_SECONDS = 90 * 60
+const COMBINING_MARKS_REGEX = /\p{M}+/gu
+const NON_ALPHANUMERIC_REGEX = /[^\p{L}\p{N}]+/gu
 
 export interface GameChoice {
   country: Country
@@ -130,7 +132,13 @@ export function useGame(gameCountries: Country[]) {
 
     isAdvancing.value = true
 
-    const isCorrect = currentQuestion.value.name.common === typedAnswer.value
+    const normalizedTypedAnswer = normalizeTypedAnswer(typedAnswer.value)
+    const acceptedAnswers = new Set(
+      getCountryNameVariants(currentQuestion.value)
+        .map(normalizeTypedAnswer)
+        .filter(value => value.length > 0),
+    )
+    const isCorrect = acceptedAnswers.has(normalizedTypedAnswer)
 
     if (isCorrect) {
       showOverlay.value = 'success'
@@ -249,6 +257,28 @@ export function useGame(gameCountries: Country[]) {
 }
 
 export type GameRuntime = ReturnType<typeof useGame>
+
+function normalizeTypedAnswer(value: string): string {
+  return value
+    .normalize('NFD')
+    .replace(COMBINING_MARKS_REGEX, '')
+    .toLowerCase()
+    .replace(NON_ALPHANUMERIC_REGEX, '')
+}
+
+function getCountryNameVariants(country: Country): string[] {
+  const nativeNameVariants = country.name.nativeName.flatMap(nativeName => [
+    nativeName.common,
+    nativeName.official,
+  ])
+
+  return [
+    country.name.common,
+    country.name.official,
+    ...nativeNameVariants,
+    ...(country.altSpellings ?? []),
+  ]
+}
 
 function shuffle<T>(array: T[]): T[] {
   const shuffled = [...array]
