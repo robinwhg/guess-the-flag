@@ -47,9 +47,9 @@ function onSubmitTypedAnswer() {
           'choice-wiggle': showOverlay === 'error',
         }"
         :ui="{ base:
-          showOverlay === 'success' ? 'text-success bg-success/25 hover:bg-success/25 focus:bg-success/25 disabled:bg-success/25'
-          : showOverlay === 'error' ? 'text-error bg-error/25 hover:bg-error/25 focus:bg-error/25 disabled:bg-error/25'
-            : '',
+          showOverlay === 'success' ? 'text-success bg-success/25 hover:bg-success/25 focus:bg-success/25 disabled:bg-success/25 px-4 py-4'
+          : showOverlay === 'error' ? 'text-error bg-error/25 hover:bg-error/25 focus:bg-error/25 disabled:bg-error/25 px-4 py-4'
+            : 'px-4 py-4',
         }"
         @keyup.enter="onSubmitTypedAnswer"
       >
