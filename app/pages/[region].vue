@@ -11,15 +11,7 @@ if (!currentRegion) {
   })
 }
 
-const regionTitle = computed(() => {
-  if (currentRegion.slug === 'world')
-    return 'the World'
-
-  if (currentRegion.slug === 'americas')
-    return 'the Americas'
-
-  return currentRegion.slug.charAt(0).toUpperCase() + currentRegion.slug.slice(1)
-})
+const regionTitle = computed(() => formatRegionTitle(currentRegion.slug))
 
 const pageTitle = computed(() => `Flags of ${regionTitle.value}`)
 
@@ -37,22 +29,21 @@ const regionCountries = computed(() => {
   return countries.filter(country => country.region.toLowerCase() === currentRegion.slug)
 })
 
+const gameMode = ref<GameMode>('multiple-choice')
+
 const { getScoresForGame } = useScoreHistory()
 
-function getBestScore(gameSlug: string) {
+function getBestScore(gameSlug: string, gameMode: GameMode) {
   if (!currentRegion)
     return null
 
-  const scores = getScoresForGame(currentRegion.slug, gameSlug)
+  const scores = getScoresForGame(currentRegion.slug, gameSlug, gameMode)
 
   if (!scores.length)
     return null
 
   return scores.reduce<number>((best, score) => {
-    if (!score.totalQuestions)
-      return best
-
-    const accuracy = Math.round((score.totalCorrectQuestions / score.totalQuestions) * 100)
+    const accuracy = calculateAccuracy(score.totalCorrectQuestions, score.totalQuestions)
 
     return Math.max(best, accuracy)
   }, 0)
@@ -69,30 +60,41 @@ function getBestScore(gameSlug: string) {
 
     <UPageBody>
       <div class="flex flex-col gap-8">
-        <p class="text-xl font-semibold">
-          Select a game to play:
-        </p>
-        <UPageGrid>
-          <UPageCard
-            v-for="game in currentRegion.games"
-            :key="game.slug"
-            :title="game.title"
-            :to="`/play/${currentRegion.slug}/${game.slug}`"
-            class="transition-transform hover:scale-105"
-            orientation="horizontal"
-            :ui="{ container: 'grid grid-cols-4 lg:grid-cols-4 items-center', wrapper: 'col-span-3' }"
-          >
-            <template #leading>
-              <p class="text-sm text-primary font-semibold">
-                {{ game.countries.length.toString() }} Flags
-              </p>
-            </template>
+        <div>
+          <p class="text-xl font-semibold mb-2">
+            Select mode
+          </p>
+          <UTabs v-model="gameMode" :items="[{ label: 'Multiple Choice', icon: 'i-tabler-layout-grid-filled', value: 'multiple-choice' }, { label: 'Type Answer', icon: 'i-tabler-keyboard-filled', value: 'type-answer' }]" />
+        </div>
 
-            <span v-if="getBestScore(game.slug) !== null" class="text-xl font-semibold text-muted">
-              {{ getBestScore(game.slug) }} %
-            </span>
-          </UPageCard>
-        </UPageGrid>
+        <div>
+          <p class="text-xl font-semibold mb-2">
+            Select game
+          </p>
+          <UPageGrid>
+            <UPageCard
+              v-for="game in currentRegion.games"
+              :key="game.slug"
+              :title="game.title"
+              :to="`/play/${currentRegion.slug}/${game.slug}?mode=${gameMode}`"
+              class="transition-transform hover:scale-105"
+              orientation="horizontal"
+              :ui="{ container: 'grid grid-cols-4 lg:grid-cols-4 items-center', wrapper: 'col-span-3' }"
+            >
+              <template #leading>
+                <p class="text-sm text-primary font-semibold">
+                  {{ game.countries.length.toString() }} Flags
+                </p>
+              </template>
+
+              <ClientOnly>
+                <span v-if="getBestScore(game.slug, gameMode) !== null" class="text-xl font-semibold text-muted text-right">
+                  {{ getBestScore(game.slug, gameMode) }} %
+                </span>
+              </ClientOnly>
+            </UPageCard>
+          </UPageGrid>
+        </div>
       </div>
     </UPageBody>
   </UPage>

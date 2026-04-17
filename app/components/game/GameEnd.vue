@@ -1,51 +1,40 @@
 <script setup lang="ts">
-const props = defineProps<{
-  totalQuestions: number
-  totalCorrectQuestions: number
-  timerLabel: string
-  gameTitle: string
-  regionTitle: string
+const { game, config } = defineProps<{
+  game: GameRuntime
+  config: GameConfig
 }>()
 
 const emit = defineEmits<{
-  (e: 'retry'): void
   (e: 'back'): void
-  (e: 'review'): void
 }>()
 
-const { totalQuestions, totalCorrectQuestions } = toRefs(props)
+const hasWrongAnswers = computed(() => game.totalCorrectQuestions.value < game.totalQuestions.value)
 
-const hasWrongAnswers = computed(() => totalCorrectQuestions.value < totalQuestions.value)
-
-const accuracyPct = computed(() => {
-  if (totalQuestions.value === 0)
-    return 0
-
-  return Math.round((totalCorrectQuestions.value / totalQuestions.value) * 100)
-})
+const accuracyPct = computed(() => calculateAccuracy(game.totalCorrectQuestions.value, game.totalQuestions.value))
 </script>
 
 <template>
   <GameStateLayout>
     <template #header>
-      <UPageFeature :title="regionTitle" :description="gameTitle" />
+      <UPageFeature :title="config.region.title" :description="config.game.title" />
     </template>
 
     <template #content>
       <div class="overflow-y-auto grid grid-cols-2 gap-4">
-        <UPageFeature :title="totalQuestions.toString()" description="Flags" icon="i-tabler-flag-filled" />
+        <UPageFeature :title="game.totalQuestions.value.toString()" description="Flags" icon="i-tabler-flag-filled" />
 
-        <UPageFeature title="Multiple Choice" description="Mode" icon="i-tabler-layout-grid-filled" />
+        <UPageFeature v-if="config.game.mode === 'type-answer'" title="Type Answer" description="Mode" icon="i-tabler-keyboard-filled" />
+        <UPageFeature v-else title="Multiple Choice" description="Mode" icon="i-tabler-layout-grid-filled" />
 
         <UPageFeature :title="`${accuracyPct} %`" description="Score" icon="i-tabler-trophy-filled" />
 
-        <UPageFeature :title="timerLabel" description="Time" icon="i-tabler-clock-filled" />
+        <UPageFeature :title="game.timerLabel.value" description="Time" icon="i-tabler-clock-filled" />
       </div>
     </template>
 
     <template v-if="hasWrongAnswers" #footer>
       <div class="flex justify-center">
-        <UButton icon="i-tabler-target-arrow" label="Review round" variant="soft" @click="emit('review')" />
+        <UButton icon="i-tabler-target-arrow" label="Review round" variant="soft" @click="game.reviewWrongFlags" />
       </div>
     </template>
 
@@ -54,7 +43,7 @@ const accuracyPct = computed(() => {
         <BaseCardButton
           icon="i-tabler-restore"
           label="Retry"
-          @click="emit('retry')"
+          @click="game.retry"
         />
 
         <BaseCardButton

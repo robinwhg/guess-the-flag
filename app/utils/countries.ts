@@ -16,11 +16,11 @@ export interface Country {
     alt: string
     emoji: string
   }
+  altSpellings?: string[]
   sovereignState?: string
   hint?: string
   cca3: string
   independent: boolean
-  altSpellings: string[]
   region: string
   subregion: string
   population: number

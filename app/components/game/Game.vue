@@ -1,119 +1,88 @@
 <script setup lang="ts">
 const props = defineProps<{
-  countries: Country[]
-  gameTitle: string
-  regionTitle: string
-  gameSlug: string
-  regionSlug: string
+  config: GameConfig
 }>()
 
 const emit = defineEmits<{
   (e: 'back'): void
 }>()
 
-const { countries, gameTitle, regionTitle, gameSlug, regionSlug } = toRefs(props)
+const { config } = toRefs(props)
 
-const { gameState, choices, retry, selectChoice, totalCorrectQuestions, totalQuestions, index, question, isAdvancing, timerLabel, elapsedSeconds, startGame, pauseGame, resumeGame, stopToStart, reviewWrongFlags } = useGame(countries.value)
+const baseGame = useGame(config.value.game.countries)
 const { saveScore } = useScoreHistory()
 const isReviewRun = ref(false)
 
-watch(gameState, (state, previousState) => {
+const game: GameRuntime = {
+  ...baseGame,
+  startGame: () => {
+    isReviewRun.value = false
+    baseGame.startGame()
+  },
+  retry: () => {
+    isReviewRun.value = false
+    baseGame.retry()
+  },
+  stopToStart: () => {
+    isReviewRun.value = false
+    baseGame.stopToStart()
+  },
+  reviewWrongFlags: () => {
+    isReviewRun.value = true
+    baseGame.reviewWrongFlags()
+  },
+}
+
+watch(game.gameState, (state, previousState) => {
   if (state !== 'end' || previousState === 'end' || isReviewRun.value)
     return
 
-  if (!totalQuestions.value)
+  if (!game.totalQuestions.value)
     return
 
   saveScore({
     id: crypto.randomUUID(),
     createdAt: new Date().toISOString(),
-    regionSlug: regionSlug.value,
-    regionTitle: regionTitle.value,
-    gameSlug: gameSlug.value,
-    gameTitle: gameTitle.value,
-    totalQuestions: totalQuestions.value,
-    totalCorrectQuestions: totalCorrectQuestions.value,
-    elapsedSeconds: elapsedSeconds.value,
+    regionSlug: config.value.region.slug,
+    regionTitle: config.value.region.title,
+    gameSlug: config.value.game.slug,
+    gameTitle: config.value.game.title,
+    totalQuestions: game.totalQuestions.value,
+    totalCorrectQuestions: game.totalCorrectQuestions.value,
+    elapsedSeconds: game.elapsedSeconds.value,
+    gameMode: config.value.game.mode,
   })
 })
-
-function onStartGame() {
-  isReviewRun.value = false
-  startGame()
-}
-
-function onRetry() {
-  isReviewRun.value = false
-  retry()
-}
-
-function onStopToStart() {
-  isReviewRun.value = false
-  stopToStart()
-}
-
-function onReviewWrongFlags() {
-  isReviewRun.value = true
-  reviewWrongFlags()
-}
-
-function togglePause() {
-  if (gameState.value === 'play') {
-    pauseGame()
-    return
-  }
-
-  if (gameState.value === 'pause')
-    resumeGame()
-}
 </script>
 
 <template>
   <div class="space-y-4">
-    <GameHeader
-      :current-index="index"
-      :total-questions
-      :timer-label="timerLabel"
-      :is-advancing="isAdvancing"
-      :game-state="gameState"
-      @toggle-pause="togglePause"
-    />
+    <GameHeader :game />
 
     <Transition name="fade" mode="out-in">
       <GameStart
-        v-if="gameState === 'start'"
-        :game-title
-        :region-title
-        :total-questions
-        @start="onStartGame"
+        v-if="game.gameState.value === 'start'"
+        :game
+        :config
         @back="emit('back')"
       />
 
-      <div v-else-if="gameState === 'play'" class="space-y-4">
+      <div v-else-if="game.gameState.value === 'play'" class="space-y-4">
         <GamePlay
-          :question="question!"
-          :choices="choices"
-          :is-advancing="isAdvancing"
-          @select-choice="choice => selectChoice(choice)"
+          v-if="game.currentQuestion.value"
+          :game
+          :config
         />
       </div>
 
-      <div v-else-if="gameState === 'pause'" class="space-y-4">
-        <GamePause
-          @resume="resumeGame"
-          @exit="onStopToStart"
-        />
+      <div v-else-if="game.gameState.value === 'pause'" class="space-y-4">
+        <GamePause :game />
       </div>
 
       <GameEnd
         v-else
-        :total-questions
-        :total-correct-questions
-        :timer-label
-        :game-title
-        :region-title
-        @retry="onRetry"
-        @review="onReviewWrongFlags"
+        :game
+        :config
         @back="emit('back')"
       />
     </Transition>

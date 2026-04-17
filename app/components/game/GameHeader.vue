@@ -1,34 +1,32 @@
 <script setup lang="ts">
-import type { GameState } from '~/composables/useGame'
-
-const props = defineProps<{
-  currentIndex: number
-  totalQuestions: number
-  timerLabel: string
-  isAdvancing: boolean
-  gameState: GameState
+const { game } = defineProps<{
+  game: GameRuntime
 }>()
-
-const emit = defineEmits<{
-  togglePause: []
-}>()
-
-const { currentIndex, totalQuestions, isAdvancing } = toRefs(props)
 
 const progressPct = computed(() => {
-  if (totalQuestions.value === 0)
+  if (game.totalQuestions.value === 0)
     return 0
 
-  const progress = Math.round(((currentIndex.value + (isAdvancing.value ? 1 : 0)) / totalQuestions.value) * 100)
+  const progress = Math.round(((game.index.value + (game.isAdvancing.value ? 1 : 0)) / game.totalQuestions.value) * 100)
 
   return Math.min(progress, 100)
 })
+
+function togglePause() {
+  if (game.gameState.value === 'play') {
+    game.pauseGame()
+    return
+  }
+
+  if (game.gameState.value === 'pause')
+    game.resumeGame()
+}
 </script>
 
 <template>
   <Transition name="fade" mode="out-in">
     <div
-      v-if="gameState === 'start'"
+      v-if="game.gameState.value === 'start'"
       key="start"
       class="grid grid-cols-2 lg:grid-cols-5 items-center gap-2"
     >
@@ -42,7 +40,7 @@ const progressPct = computed(() => {
     </div>
 
     <div
-      v-else-if="gameState === 'play' || gameState === 'pause'"
+      v-else-if="game.gameState.value === 'play' || game.gameState.value === 'pause'"
       key="run"
       class="grid grid-cols-2 lg:grid-cols-5 items-center gap-2"
     >
@@ -55,15 +53,15 @@ const progressPct = computed(() => {
       <div class="order-2 lg:order-3 flex items-center gap-2 justify-end">
         <UIcon name="i-tabler-clock-filled" class="shrink-0 size-6" />
         <span class="text-xl font-semibold font-mono">
-          {{ timerLabel }}
+          {{ game.timerLabel.value }}
         </span>
         <UButton
-          :icon="gameState === 'pause' ? 'i-tabler-player-play-filled' : 'i-tabler-player-pause-filled'"
-          :aria-label="gameState === 'pause' ? 'resume' : 'pause'"
+          :icon="game.gameState.value === 'pause' ? 'i-tabler-player-play-filled' : 'i-tabler-player-pause-filled'"
+          :aria-label="game.gameState.value === 'pause' ? 'resume' : 'pause'"
           color="neutral"
           variant="ghost"
           size="xl"
-          @click="emit('togglePause')"
+          @click="togglePause"
         />
       </div>
 
@@ -74,7 +72,7 @@ const progressPct = computed(() => {
           />
           <div class="inline-flex items-center justify-between text-sm">
             <span class="font-semibold">
-              Flag {{ currentIndex + 1 }} of {{ totalQuestions }}
+              Flag {{ game.index.value + 1 }} of {{ game.totalQuestions.value }}
             </span>
             <span class="text-muted">
               {{ progressPct }} %

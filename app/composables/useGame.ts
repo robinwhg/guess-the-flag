@@ -2,11 +2,28 @@ const CHOICE_COUNT = 4
 const ADVANCE_DELAY = 600
 const TIMER_TIMEOUT = 1000
 const MAX_ELAPSED_SECONDS = 90 * 60
+const COMBINING_MARKS_REGEX = /\p{M}+/gu
+const NON_ALPHANUMERIC_REGEX = /[^\p{L}\p{N}]+/gu
 
-export interface Choice {
+export interface GameChoice {
   country: Country
   isCorrect: boolean
-  showOverlay: Ref<boolean>
+  selected: boolean
+}
+
+export type GameMode = 'multiple-choice' | 'type-answer'
+
+export interface GameConfig {
+  game: {
+    slug: string
+    title: string
+    countries: Country[]
+    mode: GameMode
+  }
+  region: {
+    slug: string
+    title: string
+  }
 }
 
 export type GameState = 'start' | 'play' | 'pause' | 'end'
@@ -14,37 +31,29 @@ export type GameState = 'start' | 'play' | 'pause' | 'end'
 export function useGame(gameCountries: Country[]) {
   const gameState = ref<GameState>('start')
   const isAdvancing = ref(false)
+  const showOverlay = ref<'none' | 'success' | 'error'>('none')
   const questions = ref(shuffle(gameCountries))
   const index = ref(0)
   const wrongQuestions = ref<Country[]>([])
   const elapsedSeconds = ref(0)
+  const typedAnswer = ref('')
 
   const isFinished = computed(() => index.value >= questions.value.length)
-  const question = computed(() => questions.value[index.value])
+  const currentQuestion = computed(() => questions.value[index.value])
   const totalQuestions = computed(() => questions.value.length)
   const totalCorrectQuestions = computed(() => questions.value.length - wrongQuestions.value.length)
-  const timerLabel = computed(() => {
-    const minutes = Math.floor(elapsedSeconds.value / 60)
-      .toString()
-      .padStart(2, '0')
-
-    const seconds = (elapsedSeconds.value % 60)
-      .toString()
-      .padStart(2, '0')
-
-    return `${minutes}:${seconds}`
-  })
+  const timerLabel = computed(() => formatDuration(elapsedSeconds.value))
   const choices = computed(() => {
-    if (!question.value)
+    if (!currentQuestion.value)
       return []
 
-    const currentQuestion = question.value
+    const q = currentQuestion.value
     const requiredDistractors = CHOICE_COUNT - 1
-    const gamePool = gameCountries.filter(country => country.cca3 !== currentQuestion.cca3)
-    const globalPool = countries.filter(country => country.cca3 !== currentQuestion.cca3)
+    const gamePool = gameCountries.filter(country => country.cca3 !== q.cca3)
+    const globalPool = countries.filter(country => country.cca3 !== q.cca3)
 
     const distractors: Country[] = []
-    const usedCountryCodes = new Set<string>([currentQuestion.cca3])
+    const usedCountryCodes = new Set<string>([q.cca3])
 
     function addFromPool(pool: Country[]) {
       for (const country of shuffle(pool)) {
@@ -59,57 +68,99 @@ export function useGame(gameCountries: Country[]) {
       }
     }
 
-    if (currentQuestion.subregion)
-      addFromPool(gamePool.filter(country => country.subregion === currentQuestion.subregion))
+    if (q.subregion)
+      addFromPool(gamePool.filter(country => country.subregion === q.subregion))
 
     addFromPool(gamePool.filter(country =>
-      country.region === currentQuestion.region
-      && (!currentQuestion.subregion || country.subregion !== currentQuestion.subregion),
+      country.region === q.region
+      && (!q.subregion || country.subregion !== q.subregion),
     ))
 
-    addFromPool(gamePool.filter(country => country.region !== currentQuestion.region))
+    addFromPool(gamePool.filter(country => country.region !== q.region))
 
-    if (currentQuestion.subregion)
-      addFromPool(globalPool.filter(country => country.subregion === currentQuestion.subregion))
+    if (q.subregion)
+      addFromPool(globalPool.filter(country => country.subregion === q.subregion))
 
     addFromPool(globalPool.filter(country =>
-      country.region === currentQuestion.region
-      && (!currentQuestion.subregion || country.subregion !== currentQuestion.subregion),
+      country.region === q.region
+      && (!q.subregion || country.subregion !== q.subregion),
     ))
 
-    addFromPool(globalPool.filter(country => country.region !== currentQuestion.region))
+    addFromPool(globalPool.filter(country => country.region !== q.region))
     addFromPool(globalPool)
 
-    const choicePool = shuffle([currentQuestion, ...distractors.slice(0, requiredDistractors)])
+    const choicePool = shuffle([q, ...distractors.slice(0, requiredDistractors)])
 
     return choicePool.map((choice) => {
       return {
         country: choice,
-        isCorrect: choice.cca3 === currentQuestion.cca3,
-        showOverlay: ref(false),
+        isCorrect: choice.cca3 === q.cca3,
+        selected: false,
       }
     })
   })
 
-  function selectChoice(choice: Choice) {
-    if (gameState.value !== 'play' || !question.value || isAdvancing.value)
+  function selectChoice(choice: GameChoice) {
+    if (gameState.value !== 'play' || !currentQuestion.value || isAdvancing.value)
       return
 
     isAdvancing.value = true
 
-    if (!choice.isCorrect)
-      wrongQuestions.value.push(question.value)
+    if (choice.isCorrect) {
+      showOverlay.value = 'success'
+    }
+    else {
+      showOverlay.value = 'error'
+      wrongQuestions.value.push(currentQuestion.value)
+    }
 
-    choice.showOverlay.value = true
+    choice.selected = true
 
     setTimeout(() => {
       index.value += 1
-      choice.showOverlay.value = false
+      showOverlay.value = 'none'
       isAdvancing.value = false
 
       if (index.value >= questions.value.length)
         gameState.value = 'end'
     }, ADVANCE_DELAY)
+  }
+
+  function submitTypedAnswer() {
+    if (gameState.value !== 'play' || !currentQuestion.value || isAdvancing.value)
+      return
+
+    isAdvancing.value = true
+
+    const normalizedTypedAnswer = normalizeTypedAnswer(typedAnswer.value)
+    const acceptedAnswers = new Set(
+      getCountryNameVariants(currentQuestion.value)
+        .map(normalizeTypedAnswer)
+        .filter(value => value.length > 0),
+    )
+    const isCorrect = acceptedAnswers.has(normalizedTypedAnswer)
+
+    if (isCorrect) {
+      showOverlay.value = 'success'
+    }
+    else {
+      showOverlay.value = 'error'
+      wrongQuestions.value.push(currentQuestion.value)
+    }
+
+    setTimeout(() => {
+      index.value += 1
+      showOverlay.value = 'none'
+      isAdvancing.value = false
+      typedAnswer.value = ''
+
+      if (index.value >= questions.value.length)
+        gameState.value = 'end'
+    }, ADVANCE_DELAY)
+  }
+
+  function setTypedAnswer(value: string) {
+    typedAnswer.value = value
   }
 
   function resetRun() {
@@ -118,6 +169,8 @@ export function useGame(gameCountries: Country[]) {
     wrongQuestions.value = []
     elapsedSeconds.value = 0
     isAdvancing.value = false
+    showOverlay.value = 'none'
+    typedAnswer.value = ''
   }
 
   function startGame() {
@@ -152,7 +205,9 @@ export function useGame(gameCountries: Country[]) {
     wrongQuestions.value = []
     elapsedSeconds.value = 0
     isAdvancing.value = false
+    showOverlay.value = 'none'
     gameState.value = 'play'
+    typedAnswer.value = ''
   }
 
   function stopToStart() {
@@ -177,13 +232,14 @@ export function useGame(gameCountries: Country[]) {
   return {
     gameState,
     isAdvancing,
+    showOverlay,
     questions,
     index,
     wrongQuestions,
     elapsedSeconds,
     timerLabel,
     isFinished,
-    question,
+    currentQuestion,
     totalQuestions,
     totalCorrectQuestions,
     choices,
@@ -191,10 +247,37 @@ export function useGame(gameCountries: Country[]) {
     pauseGame,
     resumeGame,
     selectChoice,
+    submitTypedAnswer,
     stopToStart,
     reviewWrongFlags,
     retry,
+    typedAnswer,
+    setTypedAnswer,
   }
+}
+
+export type GameRuntime = ReturnType<typeof useGame>
+
+function normalizeTypedAnswer(value: string): string {
+  return value
+    .normalize('NFD')
+    .replace(COMBINING_MARKS_REGEX, '')
+    .toLowerCase()
+    .replace(NON_ALPHANUMERIC_REGEX, '')
+}
+
+function getCountryNameVariants(country: Country): string[] {
+  const nativeNameVariants = country.name.nativeName.flatMap(nativeName => [
+    nativeName.common,
+    nativeName.official,
+  ])
+
+  return [
+    country.name.common,
+    country.name.official,
+    ...nativeNameVariants,
+    ...(country.altSpellings ?? []),
+  ]
 }
 
 function shuffle<T>(array: T[]): T[] {

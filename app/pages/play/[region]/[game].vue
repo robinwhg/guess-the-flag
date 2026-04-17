@@ -2,6 +2,7 @@
 const route = useRoute()
 const region = String(route.params.region ?? '').toLowerCase()
 const game = String(route.params.game ?? '').toLowerCase()
+const gameMode = useRouteQuery<GameMode>('mode', 'multiple-choice')
 
 const currentRegion = playableRegions.find(playableRegion => playableRegion.slug === region)
 
@@ -21,19 +22,22 @@ if (!currentGame) {
   })
 }
 
-const regionTitle = computed(() => {
-  if (currentRegion.slug === 'world')
-    return 'the World'
-
-  if (currentRegion.slug === 'americas')
-    return 'the Americas'
-
-  return currentRegion.slug.charAt(0).toUpperCase() + currentRegion.slug.slice(1)
-})
+const regionTitle = computed(() => formatRegionTitle(currentRegion.slug))
 
 const pageTitle = computed(() => `${currentGame.title} | Flags of ${regionTitle.value}`)
 const pageDescription = computed(() => currentRegion.description)
-const gameCountries = computed(() => [...currentGame.countries])
+const config = computed<GameConfig>(() => ({
+  game: {
+    slug: currentGame.slug,
+    title: currentGame.title,
+    countries: currentGame.countries,
+    mode: gameMode.value,
+  },
+  region: {
+    slug: currentRegion.slug,
+    title: `Flags of ${regionTitle.value}`,
+  },
+}))
 
 useSeoMeta({
   title: pageTitle,
@@ -50,17 +54,14 @@ function onBack() {
     <UPageBody>
       <ClientOnly>
         <Game
-          :countries="gameCountries"
-          :game-title="currentGame.title"
-          :game-slug="currentGame.slug"
-          :region-title="`Flags of ${regionTitle}`"
-          :region-slug="currentRegion.slug"
+          :config
           @back="onBack"
         />
 
-        <GameScoreboard
+        <Scoreboard
           :region-slug="currentRegion.slug"
           :game-slug="currentGame.slug"
+          :game-mode
         />
       </ClientOnly>
     </UPageBody>

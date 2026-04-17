@@ -5,6 +5,7 @@ export interface ScoreRecord {
   regionTitle: string
   gameSlug: string
   gameTitle: string
+  gameMode: GameMode
   totalQuestions: number
   totalCorrectQuestions: number
   elapsedSeconds: number
@@ -36,8 +37,8 @@ export function useScoreHistory() {
     return scores.value ?? []
   }
 
-  function getScoresForGame(regionSlug: string, gameSlug: string) {
-    return getScores().filter(score => score.regionSlug === regionSlug && score.gameSlug === gameSlug)
+  function getScoresForGame(regionSlug: string, gameSlug: string, gameMode: GameMode) {
+    return getScores().filter(score => score.regionSlug === regionSlug && score.gameSlug === gameSlug && score.gameMode === gameMode)
   }
 
   return {

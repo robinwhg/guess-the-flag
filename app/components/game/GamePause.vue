@@ -1,7 +1,6 @@
 <script setup lang="ts">
-const emit = defineEmits<{
-  resume: []
-  exit: []
+const { game } = defineProps<{
+  game: GameRuntime
 }>()
 </script>
 
@@ -21,14 +20,14 @@ const emit = defineEmits<{
         <BaseCardButton
           icon="i-tabler-player-stop-filled"
           label="Stop"
-          @click="emit('exit')"
+          @click="game.stopToStart"
         />
 
         <BaseCardButton
           color="primary"
           icon="i-tabler-player-play-filled"
           label="Resume"
-          @click="emit('resume')"
+          @click="game.resumeGame"
         />
       </div>
     </template>
