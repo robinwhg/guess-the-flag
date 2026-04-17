@@ -21,21 +21,21 @@ export function useGame(gameCountries: Country[]) {
   const elapsedSeconds = ref(0)
 
   const isFinished = computed(() => index.value >= questions.value.length)
-  const question = computed(() => questions.value[index.value])
+  const currentQuestion = computed(() => questions.value[index.value])
   const totalQuestions = computed(() => questions.value.length)
   const totalCorrectQuestions = computed(() => questions.value.length - wrongQuestions.value.length)
   const timerLabel = computed(() => formatDuration(elapsedSeconds.value))
   const choices = computed(() => {
-    if (!question.value)
+    if (!currentQuestion.value)
       return []
 
-    const currentQuestion = question.value
+    const q = currentQuestion.value
     const requiredDistractors = CHOICE_COUNT - 1
-    const gamePool = gameCountries.filter(country => country.cca3 !== currentQuestion.cca3)
-    const globalPool = countries.filter(country => country.cca3 !== currentQuestion.cca3)
+    const gamePool = gameCountries.filter(country => country.cca3 !== q.cca3)
+    const globalPool = countries.filter(country => country.cca3 !== q.cca3)
 
     const distractors: Country[] = []
-    const usedCountryCodes = new Set<string>([currentQuestion.cca3])
+    const usedCountryCodes = new Set<string>([q.cca3])
 
     function addFromPool(pool: Country[]) {
       for (const country of shuffle(pool)) {
@@ -50,46 +50,46 @@ export function useGame(gameCountries: Country[]) {
       }
     }
 
-    if (currentQuestion.subregion)
-      addFromPool(gamePool.filter(country => country.subregion === currentQuestion.subregion))
+    if (q.subregion)
+      addFromPool(gamePool.filter(country => country.subregion === q.subregion))
 
     addFromPool(gamePool.filter(country =>
-      country.region === currentQuestion.region
-      && (!currentQuestion.subregion || country.subregion !== currentQuestion.subregion),
+      country.region === q.region
+      && (!q.subregion || country.subregion !== q.subregion),
     ))
 
-    addFromPool(gamePool.filter(country => country.region !== currentQuestion.region))
+    addFromPool(gamePool.filter(country => country.region !== q.region))
 
-    if (currentQuestion.subregion)
-      addFromPool(globalPool.filter(country => country.subregion === currentQuestion.subregion))
+    if (q.subregion)
+      addFromPool(globalPool.filter(country => country.subregion === q.subregion))
 
     addFromPool(globalPool.filter(country =>
-      country.region === currentQuestion.region
-      && (!currentQuestion.subregion || country.subregion !== currentQuestion.subregion),
+      country.region === q.region
+      && (!q.subregion || country.subregion !== q.subregion),
     ))
 
-    addFromPool(globalPool.filter(country => country.region !== currentQuestion.region))
+    addFromPool(globalPool.filter(country => country.region !== q.region))
     addFromPool(globalPool)
 
-    const choicePool = shuffle([currentQuestion, ...distractors.slice(0, requiredDistractors)])
+    const choicePool = shuffle([q, ...distractors.slice(0, requiredDistractors)])
 
     return choicePool.map((choice) => {
       return {
         country: choice,
-        isCorrect: choice.cca3 === currentQuestion.cca3,
+        isCorrect: choice.cca3 === q.cca3,
         selected: false,
       }
     })
   })
 
   function selectChoice(choice: Choice) {
-    if (gameState.value !== 'play' || !question.value || isAdvancing.value)
+    if (gameState.value !== 'play' || !currentQuestion.value || isAdvancing.value)
       return
 
     isAdvancing.value = true
 
     if (!choice.isCorrect)
-      wrongQuestions.value.push(question.value)
+      wrongQuestions.value.push(currentQuestion.value)
 
     choice.selected = true
     showOverlay.value = true
@@ -178,7 +178,7 @@ export function useGame(gameCountries: Country[]) {
     elapsedSeconds,
     timerLabel,
     isFinished,
-    question,
+    currentQuestion,
     totalQuestions,
     totalCorrectQuestions,
     choices,

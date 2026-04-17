@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
-  question: Country
+  currentQuestion: Country
   choices: Choice[]
   isAdvancing: boolean
   showOverlay: boolean
@@ -10,28 +10,28 @@ const emit = defineEmits<{
   (e: 'selectChoice', choice: Choice): void
 }>()
 
-const { question, choices, isAdvancing, showOverlay } = toRefs(props)
+const { currentQuestion, choices, isAdvancing, showOverlay } = toRefs(props)
 </script>
 
 <template>
-  <GameStateLayout :content-key="question.cca3">
+  <GameStateLayout :content-key="currentQuestion.cca3">
     <template #content>
       <div class="flex h-full flex-col gap-1">
         <GameImage
-          :key="question.cca3"
-          :src="question.flag.svg"
-          :alt="question.flag.alt"
+          :key="currentQuestion.cca3"
+          :src="currentQuestion.flag.svg"
+          :alt="currentQuestion.flag.alt"
           class="min-h-0"
         />
 
-        <p v-if="question.hint" class="text-muted">
-          Hint: {{ question.hint }}
+        <p v-if="currentQuestion.hint" class="text-muted">
+          Hint: {{ currentQuestion.hint }}
         </p>
       </div>
     </template>
 
     <template #actions>
-      <div :key="`choices-${question.cca3}`" class="grid grid-cols-2 items-stretch gap-4">
+      <div :key="`choices-${currentQuestion.cca3}`" class="grid grid-cols-2 items-stretch gap-4">
         <div
           v-for="choice in choices" :key="choice.country.cca3" class="relative"
           :class="{

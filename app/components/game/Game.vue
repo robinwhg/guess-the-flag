@@ -13,7 +13,7 @@ const emit = defineEmits<{
 
 const { countries, gameTitle, regionTitle, gameSlug, regionSlug } = toRefs(props)
 
-const { gameState, choices, retry, selectChoice, totalCorrectQuestions, totalQuestions, index, question, isAdvancing, showOverlay, timerLabel, elapsedSeconds, startGame, pauseGame, resumeGame, stopToStart, reviewWrongFlags } = useGame(countries.value)
+const { gameState, choices, retry, selectChoice, totalCorrectQuestions, totalQuestions, index, currentQuestion, isAdvancing, showOverlay, timerLabel, elapsedSeconds, startGame, pauseGame, resumeGame, stopToStart, reviewWrongFlags } = useGame(countries.value)
 const { saveScore } = useScoreHistory()
 const isReviewRun = ref(false)
 
@@ -91,10 +91,11 @@ function togglePause() {
 
       <div v-else-if="gameState === 'play'" class="space-y-4">
         <GamePlay
-          :question="question!"
-          :choices="choices"
-          :is-advancing="isAdvancing"
-          :show-overlay="showOverlay"
+          v-if="currentQuestion"
+          :current-question
+          :choices
+          :is-advancing
+          :show-overlay
           @select-choice="choice => selectChoice(choice)"
         />
       </div>
