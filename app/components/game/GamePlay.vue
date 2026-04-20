@@ -8,6 +8,7 @@ const ANSWER_FEEDBACK_DELAY = 600
 const currentQuestion = computed(() => game.currentQuestion.value!)
 const typedAnswer = ref('')
 const feedback = ref<'none' | 'success' | 'error'>('none')
+const isSubmitting = ref(false)
 const proceedTimeout = ref<ReturnType<typeof setTimeout> | null>(null)
 
 function clearProceedTimeout() {
@@ -25,25 +26,34 @@ function scheduleProceedToNextQuestion() {
     proceedTimeout.value = null
     game.proceedToNextQuestion()
     feedback.value = 'none'
+    isSubmitting.value = false
   }, ANSWER_FEEDBACK_DELAY)
 }
 
 function onSubmitTypedAnswer() {
+  if (isSubmitting.value)
+    return
+
   const isCorrect = game.submitTypedAnswer(typedAnswer.value)
 
   if (isCorrect === null)
     return
 
+  isSubmitting.value = true
   feedback.value = isCorrect ? 'success' : 'error'
   scheduleProceedToNextQuestion()
 }
 
 function onSelectChoice(choice: GameChoice) {
+  if (isSubmitting.value)
+    return
+
   const isCorrect = game.submitSelectedChoice(choice)
 
   if (isCorrect === null)
     return
 
+  isSubmitting.value = true
   feedback.value = isCorrect ? 'success' : 'error'
   scheduleProceedToNextQuestion()
 }
@@ -55,6 +65,7 @@ onScopeDispose(() => {
 watch(() => currentQuestion.value.cca3, () => {
   typedAnswer.value = ''
   feedback.value = 'none'
+  isSubmitting.value = false
 })
 </script>
 
@@ -96,7 +107,7 @@ watch(() => currentQuestion.value.cca3, () => {
       >
         <template #trailing>
           <UButton
-            :disabled="!typedAnswer.length || game.isAdvancing.value"
+            :disabled="!typedAnswer.length || isSubmitting"
             color="neutral"
             variant="link"
             icon="i-tabler-arrow-forward"
@@ -120,7 +131,7 @@ watch(() => currentQuestion.value.cca3, () => {
           }"
         >
           <BaseCardButton
-            :disabled="game.isAdvancing.value"
+            :disabled="isSubmitting"
             :label="choice.country.name.common"
             @click="onSelectChoice(choice)"
           />

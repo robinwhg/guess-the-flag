@@ -32,7 +32,6 @@ export type GameState = 'start' | 'play' | 'pause' | 'end'
 
 export function useGame(gameCountries: Country[]) {
   const gameState = ref<GameState>('start')
-  const isAdvancing = ref(false)
   const questions = ref(shuffle(gameCountries))
   const index = ref(0)
   const wrongQuestions = ref<Country[]>([])
@@ -107,15 +106,12 @@ export function useGame(gameCountries: Country[]) {
 
   function advanceToNextQuestion() {
     index.value += 1
-    isAdvancing.value = false
     completeRunIfFinished()
   }
 
   function submitSelectedChoice(choice: GameChoice): boolean | null {
-    if (gameState.value !== 'play' || !currentQuestion.value || isAdvancing.value)
+    if (gameState.value !== 'play' || !currentQuestion.value)
       return null
-
-    isAdvancing.value = true
 
     if (!choice.isCorrect)
       wrongQuestions.value.push(currentQuestion.value)
@@ -126,10 +122,8 @@ export function useGame(gameCountries: Country[]) {
   }
 
   function submitTypedAnswer(answer: string): boolean | null {
-    if (gameState.value !== 'play' || !currentQuestion.value || isAdvancing.value)
+    if (gameState.value !== 'play' || !currentQuestion.value)
       return null
-
-    isAdvancing.value = true
 
     const normalizedTypedAnswer = normalizeTypedAnswer(answer)
     const acceptedAnswers = new Set(
@@ -146,7 +140,7 @@ export function useGame(gameCountries: Country[]) {
   }
 
   function proceedToNextQuestion() {
-    if (gameState.value !== 'play' || !currentQuestion.value || !isAdvancing.value)
+    if (gameState.value !== 'play' || !currentQuestion.value)
       return
 
     advanceToNextQuestion()
@@ -157,7 +151,6 @@ export function useGame(gameCountries: Country[]) {
     index.value = 0
     wrongQuestions.value = []
     elapsedSeconds.value = 0
-    isAdvancing.value = false
   }
 
   function startGame() {
@@ -165,7 +158,7 @@ export function useGame(gameCountries: Country[]) {
   }
 
   function pauseGame() {
-    if (gameState.value !== 'play' || isAdvancing.value)
+    if (gameState.value !== 'play')
       return
 
     gameState.value = 'pause'
@@ -191,7 +184,6 @@ export function useGame(gameCountries: Country[]) {
     index.value = 0
     wrongQuestions.value = []
     elapsedSeconds.value = 0
-    isAdvancing.value = false
     gameState.value = 'play'
   }
 
@@ -216,7 +208,6 @@ export function useGame(gameCountries: Country[]) {
 
   return {
     gameState,
-    isAdvancing,
     questions,
     index,
     wrongQuestions,

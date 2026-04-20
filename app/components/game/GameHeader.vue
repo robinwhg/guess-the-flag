@@ -7,7 +7,7 @@ const progressPct = computed(() => {
   if (game.totalQuestions.value === 0)
     return 0
 
-  const progress = Math.round(((game.index.value + (game.isAdvancing.value ? 1 : 0)) / game.totalQuestions.value) * 100)
+  const progress = Math.round((game.index.value / game.totalQuestions.value) * 100)
 
   return Math.min(progress, 100)
 })
