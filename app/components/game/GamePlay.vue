@@ -87,73 +87,22 @@ watch(() => currentQuestion.value.cca3, () => {
     </template>
 
     <template #actions>
-      <UInput
+      <GamePlayTypeAnswer
         v-if="config.game.mode === 'type-answer'"
         v-model="typedAnswer"
-        size="xl"
-        variant="soft"
-        placeholder="Enter your answer here..."
-        class="w-full"
-        :class="{
-          'choice-pop': feedback === 'success',
-          'choice-wiggle': feedback === 'error',
-        }"
-        :ui="{ base:
-          feedback === 'success' ? 'text-success bg-success/25 hover:bg-success/25 focus:bg-success/25 disabled:bg-success/25 px-4 py-4'
-          : feedback === 'error' ? 'text-error bg-error/25 hover:bg-error/25 focus:bg-error/25 disabled:bg-error/25 px-4 py-4'
-            : 'px-4 py-4',
-        }"
-        @keyup.enter="onSubmitTypedAnswer"
-      >
-        <template #trailing>
-          <UButton
-            :disabled="!typedAnswer.length || isSubmitting"
-            color="neutral"
-            variant="link"
-            icon="i-tabler-arrow-forward"
-            aria-label="Clear input"
-            :ui="{ leadingIcon:
-              feedback === 'success' ? 'text-success'
-              : feedback === 'error' ? 'text-error'
-                : '',
-            }"
-            @click="onSubmitTypedAnswer"
-          />
-        </template>
-      </UInput>
+        :feedback
+        :disabled="isSubmitting"
+        @submit="onSubmitTypedAnswer"
+      />
 
-      <div v-else :key="`choices-${currentQuestion.cca3}`" class="grid grid-cols-2 items-stretch gap-4">
-        <div
-          v-for="choice in game.choices.value" :key="choice.country.cca3" class="relative"
-          :class="{
-            'choice-pop': feedback === 'success' && choice.selected,
-            'choice-wiggle': feedback === 'error' && choice.selected,
-          }"
-        >
-          <BaseCardButton
-            :disabled="isSubmitting"
-            :label="choice.country.name.common"
-            @click="onSelectChoice(choice)"
-          />
-
-          <Transition name="fade" mode="out-in">
-            <div
-              v-if="feedback !== 'none' && choice.selected"
-              class="absolute inset-0 z-10 flex items-center justify-center rounded-lg text-inverted pointer-events-none"
-              :class="choice.isCorrect ? 'bg-success' : 'bg-error'"
-            >
-              <UIcon
-                class="size-10"
-                :name="
-                  feedback === 'success' ? 'i-tabler-check'
-                  : feedback === 'error' ? 'i-tabler-x'
-                    : ''
-                "
-              />
-            </div>
-          </Transition>
-        </div>
-      </div>
+      <GamePlayMultipleChoice
+        v-else
+        :key="`choices-${currentQuestion.cca3}`"
+        :choices="game.choices.value"
+        :feedback
+        :disabled="isSubmitting"
+        @select="onSelectChoice"
+      />
     </template>
   </GameStateLayout>
 </template>
