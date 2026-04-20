@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<BaseCardButtonProps>(), {
 })
 
 const emit = defineEmits<{
-  click: [event: MouseEvent]
+  (e: 'click', event: MouseEvent): void
 }>()
 
 const { disabled, color, icon, label } = toRefs(props)

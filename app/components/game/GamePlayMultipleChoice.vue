@@ -6,7 +6,7 @@ defineProps<{
 }>()
 
 const emit = defineEmits<{
-  select: [choice: GameChoice]
+  (e: 'select', choice: GameChoice): void
 }>()
 </script>
 

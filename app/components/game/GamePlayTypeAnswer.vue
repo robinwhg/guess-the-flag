@@ -5,7 +5,7 @@ defineProps<{
 }>()
 
 const emit = defineEmits<{
-  submit: []
+  (e: 'submit'): void
 }>()
 
 const typedAnswer = defineModel<string>({ default: '' })

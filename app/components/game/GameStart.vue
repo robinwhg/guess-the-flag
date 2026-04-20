@@ -5,7 +5,7 @@ const { game, config } = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  back: []
+  (e: 'back'): void
 }>()
 </script>
 
