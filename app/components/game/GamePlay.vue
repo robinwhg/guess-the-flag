@@ -72,7 +72,7 @@ watch(() => currentQuestion.value.cca3, () => {
 <template>
   <GameStateLayout :content-key="currentQuestion.cca3">
     <template #content>
-      <div class="flex h-full flex-col gap-1">
+      <div class="h-52 lg:h-80 flex flex-col gap-2">
         <GameImage
           :key="currentQuestion.cca3"
           :src="currentQuestion.flag.svg"

@@ -42,11 +42,15 @@ const accuracyPct = computed(() => calculateAccuracy(game.totalCorrectQuestions.
         <UPageFeature :title="`${accuracyPct} %`" description="Score" icon="i-tabler-trophy-filled" />
 
         <UPageFeature :title="game.timerLabel.value" description="Time" icon="i-tabler-clock-filled" />
+
+        <div v-if="hasWrongAnswers" class="flex justify-center col-span-2">
+          <UButton icon="i-tabler-target-arrow" label="Review round" variant="soft" @click="game.reviewWrongFlags" />
+        </div>
       </div>
     </template>
 
     <template v-if="hasWrongAnswers" #footer>
-      <div class="flex justify-center">
+      <div class="flex justify-center col-span-2">
         <UButton icon="i-tabler-target-arrow" label="Review round" variant="soft" @click="game.reviewWrongFlags" />
       </div>
     </template>
