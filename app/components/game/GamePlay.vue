@@ -4,11 +4,44 @@ const { game, config } = defineProps<{
   config: GameConfig
 }>()
 
+const ANSWER_FEEDBACK_DELAY = 600
 const currentQuestion = computed(() => game.currentQuestion.value!)
+const proceedTimeout = ref<ReturnType<typeof setTimeout> | null>(null)
+
+function clearProceedTimeout() {
+  if (!proceedTimeout.value)
+    return
+
+  clearTimeout(proceedTimeout.value)
+  proceedTimeout.value = null
+}
+
+function scheduleProceedToNextQuestion() {
+  clearProceedTimeout()
+
+  proceedTimeout.value = setTimeout(() => {
+    proceedTimeout.value = null
+    game.proceedToNextQuestion()
+  }, ANSWER_FEEDBACK_DELAY)
+}
 
 function onSubmitTypedAnswer() {
   game.submitTypedAnswer()
+
+  if (game.isAdvancing.value)
+    scheduleProceedToNextQuestion()
 }
+
+function onSelectChoice(choice: GameChoice) {
+  game.selectChoice(choice)
+
+  if (game.isAdvancing.value)
+    scheduleProceedToNextQuestion()
+}
+
+onScopeDispose(() => {
+  clearProceedTimeout()
+})
 </script>
 
 <template>
@@ -76,7 +109,7 @@ function onSubmitTypedAnswer() {
           <BaseCardButton
             :disabled="game.isAdvancing.value"
             :label="choice.country.name.common"
-            @click="game.selectChoice(choice)"
+            @click="onSelectChoice(choice)"
           />
 
           <Transition name="fade" mode="out-in">

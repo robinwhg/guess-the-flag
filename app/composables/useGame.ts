@@ -1,5 +1,4 @@
 const CHOICE_COUNT = 4
-const ADVANCE_DELAY = 600
 const TIMER_TIMEOUT = 1000
 const MAX_ELAPSED_SECONDS = 90 * 60
 const COMBINING_MARKS_REGEX = /\p{M}+/gu
@@ -103,6 +102,19 @@ export function useGame(gameCountries: Country[]) {
     })
   })
 
+  function completeRunIfFinished() {
+    if (index.value >= questions.value.length)
+      gameState.value = 'end'
+  }
+
+  function advanceToNextQuestion() {
+    index.value += 1
+    showOverlay.value = 'none'
+    isAdvancing.value = false
+    typedAnswer.value = ''
+    completeRunIfFinished()
+  }
+
   function selectChoice(choice: GameChoice) {
     if (gameState.value !== 'play' || !currentQuestion.value || isAdvancing.value)
       return
@@ -118,15 +130,6 @@ export function useGame(gameCountries: Country[]) {
     }
 
     choice.selected = true
-
-    setTimeout(() => {
-      index.value += 1
-      showOverlay.value = 'none'
-      isAdvancing.value = false
-
-      if (index.value >= questions.value.length)
-        gameState.value = 'end'
-    }, ADVANCE_DELAY)
   }
 
   function submitTypedAnswer() {
@@ -150,16 +153,13 @@ export function useGame(gameCountries: Country[]) {
       showOverlay.value = 'error'
       wrongQuestions.value.push(currentQuestion.value)
     }
+  }
 
-    setTimeout(() => {
-      index.value += 1
-      showOverlay.value = 'none'
-      isAdvancing.value = false
-      typedAnswer.value = ''
+  function proceedToNextQuestion() {
+    if (gameState.value !== 'play' || !currentQuestion.value || !isAdvancing.value)
+      return
 
-      if (index.value >= questions.value.length)
-        gameState.value = 'end'
-    }, ADVANCE_DELAY)
+    advanceToNextQuestion()
   }
 
   function setTypedAnswer(value: string) {
@@ -251,6 +251,7 @@ export function useGame(gameCountries: Country[]) {
     resumeGame,
     selectChoice,
     submitTypedAnswer,
+    proceedToNextQuestion,
     stopToStart,
     reviewWrongFlags,
     retry,
