@@ -29,8 +29,14 @@ const regionCountries = computed(() => {
   return countries.filter(country => country.region.toLowerCase() === currentRegion.slug)
 })
 
-const gameMode = ref<GameMode>('multiple-choice')
-const gameDifficulty = ref<GameDifficulty>('test')
+const gameMode = useCookie<GameMode>('globe-rush:mode:v1', {
+  default: () => 'multiple-choice',
+  sameSite: 'lax',
+})
+const gameDifficulty = useCookie<GameDifficulty>('globe-rush:difficulty:v1', {
+  default: () => 'test',
+  sameSite: 'lax',
+})
 
 const { getScoresForGame } = useScoreHistory()
 

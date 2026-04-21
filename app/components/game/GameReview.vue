@@ -7,12 +7,12 @@ const emit = defineEmits<{
   (e: 'proceed'): void
 }>()
 
-const compactFormatter = new Intl.NumberFormat(undefined, {
+const compactFormatter = new Intl.NumberFormat('en-US', {
   notation: 'compact',
   maximumFractionDigits: 1,
 })
 
-const areaFormatter = new Intl.NumberFormat(undefined, {
+const areaFormatter = new Intl.NumberFormat('en-US', {
   notation: 'compact',
 })
 </script>

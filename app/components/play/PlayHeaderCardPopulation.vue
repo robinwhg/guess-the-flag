@@ -7,7 +7,7 @@ interface PlayHeaderPopulationProps {
 const props = defineProps<PlayHeaderPopulationProps>()
 const { title, countries } = toRefs(props)
 
-const compactFormatter = new Intl.NumberFormat(undefined, {
+const compactFormatter = new Intl.NumberFormat('en-US', {
   notation: 'compact',
   maximumFractionDigits: 1,
 })
