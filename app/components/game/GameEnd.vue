@@ -18,10 +18,10 @@ const accuracyPct = computed(() => calculateAccuracy(game.totalCorrectQuestions.
     <template #content>
       <div class="grid grid-cols-2 gap-4">
         <UPageFeature :title="config.region.title" :description="config.game.title" class="col-span-2 mb-4" />
-        <UPageFeature :title="game.totalQuestions.value.toString()" description="Flags" icon="i-tabler-flag-filled" />
+        <UPageFeature :title="game.totalQuestions.value.toString()" description="Flags" icon="i-tabler-flag" />
 
-        <UPageFeature v-if="config.game.mode === 'type-answer'" title="Type Answer" description="Mode" icon="i-tabler-keyboard-filled" />
-        <UPageFeature v-else title="Multiple Choice" description="Mode" icon="i-tabler-layout-grid-filled" />
+        <UPageFeature v-if="config.game.mode === 'type-answer'" title="Type Answer" description="Mode" icon="i-tabler-keyboard" />
+        <UPageFeature v-else title="Multiple Choice" description="Mode" icon="i-tabler-layout-grid" />
 
         <UPageFeature
           v-if="config.game.difficulty === 'practice'"
@@ -33,11 +33,11 @@ const accuracyPct = computed(() => calculateAccuracy(game.totalCorrectQuestions.
           v-else
           title="Test"
           description="Difficulty"
-          icon="i-tabler-cards-filled"
+          icon="i-tabler-cards"
         />
 
-        <UPageFeature :title="`${accuracyPct} %`" description="Score" icon="i-tabler-trophy-filled" />
-        <UPageFeature :title="game.timerLabel.value" description="Time" icon="i-tabler-clock-filled" />
+        <UPageFeature :title="`${accuracyPct} %`" description="Score" icon="i-tabler-trophy" />
+        <UPageFeature :title="game.timerLabel.value" description="Time" icon="i-tabler-stopwatch" />
 
         <div v-if="hasWrongAnswers" class="flex justify-center mt-4 col-span-2">
           <UButton icon="i-tabler-eye" label="Review wrong answers" variant="soft" @click="game.reviewWrongFlags" />

@@ -17,32 +17,32 @@ const emit = defineEmits<{
 
     <template #content>
       <div class="grid grid-cols-2 gap-4">
-        <UPageFeature :title="game.totalQuestions.value.toString()" description="Flags" icon="i-tabler-flag-filled" />
+        <UPageFeature :title="game.totalQuestions.value.toString()" description="Flags" icon="i-tabler-flag" />
 
         <UPageFeature
           v-if="config.game.mode === 'type-answer'"
           title="Type Answer"
           description="Mode"
-          icon="i-tabler-keyboard-filled"
+          icon="i-tabler-keyboard"
         />
         <UPageFeature
           v-else
           title="Multiple Choice"
           description="Mode"
-          icon="i-tabler-layout-grid-filled"
+          icon="i-tabler-layout-grid"
         />
 
         <UPageFeature
           v-if="config.game.difficulty === 'practice'"
           title="Practice"
           description="Difficulty"
-          icon="i-tabler-file-description-filled"
+          icon="i-tabler-file-description"
         />
         <UPageFeature
           v-else
           title="Test"
           description="Difficulty"
-          icon="i-tabler-school-filled"
+          icon="i-tabler-school"
         />
       </div>
     </template>
