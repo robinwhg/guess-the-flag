@@ -7,6 +7,20 @@ const { game, config } = defineProps<{
 const emit = defineEmits<{
   (e: 'back'): void
 }>()
+
+onKeyStroke('Enter', (event) => {
+  if (event.repeat)
+    return
+
+  game.startGame()
+})
+
+onKeyStroke('Backspace', (event) => {
+  if (event.repeat)
+    return
+
+  emit('back')
+})
 </script>
 
 <template>

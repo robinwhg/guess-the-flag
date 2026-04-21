@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   choices: GameChoice[]
   feedback: 'none' | 'success' | 'error'
   disabled: boolean
@@ -8,6 +8,40 @@ defineProps<{
 const emit = defineEmits<{
   (e: 'select', choice: GameChoice): void
 }>()
+
+const { choices, disabled } = toRefs(props)
+
+const KEY_TO_CHOICE_INDEX: Record<string, number> = {
+  1: 0,
+  2: 1,
+  3: 2,
+  4: 3,
+  q: 0,
+  w: 1,
+  e: 2,
+  r: 3,
+  h: 0,
+  j: 1,
+  k: 2,
+  l: 3,
+}
+
+onKeyStroke((event) => {
+  if (event.repeat || disabled.value)
+    return
+
+  const index = KEY_TO_CHOICE_INDEX[event.key.toLowerCase()]
+
+  if (index === undefined)
+    return
+
+  const selectedChoice = choices.value[index]
+
+  if (!selectedChoice)
+    return
+
+  emit('select', selectedChoice)
+})
 </script>
 
 <template>

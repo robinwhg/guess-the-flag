@@ -15,6 +15,21 @@ const compactFormatter = new Intl.NumberFormat('en-US', {
 const areaFormatter = new Intl.NumberFormat('en-US', {
   notation: 'compact',
 })
+
+function isFormField(target: EventTarget | null): boolean {
+  if (!(target instanceof HTMLElement))
+    return false
+
+  const tagName = target.tagName.toLowerCase()
+  return tagName === 'input' || tagName === 'textarea' || tagName === 'select' || target.isContentEditable
+}
+
+onKeyStroke('Enter', (event) => {
+  if (isFormField(event.target))
+    return
+
+  emit('proceed')
+})
 </script>
 
 <template>

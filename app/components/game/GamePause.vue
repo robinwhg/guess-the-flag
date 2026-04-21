@@ -2,6 +2,28 @@
 const { game } = defineProps<{
   game: GameRuntime
 }>()
+
+onKeyStroke('Enter', (event) => {
+  if (event.repeat)
+    return
+
+  game.resumeGame()
+})
+
+onKeyStroke(' ', (event) => {
+  if (event.repeat)
+    return
+
+  event.preventDefault()
+  game.resumeGame()
+})
+
+onKeyStroke('Backspace', (event) => {
+  if (event.repeat)
+    return
+
+  game.stopToStart()
+})
 </script>
 
 <template>

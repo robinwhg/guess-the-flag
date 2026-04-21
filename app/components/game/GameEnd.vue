@@ -11,6 +11,20 @@ const emit = defineEmits<{
 const hasWrongAnswers = computed(() => game.totalCorrectQuestions.value < game.totalQuestions.value)
 
 const accuracyPct = computed(() => calculateAccuracy(game.totalCorrectQuestions.value, game.totalQuestions.value))
+
+onKeyStroke('Enter', (event) => {
+  if (event.repeat)
+    return
+
+  emit('back')
+})
+
+onKeyStroke('Backspace', (event) => {
+  if (event.repeat)
+    return
+
+  game.retry()
+})
 </script>
 
 <template>

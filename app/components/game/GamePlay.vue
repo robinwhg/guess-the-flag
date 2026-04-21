@@ -63,6 +63,22 @@ function onSelectChoice(choice: GameChoice) {
   scheduleProceedToNextQuestion()
 }
 
+function isFormField(target: EventTarget | null): boolean {
+  if (!(target instanceof HTMLElement))
+    return false
+
+  const tagName = target.tagName.toLowerCase()
+  return tagName === 'input' || tagName === 'textarea' || tagName === 'select' || target.isContentEditable
+}
+
+onKeyStroke(' ', (event) => {
+  if (event.repeat || isFormField(event.target))
+    return
+
+  event.preventDefault()
+  game.pauseGame()
+})
+
 onScopeDispose(() => {
   clearProceedTimeout()
 })
@@ -95,6 +111,7 @@ watch(() => currentQuestion.value.cca3, () => {
     <template #actions>
       <GamePlayTypeAnswer
         v-if="config.game.mode === 'type-answer'"
+        :key="`typed-${currentQuestion.cca3}`"
         v-model="typedAnswer"
         :feedback
         :disabled="isSubmitting"

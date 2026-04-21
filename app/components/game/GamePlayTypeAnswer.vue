@@ -14,6 +14,7 @@ const typedAnswer = defineModel<string>({ default: '' })
 <template>
   <UInput
     v-model="typedAnswer"
+    autofocus
     size="xl"
     variant="soft"
     placeholder="Enter your answer here..."
