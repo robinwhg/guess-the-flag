@@ -1,32 +1,38 @@
 <script setup lang="ts">
-const { game } = defineProps<{
+const props = withDefaults(defineProps<{
   game: GameRuntime
-}>()
+  isPauseDisabled?: boolean
+}>(), {
+  isPauseDisabled: false,
+})
 
 const progressPct = computed(() => {
-  if (game.totalQuestions.value === 0)
+  if (props.game.totalQuestions.value === 0)
     return 0
 
-  const progress = Math.round(((game.index.value + (game.isAdvancing.value ? 1 : 0)) / game.totalQuestions.value) * 100)
+  const progress = Math.round((props.game.index.value / props.game.totalQuestions.value) * 100)
 
   return Math.min(progress, 100)
 })
 
 function togglePause() {
-  if (game.gameState.value === 'play') {
-    game.pauseGame()
+  if (props.isPauseDisabled)
+    return
+
+  if (props.game.gameState.value === 'play') {
+    props.game.pauseGame()
     return
   }
 
-  if (game.gameState.value === 'pause')
-    game.resumeGame()
+  if (props.game.gameState.value === 'pause')
+    props.game.resumeGame()
 }
 </script>
 
 <template>
   <Transition name="fade" mode="out-in">
     <div
-      v-if="game.gameState.value === 'start'"
+      v-if="props.game.gameState.value === 'start'"
       key="start"
       class="grid grid-cols-2 lg:grid-cols-5 items-center gap-2"
     >
@@ -40,7 +46,7 @@ function togglePause() {
     </div>
 
     <div
-      v-else-if="game.gameState.value === 'play' || game.gameState.value === 'pause'"
+      v-else-if="props.game.gameState.value === 'play' || props.game.gameState.value === 'pause'"
       key="run"
       class="grid grid-cols-2 lg:grid-cols-5 items-center gap-2"
     >
@@ -51,13 +57,14 @@ function togglePause() {
       </div>
 
       <div class="order-2 lg:order-3 flex items-center gap-2 justify-end">
-        <UIcon name="i-tabler-clock-filled" class="shrink-0 size-6" />
+        <UIcon name="i-tabler-stopwatch" class="shrink-0 size-6" />
         <span class="text-xl font-semibold font-mono">
-          {{ game.timerLabel.value }}
+          {{ props.game.timerLabel.value }}
         </span>
         <UButton
-          :icon="game.gameState.value === 'pause' ? 'i-tabler-player-play-filled' : 'i-tabler-player-pause-filled'"
-          :aria-label="game.gameState.value === 'pause' ? 'resume' : 'pause'"
+          :icon="props.game.gameState.value === 'pause' ? 'i-tabler-player-play-filled' : 'i-tabler-player-pause-filled'"
+          :aria-label="props.game.gameState.value === 'pause' ? 'resume' : 'pause'"
+          :disabled="props.isPauseDisabled"
           color="neutral"
           variant="ghost"
           size="xl"
@@ -72,7 +79,7 @@ function togglePause() {
           />
           <div class="inline-flex items-center justify-between text-sm">
             <span class="font-semibold">
-              Flag {{ game.index.value + 1 }} of {{ game.totalQuestions.value }}
+              Flag {{ props.game.index.value + 1 }} of {{ props.game.totalQuestions.value }}
             </span>
             <span class="text-muted">
               {{ progressPct }} %

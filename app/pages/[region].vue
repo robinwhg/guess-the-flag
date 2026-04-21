@@ -29,7 +29,14 @@ const regionCountries = computed(() => {
   return countries.filter(country => country.region.toLowerCase() === currentRegion.slug)
 })
 
-const gameMode = ref<GameMode>('multiple-choice')
+const gameMode = useCookie<GameMode>('globe-rush:mode:v1', {
+  default: () => 'multiple-choice',
+  sameSite: 'lax',
+})
+const gameDifficulty = useCookie<GameDifficulty>('globe-rush:difficulty:v1', {
+  default: () => 'test',
+  sameSite: 'lax',
+})
 
 const { getScoresForGame } = useScoreHistory()
 
@@ -69,6 +76,13 @@ function getBestScore(gameSlug: string, gameMode: GameMode) {
 
         <div>
           <p class="text-xl font-semibold mb-2">
+            Select difficulty
+          </p>
+          <UTabs v-model="gameDifficulty" :items="[{ label: 'Test', icon: 'i-tabler-target-arrow', value: 'test' }, { label: 'Practice', icon: 'i-tabler-school', value: 'practice' }]" />
+        </div>
+
+        <div>
+          <p class="text-xl font-semibold mb-2">
             Select game
           </p>
           <UPageGrid>
@@ -76,7 +90,7 @@ function getBestScore(gameSlug: string, gameMode: GameMode) {
               v-for="game in currentRegion.games"
               :key="game.slug"
               :title="game.title"
-              :to="`/play/${currentRegion.slug}/${game.slug}?mode=${gameMode}`"
+              :to="`/play/${currentRegion.slug}/${game.slug}?mode=${gameMode}&difficulty=${gameDifficulty}`"
               class="transition-transform hover:scale-105"
               orientation="horizontal"
               :ui="{ container: 'grid grid-cols-4 lg:grid-cols-4 items-center', wrapper: 'col-span-3' }"

@@ -3,6 +3,7 @@ const route = useRoute()
 const region = String(route.params.region ?? '').toLowerCase()
 const game = String(route.params.game ?? '').toLowerCase()
 const gameMode = useRouteQuery<GameMode>('mode', 'multiple-choice')
+const gameDifficulty = useRouteQuery<GameDifficulty>('difficulty', 'test')
 
 const currentRegion = playableRegions.find(playableRegion => playableRegion.slug === region)
 
@@ -32,6 +33,7 @@ const config = computed<GameConfig>(() => ({
     title: currentGame.title,
     countries: currentGame.countries,
     mode: gameMode.value,
+    difficulty: gameDifficulty.value,
   },
   region: {
     slug: currentRegion.slug,

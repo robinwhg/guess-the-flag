@@ -15,41 +15,48 @@ const accuracyPct = computed(() => calculateAccuracy(game.totalCorrectQuestions.
 
 <template>
   <GameStateLayout>
-    <template #header>
-      <UPageFeature :title="config.region.title" :description="config.game.title" />
-    </template>
-
     <template #content>
-      <div class="overflow-y-auto grid grid-cols-2 gap-4">
-        <UPageFeature :title="game.totalQuestions.value.toString()" description="Flags" icon="i-tabler-flag-filled" />
+      <div class="grid grid-cols-2 gap-4">
+        <UPageFeature :title="config.region.title" :description="config.game.title" class="col-span-2 mb-4" />
+        <UPageFeature :title="game.totalQuestions.value.toString()" description="Flags" icon="i-tabler-flag" />
 
-        <UPageFeature v-if="config.game.mode === 'type-answer'" title="Type Answer" description="Mode" icon="i-tabler-keyboard-filled" />
-        <UPageFeature v-else title="Multiple Choice" description="Mode" icon="i-tabler-layout-grid-filled" />
+        <UPageFeature v-if="config.game.mode === 'type-answer'" title="Type Answer" description="Mode" icon="i-tabler-keyboard" />
+        <UPageFeature v-else title="Multiple Choice" description="Mode" icon="i-tabler-layout-grid" />
 
-        <UPageFeature :title="`${accuracyPct} %`" description="Score" icon="i-tabler-trophy-filled" />
+        <UPageFeature
+          v-if="config.game.difficulty === 'practice'"
+          title="Practice"
+          description="Difficulty"
+          icon="i-tabler-school"
+        />
+        <UPageFeature
+          v-else
+          title="Test"
+          description="Difficulty"
+          icon="i-tabler-cards"
+        />
 
-        <UPageFeature :title="game.timerLabel.value" description="Time" icon="i-tabler-clock-filled" />
-      </div>
-    </template>
+        <UPageFeature :title="`${accuracyPct} %`" description="Score" icon="i-tabler-trophy" />
+        <UPageFeature :title="game.timerLabel.value" description="Time" icon="i-tabler-stopwatch" />
 
-    <template v-if="hasWrongAnswers" #footer>
-      <div class="flex justify-center">
-        <UButton icon="i-tabler-target-arrow" label="Review round" variant="soft" @click="game.reviewWrongFlags" />
+        <div v-if="hasWrongAnswers" class="flex justify-center mt-4 col-span-2">
+          <UButton icon="i-tabler-eye" label="Review wrong answers" variant="soft" @click="game.reviewWrongFlags" />
+        </div>
       </div>
     </template>
 
     <template #actions>
       <div class="grid grid-cols-2 gap-4">
         <BaseCardButton
-          icon="i-tabler-restore"
+          icon="i-tabler-player-skip-back-filled"
           label="Retry"
           @click="game.retry"
         />
 
         <BaseCardButton
           color="primary"
-          icon="i-tabler-arrow-right"
-          label="Continue"
+          icon="i-tabler-player-skip-forward-filled"
+          label="Finish"
           @click="emit('back')"
         />
       </div>

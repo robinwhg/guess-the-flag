@@ -33,18 +33,10 @@ watch(preloadSrc, (nextSrc) => {
 </script>
 
 <template>
-  <div class="relative h-full w-full">
-    <USkeleton
-      v-if="!isImageLoaded"
-      class="absolute inset-0 h-full w-full"
-    />
-
-    <img
-      :src="src"
-      :alt="alt"
-      class="mx-auto h-full w-full object-contain transition-opacity duration-200"
-      :class="isImageLoaded ? 'opacity-100' : 'opacity-0'"
-      @load="handleImageLoad"
-    >
-  </div>
+  <img
+    :src="src"
+    :alt="alt"
+    class="mx-auto block h-full w-full object-contain"
+    @load="handleImageLoad"
+  >
 </template>

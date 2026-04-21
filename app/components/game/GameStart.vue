@@ -5,29 +5,50 @@ const { game, config } = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  back: []
+  (e: 'back'): void
 }>()
 </script>
 
 <template>
   <GameStateLayout>
-    <template #header>
-      <UPageFeature :title="config.region.title" :description="config.game.title" />
-    </template>
-
     <template #content>
-      <div class="overflow-y-auto grid grid-cols-2 gap-4">
-        <UPageFeature :title="game.totalQuestions.value.toString()" description="Flags" icon="i-tabler-flag-filled" />
+      <div class="grid grid-cols-2 gap-4">
+        <UPageFeature :title="config.region.title" :description="config.game.title" class="col-span-2 mb-4" />
 
-        <UPageFeature v-if="config.game.mode === 'type-answer'" title="Type Answer" description="Mode" icon="i-tabler-keyboard-filled" />
-        <UPageFeature v-else title="Multiple Choice" description="Mode" icon="i-tabler-layout-grid-filled" />
+        <UPageFeature :title="game.totalQuestions.value.toString()" description="Flags" icon="i-tabler-flag" />
+
+        <UPageFeature
+          v-if="config.game.mode === 'type-answer'"
+          title="Type Answer"
+          description="Mode"
+          icon="i-tabler-keyboard"
+        />
+        <UPageFeature
+          v-else
+          title="Multiple Choice"
+          description="Mode"
+          icon="i-tabler-layout-grid"
+        />
+
+        <UPageFeature
+          v-if="config.game.difficulty === 'practice'"
+          title="Practice"
+          description="Difficulty"
+          icon="i-tabler-file-description"
+        />
+        <UPageFeature
+          v-else
+          title="Test"
+          description="Difficulty"
+          icon="i-tabler-school"
+        />
       </div>
     </template>
 
     <template #actions>
       <div class="grid grid-cols-2 gap-4">
         <BaseCardButton
-          icon="i-tabler-arrow-left"
+          icon="i-tabler-player-eject-filled"
           label="Back"
           @click="emit('back')"
         />
