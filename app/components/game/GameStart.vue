@@ -11,12 +11,10 @@ const emit = defineEmits<{
 
 <template>
   <GameStateLayout>
-    <template #header>
-      <UPageFeature :title="config.region.title" :description="config.game.title" />
-    </template>
-
     <template #content>
       <div class="grid grid-cols-2 gap-4">
+        <UPageFeature :title="config.region.title" :description="config.game.title" class="col-span-2 mb-4" />
+
         <UPageFeature :title="game.totalQuestions.value.toString()" description="Flags" icon="i-tabler-flag" />
 
         <UPageFeature
