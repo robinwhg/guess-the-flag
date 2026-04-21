@@ -7,7 +7,7 @@ const { game } = defineProps<{
 <template>
   <GameStateLayout fixed-card>
     <template #content>
-      <div class="h-full flex flex-col items-center justify-center text-dimmed">
+      <div class="flex flex-col items-center justify-center text-dimmed h-48 lg:h-80">
         <UIcon name="i-tabler-player-pause-filled" class="size-20 lg:size-32" />
         <h2 class="text-xl font-semibold">
           Game paused

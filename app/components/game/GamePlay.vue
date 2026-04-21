@@ -77,20 +77,16 @@ watch(() => currentQuestion.value.cca3, () => {
 <template>
   <GameStateLayout
     :content-key="`${currentQuestion.cca3}-question`"
-    fixed-card
   >
     <template #content>
-      <div class="h-full flex flex-col gap-2">
-        <div class="flex-1 min-h-0 flex items-center justify-center">
-          <GameImage
-            :key="currentQuestion.cca3"
-            :src="currentQuestion.flag.svg"
-            :alt="currentQuestion.flag.alt"
-            class="h-full w-full"
-          />
-        </div>
+      <div class="h-48 lg:h-80 flex flex-col">
+        <GameImage
+          :key="currentQuestion.cca3"
+          :src="currentQuestion.flag.svg"
+          :alt="currentQuestion.flag.alt"
+        />
 
-        <p v-if="currentQuestion.hint" class="shrink-0 text-muted">
+        <p v-if="currentQuestion.hint" class="shrink-0 text-muted mt-4">
           Hint: {{ currentQuestion.hint }}
         </p>
       </div>

@@ -16,23 +16,33 @@ const emit = defineEmits<{
     </template>
 
     <template #content>
-      <div class="overflow-y-auto grid grid-cols-2 gap-4">
+      <div class="grid grid-cols-2 gap-4">
         <UPageFeature :title="game.totalQuestions.value.toString()" description="Flags" icon="i-tabler-flag-filled" />
 
-        <UPageFeature v-if="config.game.mode === 'type-answer'" title="Type Answer" description="Mode" icon="i-tabler-keyboard-filled" />
-        <UPageFeature v-else title="Multiple Choice" description="Mode" icon="i-tabler-layout-grid-filled" />
+        <UPageFeature
+          v-if="config.game.mode === 'type-answer'"
+          title="Type Answer"
+          description="Mode"
+          icon="i-tabler-keyboard-filled"
+        />
+        <UPageFeature
+          v-else
+          title="Multiple Choice"
+          description="Mode"
+          icon="i-tabler-layout-grid-filled"
+        />
 
         <UPageFeature
           v-if="config.game.difficulty === 'practice'"
           title="Practice"
           description="Difficulty"
-          icon="i-tabler-school"
+          icon="i-tabler-file-description-filled"
         />
         <UPageFeature
           v-else
           title="Test"
           description="Difficulty"
-          icon="i-tabler-target-arrow"
+          icon="i-tabler-school-filled"
         />
       </div>
     </template>
@@ -40,7 +50,7 @@ const emit = defineEmits<{
     <template #actions>
       <div class="grid grid-cols-2 gap-4">
         <BaseCardButton
-          icon="i-tabler-arrow-left"
+          icon="i-tabler-player-eject-filled"
           label="Back"
           @click="emit('back')"
         />

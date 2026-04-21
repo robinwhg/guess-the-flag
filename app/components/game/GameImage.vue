@@ -36,8 +36,7 @@ watch(preloadSrc, (nextSrc) => {
   <img
     :src="src"
     :alt="alt"
-    class="mx-auto block h-full w-full object-contain transition-opacity duration-200"
-    :class="isImageLoaded ? 'opacity-100' : 'opacity-0'"
+    class="mx-auto block h-full w-full object-contain"
     @load="handleImageLoad"
   >
 </template>
