@@ -61,12 +61,8 @@ const hasNextQuestion = computed(() => {
 })
 
 watch(game.gameState, (state) => {
-  if (state !== 'play')
+  if (state === 'start' || state === 'end')
     resetPracticeReview()
-})
-
-watch(showPracticeReview, (isReviewVisible) => {
-  baseGame.setTimerPaused(isReviewVisible)
 })
 
 watch(game.gameState, (state, previousState) => {
@@ -93,7 +89,7 @@ watch(game.gameState, (state, previousState) => {
 
 <template>
   <div class="space-y-4">
-    <GameHeader :game :is-pause-disabled="showPracticeReview" />
+    <GameHeader :game />
 
     <Transition name="fade" mode="out-in">
       <GameStart
