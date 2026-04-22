@@ -24,7 +24,7 @@ function proceedToNextQuestion() {
 }
 
 function onProceed() {
-  if (config.value.game.difficulty === 'practice') {
+  if (config.value.game.difficulty === 'practice' || isReviewRun.value) {
     showPracticeReview.value = true
     return
   }
