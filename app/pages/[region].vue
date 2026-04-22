@@ -102,9 +102,11 @@ function getBestScore(gameSlug: string, gameMode: GameMode) {
               </template>
 
               <ClientOnly>
-                <span v-if="getBestScore(game.slug, gameMode) !== null" class="text-xl font-semibold text-muted text-right">
-                  {{ getBestScore(game.slug, gameMode) }} %
-                </span>
+                <Transition name="fade" mode="out-in">
+                  <span v-if="getBestScore(game.slug, gameMode) !== null" class="text-xl font-semibold text-muted text-right">
+                    {{ getBestScore(game.slug, gameMode) }} %
+                  </span>
+                </Transition>
               </ClientOnly>
             </UPageCard>
           </UPageGrid>
