@@ -75,7 +75,7 @@ const [DefineBodyTemplate, ReuseBodyTemplate] = createReusableTemplate()
                 color="neutral"
                 variant="link"
                 size="sm"
-                icon="i-tabler-circle-x-filled"
+                icon="i-tabler-circle-x"
                 aria-label="Clear input"
                 @click="searchQuery = ''"
               />

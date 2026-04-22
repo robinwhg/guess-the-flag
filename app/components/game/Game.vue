@@ -61,12 +61,8 @@ const hasNextQuestion = computed(() => {
 })
 
 watch(game.gameState, (state) => {
-  if (state !== 'play')
+  if (state === 'start' || state === 'end')
     resetPracticeReview()
-})
-
-watch(showPracticeReview, (isReviewVisible) => {
-  baseGame.setTimerPaused(isReviewVisible)
 })
 
 watch(game.gameState, (state, previousState) => {
@@ -93,7 +89,7 @@ watch(game.gameState, (state, previousState) => {
 
 <template>
   <div class="space-y-4">
-    <GameHeader :game :is-pause-disabled="showPracticeReview" />
+    <GameHeader :game />
 
     <Transition name="fade" mode="out-in">
       <GameStart
@@ -124,6 +120,15 @@ watch(game.gameState, (state, previousState) => {
         :game
         :config
         @back="emit('back')"
+      />
+    </Transition>
+
+    <Transition name="slide-up" mode="out-in" appear>
+      <Scoreboard
+        v-if="game.gameState.value === 'start' || game.gameState.value === 'end'"
+        :region-slug="config.region.slug"
+        :game-slug="config.game.slug"
+        :game-mode="config.game.mode"
       />
     </Transition>
   </div>

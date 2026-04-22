@@ -100,6 +100,7 @@ watch(() => currentQuestion.value.cca3, () => {
           :key="currentQuestion.cca3"
           :src="currentQuestion.flag.svg"
           :alt="currentQuestion.flag.alt"
+          class="min-h-0"
         />
 
         <p v-if="currentQuestion.hint" class="shrink-0 text-muted mt-4">

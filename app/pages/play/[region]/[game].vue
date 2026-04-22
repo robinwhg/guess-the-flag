@@ -59,12 +59,6 @@ function onBack() {
           :config
           @back="onBack"
         />
-
-        <Scoreboard
-          :region-slug="currentRegion.slug"
-          :game-slug="currentGame.slug"
-          :game-mode
-        />
       </ClientOnly>
     </UPageBody>
   </UPage>

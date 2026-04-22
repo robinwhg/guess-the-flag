@@ -35,8 +35,8 @@ const typedAnswer = defineModel<string>({ default: '' })
         :disabled="!typedAnswer.length || disabled"
         color="neutral"
         variant="link"
-        icon="i-tabler-arrow-forward"
-        aria-label="Clear input"
+        icon="i-tabler-send"
+        aria-label="Submit answer"
         :ui="{ leadingIcon:
           feedback === 'success' ? 'text-success'
           : feedback === 'error' ? 'text-error'
