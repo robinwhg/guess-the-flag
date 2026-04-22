@@ -36,7 +36,7 @@ const modalDescription = computed(() => {
 
 <template>
   <PlayHeaderCard
-    icon="i-tabler-user-filled"
+    icon="i-tabler-user"
     :value="countLabel"
     label="Population"
     :title="modalTitle"

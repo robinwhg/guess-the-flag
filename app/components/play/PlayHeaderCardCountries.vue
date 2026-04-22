@@ -30,7 +30,7 @@ const modalDescription = computed(() => {
 
 <template>
   <PlayHeaderCard
-    icon="i-tabler-flag-filled"
+    icon="i-tabler-flag"
     :value="countLabel"
     label="Countries"
     :title="modalTitle"

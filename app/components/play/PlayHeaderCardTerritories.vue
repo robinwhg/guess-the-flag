@@ -50,7 +50,7 @@ function getSovereignName(country: Country): string {
 
 <template>
   <PlayHeaderCard
-    icon="i-tabler-flag-3-filled"
+    icon="i-tabler-flag-3"
     :value="countLabel"
     label="Territories"
     :title="modalTitle"

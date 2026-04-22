@@ -48,13 +48,13 @@ onKeyStroke('Backspace', (event) => {
           v-if="config.game.difficulty === 'practice'"
           title="Practice"
           description="Difficulty"
-          icon="i-tabler-file-description"
+          icon="i-tabler-school"
         />
         <UPageFeature
           v-else
           title="Test"
           description="Difficulty"
-          icon="i-tabler-school"
+          icon="i-tabler-target-arrow"
         />
       </div>
     </template>

@@ -71,14 +71,14 @@ function getBestScore(gameSlug: string, gameMode: GameMode) {
           <p class="text-xl font-semibold mb-2">
             Select mode
           </p>
-          <UTabs v-model="gameMode" :items="[{ label: 'Multiple Choice', icon: 'i-tabler-layout-grid-filled', value: 'multiple-choice' }, { label: 'Type Answer', icon: 'i-tabler-keyboard-filled', value: 'type-answer' }]" />
+          <UTabs v-model="gameMode" :items="[{ label: 'Multiple Choice', icon: 'i-tabler-layout-grid', value: 'multiple-choice' }, { label: 'Type Answer', icon: 'i-tabler-keyboard', value: 'type-answer' }]" />
         </div>
 
         <div>
           <p class="text-xl font-semibold mb-2">
             Select difficulty
           </p>
-          <UTabs v-model="gameDifficulty" :items="[{ label: 'Test', icon: 'i-tabler-target-arrow', value: 'test' }, { label: 'Practice', icon: 'i-tabler-school', value: 'practice' }]" />
+          <UTabs v-model="gameDifficulty" :items="[{ label: 'Practice', icon: 'i-tabler-school', value: 'practice' }, { label: 'Test', icon: 'i-tabler-target-arrow', value: 'test' }]" />
         </div>
 
         <div>
