@@ -22,7 +22,7 @@ export function useScoreHistory() {
     const gameScoreCounts = new Map<string, number>()
 
     scores.value = nextScores.filter((entry) => {
-      const key = `${entry.regionSlug}:${entry.gameSlug}`
+      const key = `${entry.regionSlug}:${entry.gameSlug}:${entry.gameMode}`
       const existingCount = gameScoreCounts.get(key) ?? 0
 
       if (existingCount >= MAX_SCORES_PER_GAME)
