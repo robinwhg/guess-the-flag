@@ -12,7 +12,7 @@ export function calculateAccuracy(totalCorrectQuestions: number, totalQuestions:
   if (!totalQuestions)
     return 0
 
-  return Math.round((totalCorrectQuestions / totalQuestions) * 100)
+  return Math.floor((totalCorrectQuestions / totalQuestions) * 100)
 }
 
 export function formatDuration(totalSeconds: number) {
