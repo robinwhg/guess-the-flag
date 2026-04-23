@@ -1,10 +1,7 @@
 <script setup lang="ts">
-const props = withDefaults(defineProps<{
+const props = defineProps<{
   game: GameRuntime
-  isPauseDisabled?: boolean
-}>(), {
-  isPauseDisabled: false,
-})
+}>()
 
 const progressPct = computed(() => {
   if (props.game.totalQuestions.value === 0)
@@ -16,9 +13,6 @@ const progressPct = computed(() => {
 })
 
 function togglePause() {
-  if (props.isPauseDisabled)
-    return
-
   if (props.game.gameState.value === 'play') {
     props.game.pauseGame()
     return
@@ -64,7 +58,6 @@ function togglePause() {
         <UButton
           :icon="props.game.gameState.value === 'pause' ? 'i-tabler-player-play-filled' : 'i-tabler-player-pause-filled'"
           :aria-label="props.game.gameState.value === 'pause' ? 'resume' : 'pause'"
-          :disabled="props.isPauseDisabled"
           color="neutral"
           variant="ghost"
           size="xl"

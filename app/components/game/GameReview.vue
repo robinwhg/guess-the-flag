@@ -32,24 +32,13 @@ const sovereignStateName = computed(() => {
   return sovereignNameByCode.value.get(country.sovereignState) ?? country.sovereignState
 })
 
-function isFormField(target: EventTarget | null): boolean {
-  if (!(target instanceof HTMLElement))
-    return false
-
-  const tagName = target.tagName.toLowerCase()
-  return tagName === 'input' || tagName === 'textarea' || tagName === 'select' || target.isContentEditable
-}
-
-onKeyStroke('Enter', (event) => {
-  if (isFormField(event.target))
-    return
-
+onKeyStroke('Enter', () => {
   emit('proceed')
 })
 </script>
 
 <template>
-  <GameStateLayout :content-key="`${country.cca3}-review`" fixed-card>
+  <GameStateLayout :content-key="`${country.cca3}-review`">
     <template #content>
       <div class="h-48 lg:h-80 overflow-y-auto">
         <div class="grid grid-cols-2 gap-4">
