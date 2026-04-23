@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { countries as allCountries } from '~/utils/countries'
-
 interface PlayHeaderTerritoriesProps {
   title: string
   countries: Country[]
@@ -17,16 +15,6 @@ const territoriesList = computed(() => {
     .toSorted((a, b) => a.name.common.localeCompare(b.name.common))
 })
 
-const sovereignNameByCode = computed(() => {
-  const map = new Map<string, string>()
-
-  for (const country of allCountries) {
-    map.set(country.cca3, country.name.common)
-  }
-
-  return map
-})
-
 const countLabel = computed(() => {
   return integerFormatter.format(territoriesList.value.length)
 })
@@ -40,11 +28,7 @@ const modalDescription = computed(() => {
 })
 
 function getSovereignName(country: Country): string {
-  if (!country.sovereignState) {
-    return 'N/A'
-  }
-
-  return sovereignNameByCode.value.get(country.sovereignState) ?? country.sovereignState
+  return getSovereignStateName(country) ?? 'N/A'
 }
 </script>
 

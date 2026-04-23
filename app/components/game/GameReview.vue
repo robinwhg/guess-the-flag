@@ -16,20 +16,8 @@ const areaFormatter = new Intl.NumberFormat('en-US', {
   notation: 'compact',
 })
 
-const sovereignNameByCode = computed(() => {
-  const map = new Map<string, string>()
-
-  for (const candidate of countries)
-    map.set(candidate.cca3, candidate.name.common)
-
-  return map
-})
-
 const sovereignStateName = computed(() => {
-  if (!country.sovereignState)
-    return null
-
-  return sovereignNameByCode.value.get(country.sovereignState) ?? country.sovereignState
+  return getSovereignStateName(country)
 })
 
 onKeyStroke('Enter', () => {
