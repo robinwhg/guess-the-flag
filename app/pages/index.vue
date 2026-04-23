@@ -22,6 +22,7 @@
                     v-if="r.img"
                     :src="r.img"
                     class="h-full w-full object-contain object-center"
+                    alt="r.title"
                   >
                 </div>
               </UPageCard>
