@@ -67,24 +67,15 @@ function getBestScore(gameSlug: string, gameMode: GameMode) {
 
     <UPageBody>
       <div class="flex flex-col gap-8">
-        <div>
-          <p class="text-xl font-semibold mb-2">
-            Select mode
-          </p>
+        <UFormField size="xl" label="Select mode" description="Scores get saved separately.">
           <UTabs v-model="gameMode" :items="[{ label: 'Multiple Choice', icon: 'i-tabler-layout-grid', value: 'multiple-choice' }, { label: 'Type Answer', icon: 'i-tabler-keyboard', value: 'type-answer' }]" />
-        </div>
+        </UFormField>
 
-        <div>
-          <p class="text-xl font-semibold mb-2">
-            Select difficulty
-          </p>
+        <UFormField size="xl" label="Select difficulty" description="Practice shows an info card after every flag.">
           <UTabs v-model="gameDifficulty" :items="[{ label: 'Practice', icon: 'i-tabler-school', value: 'practice' }, { label: 'Test', icon: 'i-tabler-target-arrow', value: 'test' }]" />
-        </div>
+        </UFormField>
 
-        <div>
-          <p class="text-xl font-semibold mb-2">
-            Select game
-          </p>
+        <UFormField size="xl" label="Select game">
           <UPageGrid>
             <UPageCard
               v-for="game in currentRegion.games"
@@ -110,7 +101,7 @@ function getBestScore(gameSlug: string, gameMode: GameMode) {
               </ClientOnly>
             </UPageCard>
           </UPageGrid>
-        </div>
+        </UFormField>
       </div>
     </UPageBody>
   </UPage>
