@@ -11,6 +11,9 @@ const { src, alt, preloadSrc } = toRefs(props)
 const isImageLoaded = ref(false)
 
 function preloadImage(src: string): void {
+  if (typeof Image === 'undefined')
+    return
+
   const image = new Image()
   image.src = src
 }
@@ -39,6 +42,7 @@ watch(preloadSrc, (nextSrc) => {
     <img
       :src="src"
       :alt="alt"
+      decoding="async"
       class="mx-auto block h-full w-full object-contain transition-opacity duration-150"
       :class="isImageLoaded ? 'opacity-100' : 'opacity-0'"
       @load="handleImageLoad"
