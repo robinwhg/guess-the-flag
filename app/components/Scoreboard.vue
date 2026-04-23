@@ -8,6 +8,19 @@ const props = defineProps<{
   gameMode: GameMode
 }>()
 
+interface ScoreboardRow {
+  id: string
+  date: string
+  score: string
+  accuracy: number
+  time: string
+}
+
+interface SortableColumn {
+  getIsSorted: () => false | 'asc' | 'desc'
+  toggleSorting: (descending?: boolean) => void
+}
+
 const UButton = resolveComponent('UButton')
 
 const { regionSlug, gameSlug, gameMode } = toRefs(props)
@@ -17,7 +30,7 @@ const scores = computed(() => {
   return getScoresForGame(regionSlug.value, gameSlug.value, gameMode.value)
 })
 
-function getSortButton(column: any, label: string) {
+function getSortButton(column: SortableColumn, label: string) {
   const isSorted = column.getIsSorted()
 
   return h(UButton, {
@@ -34,13 +47,11 @@ function getSortButton(column: any, label: string) {
   })
 }
 
-const columns: TableColumn<any>[] = [
+const columns: TableColumn<ScoreboardRow>[] = [
   {
     accessorKey: 'accuracy',
     header: ({ column }) => getSortButton(column, 'Accuracy'),
-    cell: ({ row }) => {
-      return `${row.getValue('accuracy')} %`
-    },
+    cell: ({ row }) => `${row.original.accuracy} %`,
   },
   {
     accessorKey: 'score',
@@ -63,7 +74,7 @@ const sorting = ref([
   },
 ])
 
-const data = computed(() => {
+const data = computed<ScoreboardRow[]>(() => {
   return scores.value.map(score => ({
     id: score.id,
     date: formatLocalDateTime(score.createdAt),

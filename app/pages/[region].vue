@@ -2,7 +2,7 @@
 const route = useRoute()
 const region = String(route.params.region ?? '').toLowerCase()
 
-const currentRegion = playableRegions.find(playableRegion => playableRegion.slug === region)
+const currentRegion = getPlayableRegionBySlug(region)
 
 if (!currentRegion) {
   throw createError({
@@ -40,21 +40,24 @@ const gameDifficulty = useCookie<GameDifficulty>('globe-rush:difficulty:v1', {
 
 const { getScoresForGame } = useScoreHistory()
 
-function getBestScore(gameSlug: string, gameMode: GameMode) {
-  if (!currentRegion)
-    return null
+const bestScoreByGameSlug = computed<Record<string, number | null>>(() => {
+  const entries = currentRegion.games.map((game) => {
+    const scores = getScoresForGame(currentRegion.slug, game.slug, gameMode.value)
 
-  const scores = getScoresForGame(currentRegion.slug, gameSlug, gameMode)
+    if (!scores.length)
+      return [game.slug, null] as const
 
-  if (!scores.length)
-    return null
+    const bestScore = scores.reduce<number>((best, score) => {
+      const accuracy = calculateAccuracy(score.totalCorrectQuestions, score.totalQuestions)
 
-  return scores.reduce<number>((best, score) => {
-    const accuracy = calculateAccuracy(score.totalCorrectQuestions, score.totalQuestions)
+      return Math.max(best, accuracy)
+    }, 0)
 
-    return Math.max(best, accuracy)
-  }, 0)
-}
+    return [game.slug, bestScore] as const
+  })
+
+  return Object.fromEntries(entries)
+})
 </script>
 
 <template>
@@ -67,24 +70,15 @@ function getBestScore(gameSlug: string, gameMode: GameMode) {
 
     <UPageBody>
       <div class="flex flex-col gap-8">
-        <div>
-          <p class="text-xl font-semibold mb-2">
-            Select mode
-          </p>
+        <UFormField size="xl" label="Select mode" description="Scores get saved separately.">
           <UTabs v-model="gameMode" :items="[{ label: 'Multiple Choice', icon: 'i-tabler-layout-grid', value: 'multiple-choice' }, { label: 'Type Answer', icon: 'i-tabler-keyboard', value: 'type-answer' }]" />
-        </div>
+        </UFormField>
 
-        <div>
-          <p class="text-xl font-semibold mb-2">
-            Select difficulty
-          </p>
+        <UFormField size="xl" label="Select difficulty" description="Practice shows an info card after every flag.">
           <UTabs v-model="gameDifficulty" :items="[{ label: 'Practice', icon: 'i-tabler-school', value: 'practice' }, { label: 'Test', icon: 'i-tabler-target-arrow', value: 'test' }]" />
-        </div>
+        </UFormField>
 
-        <div>
-          <p class="text-xl font-semibold mb-2">
-            Select game
-          </p>
+        <UFormField size="xl" label="Select game">
           <UPageGrid>
             <UPageCard
               v-for="game in currentRegion.games"
@@ -103,14 +97,14 @@ function getBestScore(gameSlug: string, gameMode: GameMode) {
 
               <ClientOnly>
                 <Transition name="fade" mode="out-in">
-                  <span v-if="getBestScore(game.slug, gameMode) !== null" class="text-xl font-semibold text-muted text-right">
-                    {{ getBestScore(game.slug, gameMode) }} %
+                  <span v-if="bestScoreByGameSlug[game.slug] !== null" class="text-xl font-semibold text-muted text-right">
+                    {{ bestScoreByGameSlug[game.slug] }} %
                   </span>
                 </Transition>
               </ClientOnly>
             </UPageCard>
           </UPageGrid>
-        </div>
+        </UFormField>
       </div>
     </UPageBody>
   </UPage>

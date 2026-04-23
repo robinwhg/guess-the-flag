@@ -28,3 +28,14 @@ export interface Country {
 }
 
 export const countries = rawCountries as Country[]
+
+const countryNameByCode = new Map<string, string>(
+  countries.map(country => [country.cca3, country.name.common]),
+)
+
+export function getSovereignStateName(country: Country): string | null {
+  if (!country.sovereignState)
+    return null
+
+  return countryNameByCode.get(country.sovereignState) ?? country.sovereignState
+}

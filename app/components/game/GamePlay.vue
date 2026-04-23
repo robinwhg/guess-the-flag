@@ -10,6 +10,7 @@ const emit = defineEmits<{
 
 const ANSWER_FEEDBACK_DELAY = 600
 const currentQuestion = computed(() => game.currentQuestion.value!)
+const nextQuestion = computed(() => game.questions.value[game.index.value + 1])
 const typedAnswer = ref('')
 const feedback = ref<'none' | 'success' | 'error'>('none')
 const isSubmitting = ref(false)
@@ -63,22 +64,6 @@ function onSelectChoice(choice: GameChoice) {
   scheduleProceedToNextQuestion()
 }
 
-function isFormField(target: EventTarget | null): boolean {
-  if (!(target instanceof HTMLElement))
-    return false
-
-  const tagName = target.tagName.toLowerCase()
-  return tagName === 'input' || tagName === 'textarea' || tagName === 'select' || target.isContentEditable
-}
-
-onKeyStroke(' ', (event) => {
-  if (event.repeat || isFormField(event.target))
-    return
-
-  event.preventDefault()
-  game.pauseGame()
-})
-
 onScopeDispose(() => {
   clearProceedTimeout()
 })
@@ -100,6 +85,7 @@ watch(() => currentQuestion.value.cca3, () => {
           :key="currentQuestion.cca3"
           :src="currentQuestion.flag.svg"
           :alt="currentQuestion.flag.alt"
+          :preload-src="nextQuestion?.flag.svg"
           class="min-h-0"
         />
 

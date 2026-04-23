@@ -27,7 +27,7 @@ onKeyStroke('Backspace', (event) => {
 </script>
 
 <template>
-  <GameStateLayout fixed-card>
+  <GameStateLayout>
     <template #content>
       <div class="flex flex-col items-center justify-center text-dimmed h-48 lg:h-80">
         <UIcon name="i-tabler-player-pause-filled" class="size-20 lg:size-32" />

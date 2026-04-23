@@ -16,40 +16,17 @@ const areaFormatter = new Intl.NumberFormat('en-US', {
   notation: 'compact',
 })
 
-const sovereignNameByCode = computed(() => {
-  const map = new Map<string, string>()
-
-  for (const candidate of countries)
-    map.set(candidate.cca3, candidate.name.common)
-
-  return map
-})
-
 const sovereignStateName = computed(() => {
-  if (!country.sovereignState)
-    return null
-
-  return sovereignNameByCode.value.get(country.sovereignState) ?? country.sovereignState
+  return getSovereignStateName(country)
 })
 
-function isFormField(target: EventTarget | null): boolean {
-  if (!(target instanceof HTMLElement))
-    return false
-
-  const tagName = target.tagName.toLowerCase()
-  return tagName === 'input' || tagName === 'textarea' || tagName === 'select' || target.isContentEditable
-}
-
-onKeyStroke('Enter', (event) => {
-  if (isFormField(event.target))
-    return
-
+onKeyStroke('Enter', () => {
   emit('proceed')
 })
 </script>
 
 <template>
-  <GameStateLayout :content-key="`${country.cca3}-review`" fixed-card>
+  <GameStateLayout :content-key="`${country.cca3}-review`">
     <template #content>
       <div class="h-48 lg:h-80 overflow-y-auto">
         <div class="grid grid-cols-2 gap-4">

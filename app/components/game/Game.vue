@@ -56,10 +56,6 @@ const game: GameRuntime = {
   },
 }
 
-const hasNextQuestion = computed(() => {
-  return game.index.value < game.totalQuestions.value - 1
-})
-
 watch(game.gameState, (state) => {
   if (state === 'start' || state === 'end')
     resetPracticeReview()
@@ -102,7 +98,6 @@ watch(game.gameState, (state, previousState) => {
       <GameReview
         v-else-if="game.gameState.value === 'play' && game.currentQuestion.value && showPracticeReview"
         :country="game.currentQuestion.value"
-        :has-next-question="hasNextQuestion"
         @proceed="proceedToNextQuestion"
       />
 

@@ -47,7 +47,7 @@ onKeyStroke('Backspace', (event) => {
           v-else
           title="Test"
           description="Difficulty"
-          icon="i-tabler-cards"
+          icon="i-tabler-target-arrow"
         />
 
         <UPageFeature :title="`${accuracyPct} %`" description="Score" icon="i-tabler-trophy" />

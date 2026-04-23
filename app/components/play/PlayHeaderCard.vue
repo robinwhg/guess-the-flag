@@ -97,6 +97,9 @@ const [DefineBodyTemplate, ReuseBodyTemplate] = createReusableTemplate()
             >
               <img
                 :src="item.flag.svg"
+                :alt="item.flag.alt || `Flag of ${item.name.common}`"
+                loading="lazy"
+                decoding="async"
                 class="h-16 w-full object-contain object-center"
               >
             </UPageCard>
