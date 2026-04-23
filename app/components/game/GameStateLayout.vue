@@ -1,7 +1,6 @@
 <script setup lang="ts">
 withDefaults(defineProps<{
   contentKey?: string
-  fixedCard?: boolean
 }>(), {
   contentKey: 'default',
 })
