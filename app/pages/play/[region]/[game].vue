@@ -5,7 +5,7 @@ const game = String(route.params.game ?? '').toLowerCase()
 const gameMode = useRouteQuery<GameMode>('mode', 'multiple-choice')
 const gameDifficulty = useRouteQuery<GameDifficulty>('difficulty', 'test')
 
-const currentRegion = playableRegions.find(playableRegion => playableRegion.slug === region)
+const currentRegion = getPlayableRegionBySlug(region)
 
 if (!currentRegion) {
   throw createError({
@@ -14,7 +14,7 @@ if (!currentRegion) {
   })
 }
 
-const currentGame = currentRegion.games.find(playableGame => playableGame.slug === game)
+const currentGame = getPlayableGameBySlug(region, game)
 
 if (!currentGame) {
   throw createError({

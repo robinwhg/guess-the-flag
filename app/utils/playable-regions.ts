@@ -404,3 +404,22 @@ export const playableRegions = [
     ],
   },
 ] as const
+
+const playableRegionBySlug = new Map(
+  playableRegions.map(region => [region.slug, region]),
+)
+
+const playableGameByRegionAndSlug = new Map(
+  playableRegions.map(region => [
+    region.slug,
+    new Map(region.games.map(game => [game.slug, game])),
+  ]),
+)
+
+export function getPlayableRegionBySlug(regionSlug: string) {
+  return playableRegionBySlug.get(regionSlug)
+}
+
+export function getPlayableGameBySlug(regionSlug: string, gameSlug: string) {
+  return playableGameByRegionAndSlug.get(regionSlug)?.get(gameSlug)
+}
